@@ -7,23 +7,77 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		42002B002371E9000023AE46 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002AFF2371E9000023AE46 /* UserViewModel.swift */; };
+		42002B032371EBD50023AE46 /* UserAndDocGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */; };
+		42002B05237230A20023AE46 /* AppMainNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002B04237230A20023AE46 /* AppMainNavigationBar.swift */; };
+		423EA3F4236FB64B000E6208 /* AppColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EA3F3236FB64B000E6208 /* AppColorConstants.swift */; };
+		423EA3F6236FE93A000E6208 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EA3F5236FE93A000E6208 /* UserDefaults.swift */; };
+		4249BF83237159D60047093A /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249BF82237159D60047093A /* UserAuth.swift */; };
+		4249BF8623715A800047093A /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249BF8523715A800047093A /* HomeTabView.swift */; };
 		42AF8558236F4D650086AC78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8557236F4D650086AC78 /* AppDelegate.swift */; };
 		42AF855A236F4D650086AC78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8559236F4D650086AC78 /* SceneDelegate.swift */; };
-		42AF855C236F4D650086AC78 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF855B236F4D650086AC78 /* ContentView.swift */; };
+		42AF855C236F4D650086AC78 /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF855B236F4D650086AC78 /* AppMainView.swift */; };
 		42AF855E236F4D650086AC78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42AF855D236F4D650086AC78 /* Assets.xcassets */; };
 		42AF8561236F4D650086AC78 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42AF8560236F4D650086AC78 /* Preview Assets.xcassets */; };
 		42AF8564236F4D650086AC78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AF8562236F4D650086AC78 /* LaunchScreen.storyboard */; };
+		42AF856C236F53A00086AC78 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF856B236F53A00086AC78 /* LoginView.swift */; };
+		42AF856E236F58B10086AC78 /* ImageAssetName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF856D236F58B10086AC78 /* ImageAssetName.swift */; };
+		42AF8575236F5A570086AC78 /* Image+ImageAssetNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8574236F5A570086AC78 /* Image+ImageAssetNames.swift */; };
+		42AF8577236F5BAB0086AC78 /* UIColor+Constructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8576236F5BAB0086AC78 /* UIColor+Constructors.swift */; };
+		42AF857A236F9D3E0086AC78 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8579236F9D3E0086AC78 /* LoginTextField.swift */; };
+		42AF857D236FB13D0086AC78 /* TextField(MOD)ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF857C236FB13D0086AC78 /* TextField(MOD)ClearButton.swift */; };
+		42AF8582236FB3880086AC78 /* BEMCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8581236FB3880086AC78 /* BEMCheckBoxView.swift */; };
+		42E29E8423726E9400FD2885 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8323726E9400FD2885 /* HomeView.swift */; };
+		42E29E862372713E00FD2885 /* CreateNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E852372713E00FD2885 /* CreateNewUserView.swift */; };
+		42E29E8823727F9A00FD2885 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8723727F9A00FD2885 /* MapKit.framework */; };
+		42E29E8A23727FA000FD2885 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8923727FA000FD2885 /* CoreLocation.framework */; };
+		42E29E8D2372816600FD2885 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8C2372816600FD2885 /* HomeViewModel.swift */; };
+		42E29E942372BE3C00FD2885 /* PhysicianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E932372BE3C00FD2885 /* PhysicianModel.swift */; };
+		42E29E962372BE4B00FD2885 /* DoctorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */; };
+		42E29E982372BEC100FD2885 /* DentistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E972372BEC100FD2885 /* DentistModel.swift */; };
+		42E29E992372CAC400FD2885 /* AvatarPictureRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */; };
+		42F41C0123717EAA0068D899 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F41C0023717EAA0068D899 /* UserModel.swift */; };
+		42F41C03237181200068D899 /* Int+GetDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F41C02237181200068D899 /* Int+GetDigits.swift */; };
+		79CE503121D330AB4CC0038F /* Pods_Aetnia_Health_Insurance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C6A91BCA1C205E7D33C87 /* Pods_Aetnia_Health_Insurance.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2B052A419F331A537CB1ACEB /* Pods-Aetnia Health Insurance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aetnia Health Insurance.release.xcconfig"; path = "Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance.release.xcconfig"; sourceTree = "<group>"; };
+		42002AFF2371E9000023AE46 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAndDocGenerator.swift; sourceTree = "<group>"; };
+		42002B04237230A20023AE46 /* AppMainNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainNavigationBar.swift; sourceTree = "<group>"; };
+		423EA3F3236FB64B000E6208 /* AppColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorConstants.swift; sourceTree = "<group>"; };
+		423EA3F5236FE93A000E6208 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		4249BF82237159D60047093A /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
+		4249BF8523715A800047093A /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
 		42AF8554236F4D650086AC78 /* Aetnia Health Insurance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aetnia Health Insurance.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		42AF8557236F4D650086AC78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		42AF8559236F4D650086AC78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		42AF855B236F4D650086AC78 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		42AF855B236F4D650086AC78 /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
 		42AF855D236F4D650086AC78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42AF8560236F4D650086AC78 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42AF8563236F4D650086AC78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		42AF8565236F4D650086AC78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		42AF856B236F53A00086AC78 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		42AF856D236F58B10086AC78 /* ImageAssetName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssetName.swift; sourceTree = "<group>"; };
+		42AF8574236F5A570086AC78 /* Image+ImageAssetNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+ImageAssetNames.swift"; sourceTree = "<group>"; };
+		42AF8576236F5BAB0086AC78 /* UIColor+Constructors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Constructors.swift"; sourceTree = "<group>"; };
+		42AF8579236F9D3E0086AC78 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
+		42AF857C236FB13D0086AC78 /* TextField(MOD)ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField(MOD)ClearButton.swift"; sourceTree = "<group>"; };
+		42AF8581236FB3880086AC78 /* BEMCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BEMCheckBoxView.swift; sourceTree = "<group>"; };
+		42E29E8323726E9400FD2885 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		42E29E852372713E00FD2885 /* CreateNewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewUserView.swift; sourceTree = "<group>"; };
+		42E29E8723727F9A00FD2885 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		42E29E8923727FA000FD2885 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		42E29E8C2372816600FD2885 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPictureRandomizer.swift; sourceTree = "<group>"; };
+		42E29E932372BE3C00FD2885 /* PhysicianModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicianModel.swift; sourceTree = "<group>"; };
+		42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProtocol.swift; sourceTree = "<group>"; };
+		42E29E972372BEC100FD2885 /* DentistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DentistModel.swift; sourceTree = "<group>"; };
+		42F41C0023717EAA0068D899 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		42F41C02237181200068D899 /* Int+GetDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+GetDigits.swift"; sourceTree = "<group>"; };
+		438D880D6586F9446EB85505 /* Pods-Aetnia Health Insurance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aetnia Health Insurance.debug.xcconfig"; path = "Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance.debug.xcconfig"; sourceTree = "<group>"; };
+		CE9C6A91BCA1C205E7D33C87 /* Pods_Aetnia_Health_Insurance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aetnia_Health_Insurance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +85,80 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				42E29E8A23727FA000FD2885 /* CoreLocation.framework in Frameworks */,
+				42E29E8823727F9A00FD2885 /* MapKit.framework in Frameworks */,
+				79CE503121D330AB4CC0038F /* Pods_Aetnia_Health_Insurance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		42002B012371EB930023AE46 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */,
+				42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		42002B0623726CB00023AE46 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				42E29E8B2372814600FD2885 /* ViewModel */,
+				42E29E8223726E6600FD2885 /* View */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		42002B0723726CC00023AE46 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		42002B0823726CCF0023AE46 /* Doctor Search */ = {
+			isa = PBXGroup;
+			children = (
+				42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */,
+				42E29E922372BE0A00FD2885 /* Model */,
+				42E29E912372BDFA00FD2885 /* ViewModel */,
+				42E29E902372BDF200FD2885 /* View */,
+			);
+			path = "Doctor Search";
+			sourceTree = "<group>";
+		};
+		42002B0923726CDF0023AE46 /* Notifications */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Notifications;
+			sourceTree = "<group>";
+		};
+		42002B0A23726CE60023AE46 /* Prescriptions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Prescriptions;
+			sourceTree = "<group>";
+		};
+		42002B0B23726D010023AE46 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				4249BF82237159D60047093A /* UserAuth.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		42AF854B236F4D650086AC78 = {
 			isa = PBXGroup;
 			children = (
 				42AF8556236F4D650086AC78 /* Aetnia Health Insurance */,
 				42AF8555236F4D650086AC78 /* Products */,
+				43BFA3F3A478A21D614C7694 /* Pods */,
+				8D14CCFD823959D498ACFA12 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,12 +173,10 @@
 		42AF8556236F4D650086AC78 /* Aetnia Health Insurance */ = {
 			isa = PBXGroup;
 			children = (
-				42AF8557236F4D650086AC78 /* AppDelegate.swift */,
-				42AF8559236F4D650086AC78 /* SceneDelegate.swift */,
-				42AF855B236F4D650086AC78 /* ContentView.swift */,
-				42AF855D236F4D650086AC78 /* Assets.xcassets */,
-				42AF8562236F4D650086AC78 /* LaunchScreen.storyboard */,
-				42AF8565236F4D650086AC78 /* Info.plist */,
+				42AF8578236F5C980086AC78 /* Constants */,
+				42AF8571236F5A0E0086AC78 /* Features */,
+				42AF8570236F5A020086AC78 /* AppMain */,
+				42AF856F236F59260086AC78 /* Supporting Files */,
 				42AF855F236F4D650086AC78 /* Preview Content */,
 			);
 			path = "Aetnia Health Insurance";
@@ -75,6 +190,192 @@
 			path = "Preview Content";
 			sourceTree = "<group>";
 		};
+		42AF856F236F59260086AC78 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				42AF857B236FB0F90086AC78 /* View Modifiers */,
+				42AF8573236F5A360086AC78 /* Extensions */,
+				42AF855D236F4D650086AC78 /* Assets.xcassets */,
+				42AF8562236F4D650086AC78 /* LaunchScreen.storyboard */,
+				42AF8565236F4D650086AC78 /* Info.plist */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		42AF8570236F5A020086AC78 /* AppMain */ = {
+			isa = PBXGroup;
+			children = (
+				42002B012371EB930023AE46 /* Services */,
+				42F41BFD23717DF80068D899 /* Model */,
+				42F41BFE23717E030068D899 /* ViewModel */,
+				42F41BFF23717E130068D899 /* View */,
+			);
+			path = AppMain;
+			sourceTree = "<group>";
+		};
+		42AF8571236F5A0E0086AC78 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				42002B0A23726CE60023AE46 /* Prescriptions */,
+				42002B0923726CDF0023AE46 /* Notifications */,
+				42002B0823726CCF0023AE46 /* Doctor Search */,
+				42002B0723726CC00023AE46 /* Documents */,
+				42002B0623726CB00023AE46 /* HomeView */,
+				42AF8572236F5A130086AC78 /* Login */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		42AF8572236F5A130086AC78 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				42002B0B23726D010023AE46 /* Services */,
+				42AF8580236FB3400086AC78 /* Model */,
+				42AF857F236FB32A0086AC78 /* ViewModel */,
+				42AF857E236FB3100086AC78 /* View */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		42AF8573236F5A360086AC78 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				42AF8574236F5A570086AC78 /* Image+ImageAssetNames.swift */,
+				42AF8576236F5BAB0086AC78 /* UIColor+Constructors.swift */,
+				42F41C02237181200068D899 /* Int+GetDigits.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		42AF8578236F5C980086AC78 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				423EA3F3236FB64B000E6208 /* AppColorConstants.swift */,
+				42AF856D236F58B10086AC78 /* ImageAssetName.swift */,
+				423EA3F5236FE93A000E6208 /* UserDefaults.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		42AF857B236FB0F90086AC78 /* View Modifiers */ = {
+			isa = PBXGroup;
+			children = (
+				42AF857C236FB13D0086AC78 /* TextField(MOD)ClearButton.swift */,
+			);
+			path = "View Modifiers";
+			sourceTree = "<group>";
+		};
+		42AF857E236FB3100086AC78 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42AF856B236F53A00086AC78 /* LoginView.swift */,
+				42AF8581236FB3880086AC78 /* BEMCheckBoxView.swift */,
+				42E29E852372713E00FD2885 /* CreateNewUserView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42AF857F236FB32A0086AC78 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				42AF8579236F9D3E0086AC78 /* LoginTextField.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		42AF8580236FB3400086AC78 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42E29E8223726E6600FD2885 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42E29E8323726E9400FD2885 /* HomeView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42E29E8B2372814600FD2885 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				42E29E8C2372816600FD2885 /* HomeViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		42E29E902372BDF200FD2885 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42E29E912372BDFA00FD2885 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		42E29E922372BE0A00FD2885 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42E29E932372BE3C00FD2885 /* PhysicianModel.swift */,
+				42E29E972372BEC100FD2885 /* DentistModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42F41BFD23717DF80068D899 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42F41C0023717EAA0068D899 /* UserModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42F41BFE23717E030068D899 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				42002AFF2371E9000023AE46 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		42F41BFF23717E130068D899 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42AF8559236F4D650086AC78 /* SceneDelegate.swift */,
+				42AF8557236F4D650086AC78 /* AppDelegate.swift */,
+				42AF855B236F4D650086AC78 /* AppMainView.swift */,
+				4249BF8523715A800047093A /* HomeTabView.swift */,
+				42002B04237230A20023AE46 /* AppMainNavigationBar.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		43BFA3F3A478A21D614C7694 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				438D880D6586F9446EB85505 /* Pods-Aetnia Health Insurance.debug.xcconfig */,
+				2B052A419F331A537CB1ACEB /* Pods-Aetnia Health Insurance.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		8D14CCFD823959D498ACFA12 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				42E29E8923727FA000FD2885 /* CoreLocation.framework */,
+				42E29E8723727F9A00FD2885 /* MapKit.framework */,
+				CE9C6A91BCA1C205E7D33C87 /* Pods_Aetnia_Health_Insurance.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -82,9 +383,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 42AF8568236F4D650086AC78 /* Build configuration list for PBXNativeTarget "Aetnia Health Insurance" */;
 			buildPhases = (
+				4E7361BDD3117CA6500D271D /* [CP] Check Pods Manifest.lock */,
 				42AF8550236F4D650086AC78 /* Sources */,
 				42AF8551236F4D650086AC78 /* Frameworks */,
 				42AF8552236F4D650086AC78 /* Resources */,
+				72747026C697B7065509BA1F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -141,14 +444,84 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4E7361BDD3117CA6500D271D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Aetnia Health Insurance-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		72747026C697B7065509BA1F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		42AF8550236F4D650086AC78 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				423EA3F4236FB64B000E6208 /* AppColorConstants.swift in Sources */,
+				42E29E8D2372816600FD2885 /* HomeViewModel.swift in Sources */,
+				42002B032371EBD50023AE46 /* UserAndDocGenerator.swift in Sources */,
+				42002B05237230A20023AE46 /* AppMainNavigationBar.swift in Sources */,
+				42AF856E236F58B10086AC78 /* ImageAssetName.swift in Sources */,
+				42AF857A236F9D3E0086AC78 /* LoginTextField.swift in Sources */,
+				42AF857D236FB13D0086AC78 /* TextField(MOD)ClearButton.swift in Sources */,
+				42AF8575236F5A570086AC78 /* Image+ImageAssetNames.swift in Sources */,
+				42E29E942372BE3C00FD2885 /* PhysicianModel.swift in Sources */,
+				42AF8577236F5BAB0086AC78 /* UIColor+Constructors.swift in Sources */,
+				4249BF83237159D60047093A /* UserAuth.swift in Sources */,
+				42E29E862372713E00FD2885 /* CreateNewUserView.swift in Sources */,
 				42AF8558236F4D650086AC78 /* AppDelegate.swift in Sources */,
+				42F41C03237181200068D899 /* Int+GetDigits.swift in Sources */,
+				42E29E992372CAC400FD2885 /* AvatarPictureRandomizer.swift in Sources */,
+				42F41C0123717EAA0068D899 /* UserModel.swift in Sources */,
+				42E29E962372BE4B00FD2885 /* DoctorProtocol.swift in Sources */,
 				42AF855A236F4D650086AC78 /* SceneDelegate.swift in Sources */,
-				42AF855C236F4D650086AC78 /* ContentView.swift in Sources */,
+				42E29E8423726E9400FD2885 /* HomeView.swift in Sources */,
+				423EA3F6236FE93A000E6208 /* UserDefaults.swift in Sources */,
+				42AF856C236F53A00086AC78 /* LoginView.swift in Sources */,
+				4249BF8623715A800047093A /* HomeTabView.swift in Sources */,
+				42002B002371E9000023AE46 /* UserViewModel.swift in Sources */,
+				42AF8582236FB3880086AC78 /* BEMCheckBoxView.swift in Sources */,
+				42AF855C236F4D650086AC78 /* AppMainView.swift in Sources */,
+				42E29E982372BEC100FD2885 /* DentistModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,13 +655,14 @@
 		};
 		42AF8569236F4D650086AC78 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 438D880D6586F9446EB85505 /* Pods-Aetnia Health Insurance.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Aetnia Health Insurance/Preview Content\"";
 				DEVELOPMENT_TEAM = G2E74W75L6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Aetnia Health Insurance/Info.plist";
+				INFOPLIST_FILE = "Aetnia Health Insurance/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -302,13 +676,14 @@
 		};
 		42AF856A236F4D650086AC78 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B052A419F331A537CB1ACEB /* Pods-Aetnia Health Insurance.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_ASSET_PATHS = "\"Aetnia Health Insurance/Preview Content\"";
 				DEVELOPMENT_TEAM = G2E74W75L6;
 				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Aetnia Health Insurance/Info.plist";
+				INFOPLIST_FILE = "Aetnia Health Insurance/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
