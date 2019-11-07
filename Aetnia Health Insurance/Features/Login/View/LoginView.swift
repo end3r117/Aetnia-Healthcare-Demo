@@ -27,7 +27,7 @@ struct LoginView: View {
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
-
+                    
                 VStack  {
                     Text(verbatim: "Aetnia")
                         .font(Font.custom("Arial", size: 80).italic().bold())
@@ -122,7 +122,6 @@ struct LoginView: View {
                         Text("Register new account")
                             .font(.system(size: geometry.size.width * 0.05, weight: .bold))
                             .kerning(0.2)
-                            //.baselineOffset(10)
                             .foregroundColor(.aetniaBlue)
                             .padding(.bottom, geometry.size.height * 0.02)
                     }.sheet(isPresented: self.$showRegistration, onDismiss: {
@@ -139,11 +138,3 @@ struct LoginView: View {
         }
     }
 }
-
-/*
- struct LoginView_Previews: PreviewProvider {
- static var previews: some View {
- LoginView()
- }
- }
- */

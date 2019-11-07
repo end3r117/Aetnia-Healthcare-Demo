@@ -16,10 +16,36 @@ struct HomeTabView: View {
         }
     }
     var body: some View {
-        NavigationView {
-            TabView(selection: $selection){
+        VStack {
+            GeometryReader { geo in
+                ZStack(alignment: .top) {
+                    Rectangle()
+                    .fill(Color.aetniaBlue)
+                    .edgesIgnoringSafeArea([.leading, .trailing, .top])
+                    .frame(minWidth: geo.size.width, idealWidth: geo.size.width, maxWidth: .infinity, minHeight: 20, idealHeight: 44, maxHeight: 48)
+                    Text("Aetnia")
+                        .font(.custom("Arial-BoldItalicMT", size: 28))
+                        .foregroundColor(.white)
+                    HStack(alignment: .top) {
+                        Spacer()
+                        Button(action: {
+                            self.userAuth.logout()
+                        }, label: {
+                            Image(.logoutButton)
+                                .renderingMode(.template)
+                                .resizable()
+                                .scaledToFit()
+                                .frame(width: 40, height: 36)
+                                .accentColor(.white)
+                        }).padding(.trailing, 16)
+                    }
+                        
+                }
+            //NavigationView {
+                TabView(selection: self.$selection){
                 
-                HomeView(homeViewModel: HomeViewModel(loggedInUser: userAuth.loggedInUser))
+                    HomeView(homeViewModel: HomeViewModel(loggedInUser: self.userAuth.loggedInUser))
+                    .animation(nil)
                     .tabItem {
                         Image(self.selection == 0 ? .homeFilled : .home)
                         Text("Home")
@@ -52,18 +78,26 @@ struct HomeTabView: View {
                         Text("Rx")
                 }
                 .tag(4)
-            }.navigationBarTitle("Aetnia", displayMode: .inline)
-            .navigationBarItems(trailing:
-                Button(action: {
-                    self.userAuth.logout()
-                }, label: {
-                    Image(.logoutButton)
-                        .renderingMode(.template)
-                        .resizable()
-                        .accentColor(.white)
-                })
+                }.padding(.top, (geo.size.width > geo.size.height ? 0 : 44 ))
+            /*
+            .navigationBarTitle("Aetnia", displayMode: .inline)
+                .navigationBarItems(trailing:
+                    Button(action: {
+                        self.userAuth.logout()
+                    }, label: {
+                        Image(.logoutButton)
+                            .renderingMode(.template)
+                            .resizable()
+                            .accentColor(.white)
+                    })
             )
                 .background(AppMainNavigationBar())
+                .transition(.opacity)
+                .animation(.easeOut)
+            //}
+            */
+            }
         }
+        .modifier(AetniaBackgroundViewModifier())
     }
 }

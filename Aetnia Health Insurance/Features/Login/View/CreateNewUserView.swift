@@ -10,15 +10,23 @@ import SwiftUI
 
 struct CreateNewUserView: View {
     @Environment(\.presentationMode) var presentationMode: Binding<PresentationMode>
+    @State var username: String = ""
     
-    
+    init() {
+        UITableView.appearance().tableFooterView = UIView()
+    }
     var body: some View {
         NavigationView {
             List {
                 VStack(alignment: .leading) {
-                    Text("")
+                    TextField("Username", text: self.$username)
                 }
-            }.navigationBarTitle("Register new user")
+            }
+            .onTapGesture {
+                let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
+                window?.endEditing(false)
+            }
+            .navigationBarTitle("Register new user")
             .navigationBarItems(trailing:
                 Button(action: {
                     self.presentationMode.wrappedValue.dismiss()

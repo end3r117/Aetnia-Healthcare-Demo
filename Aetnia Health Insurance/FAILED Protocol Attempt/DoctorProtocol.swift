@@ -30,7 +30,7 @@ extension Doctor {
     func hash(into hasher: inout Hasher) {
         return hasher.combine(id)
     }
-    
+
 }
 
 protocol Dentist: Doctor {
@@ -46,5 +46,7 @@ struct CoverageInfo<T: Doctor, U: Dentist> {
     var dentistInsuranceType: InsuranceType
     var primaryCarePhysician: T
     var primaryDentist: U
+    var memberID: String
+    var groupNumber: String
 }
 

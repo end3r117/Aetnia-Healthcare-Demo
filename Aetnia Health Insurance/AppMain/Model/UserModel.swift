@@ -17,14 +17,18 @@ struct UserModel {
     var phoneNumber: PhoneNumber
     var coverageInfo: CoverageInfo<PhysicianModel, DentistModel>
     var profilePicture: Image?
+    var avatar: Avatar?
     
-    init(username: String, coverageInfo: CoverageInfo<PhysicianModel, DentistModel>, firstName: String, lastName: String, address: Address, phoneNumber: PhoneNumber) {
+    init(username: String, coverageInfo: CoverageInfo<PhysicianModel, DentistModel>, firstName: String, lastName: String, address: Address, phoneNumber: PhoneNumber, profilePicture: Image?, avatar: Avatar?) {
         self.username = username
         self.firstName = firstName
         self.lastName = lastName
         self.address = address
         self.phoneNumber = phoneNumber
         self.coverageInfo = coverageInfo
+        self.profilePicture = profilePicture
+        self.avatar = avatar
+        
     }
 }
 

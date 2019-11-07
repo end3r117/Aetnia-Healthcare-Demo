@@ -12,12 +12,39 @@ struct AppMainView: View {
     @EnvironmentObject var userAuth: UserAuth
     @EnvironmentObject var userDefaults: UserDefaultsSwiftUI
     
+    @State var showSplash: Bool = true
+    
+    var loginAnimation: Animation {
+        Animation.easeInOut(duration: 0.5)
+            .delay(1.5)
+    }
+    
     var body: some View {
-        VStack {
-            if userAuth.isLoggedIn {
-                HomeTabView()
+        VStack(alignment: .center) {
+            if showSplash {
+                SplashScreen(duration: 0.5)
+                    .onAppear {
+                        withAnimation(self.loginAnimation) {
+                                self.showSplash.toggle()
+                        }
+                }
             }else {
-                LoginView()
+                if self.userAuth.isLoggedIn {
+                    //withAnimation(loginAnimation) {
+                        HomeTabView()
+                            //.modifier(AetniaBackgroundViewModifier())
+                            .transition(.opacity)
+                            //.animation(Animation.easeOut(duration: 3))
+                    //}
+                }else {
+                    withAnimation(loginAnimation) {
+                        LoginView()
+                            .transition(.opacity)
+                        
+                    }
+                    
+                }
+                
             }
         }
     }

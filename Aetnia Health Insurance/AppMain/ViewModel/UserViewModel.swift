@@ -10,7 +10,7 @@ import Foundation
 
 struct UserViewModel {
     var user: UserModel
-    
+    var avatar: Avatar? { get { user.avatar } set { user.avatar = newValue }}
     var firstName: String { get { user.firstName }}
     var lastName: String { get { user.lastName }}
     var address: String {
@@ -23,6 +23,15 @@ struct UserViewModel {
             return "+\(user.phoneNumber.countryCode) (\(user.phoneNumber.areaCode))\(user.phoneNumber.number.digits.prefix(3))-\(user.phoneNumber.number.digits[3...user.phoneNumber.number.digits.endIndex])"
         }
     }
+    
+    var PCPInsuranceType: InsuranceType { get { user.coverageInfo.PCPInsuranceType }}
+    var dentistInsuranceType: InsuranceType { get { user.coverageInfo.dentistInsuranceType }}
+    var primaryCarePhysician: PhysicianModel { get { user.coverageInfo.primaryCarePhysician }}
+    var primaryDentist: DentistModel { get { user.coverageInfo.primaryDentist }}
+    var memberID: String { get { user.coverageInfo.memberID }}
+    var groupID: String { get { user.coverageInfo.groupNumber }}
+    
+    //CoverageInfo(PCPInsuranceType: .HMO, dentistInsuranceType: .PPO, primaryCarePhysician: doctor, primaryDentist: dentist, memberID: "82-4987529-155", groupNumber: "297831-A")
     
     
     

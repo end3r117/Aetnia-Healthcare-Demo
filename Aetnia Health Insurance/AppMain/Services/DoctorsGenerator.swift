@@ -8,20 +8,28 @@
 
 import Foundation
 
-struct UserAndDocGenerator {
+class DoctorsGenerator {
     
-    static func PopulateDoctors<T: Doctor>() -> [T] {
-        return (GetDoctorsOfType(PhysicianModel.self) as! [T]) + (GetDoctorsOfType(DentistModel.self) as! [T])
+    static func populateDoctors() -> [DoctorModel] {
+        return GetDoctorsOfType(PhysicianModel.self) + GetDoctorsOfType(DentistModel.self)
     }
     
-    static func getFakeUser(username: String) -> UserModel {
-        let doctor = PhysicianModel(acceptsHMO: true, firstName: "Nicholas", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber())
-        let dentist = DentistModel(acceptsHMO: false, firstName: "Jessica", lastName: "Day", address: getAddress()!, phoneNumber: getPhoneNumber())
-        let coverage = CoverageInfo(PCPInsuranceType: .HMO, dentistInsuranceType: .PPO, primaryCarePhysician: doctor, primaryDentist: dentist)
-        return UserModel(username: username, coverageInfo: coverage, firstName: "Nicholas", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber())
-    }
+//    static func getFakeUser(username: String) -> UserModel {
+//        let doctor = PhysicianModel(acceptsHMO: true, firstName: "Nicholas", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber())
+//        let dentist = DentistModel(acceptsHMO: false, firstName: "Jessica", lastName: "Day", address: getAddress()!, phoneNumber: getPhoneNumber())
+//        let coverage = CoverageInfo(PCPInsuranceType: .HMO, dentistInsuranceType: .PPO, primaryCarePhysician: doctor, primaryDentist: dentist, memberID: "82-4987529-155", groupNumber: "297831-A")
+//        
+//        let mf = Gender(rawValue: Int.random(in: 0...1))
+//        switch mf {
+//        case .female:
+//            return UserModel(username: username, coverageInfo: coverage, firstName: "Jennifer", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber(), profilePicture: nil, avatar: AvatarMaker.makeMeAnAvatarPlease(gender: .female))
+//        default:
+//            return UserModel(username: username, coverageInfo: coverage, firstName: "Nicholas", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber(), profilePicture: nil, avatar: AvatarMaker.makeMeAnAvatarPlease(gender: .male))
+//        }
+//   
+//    }
     
-    private static func GetDoctorsOfType<T: Doctor>(_: T.Type) -> [T] {
+    private static func GetDoctorsOfType<T: DoctorModel>(_: T.Type) -> [T] {
         var arry = [T]()
         for _ in 0...50 {
             let name = randomName()

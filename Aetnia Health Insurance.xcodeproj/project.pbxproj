@@ -8,8 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		42002B002371E9000023AE46 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002AFF2371E9000023AE46 /* UserViewModel.swift */; };
-		42002B032371EBD50023AE46 /* UserAndDocGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */; };
 		42002B05237230A20023AE46 /* AppMainNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002B04237230A20023AE46 /* AppMainNavigationBar.swift */; };
+		420625972374088400F5AB45 /* UserAndDocGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */; };
+		420625982374088400F5AB45 /* DoctorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */; };
+		420625992374088400F5AB45 /* PhysicianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E932372BE3C00FD2885 /* PhysicianModel.swift */; };
+		4206259A2374088400F5AB45 /* DentistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E972372BEC100FD2885 /* DentistModel.swift */; };
 		423EA3F4236FB64B000E6208 /* AppColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EA3F3236FB64B000E6208 /* AppColorConstants.swift */; };
 		423EA3F6236FE93A000E6208 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EA3F5236FE93A000E6208 /* UserDefaults.swift */; };
 		4249BF83237159D60047093A /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249BF82237159D60047093A /* UserAuth.swift */; };
@@ -32,10 +35,9 @@
 		42E29E8823727F9A00FD2885 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8723727F9A00FD2885 /* MapKit.framework */; };
 		42E29E8A23727FA000FD2885 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8923727FA000FD2885 /* CoreLocation.framework */; };
 		42E29E8D2372816600FD2885 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8C2372816600FD2885 /* HomeViewModel.swift */; };
-		42E29E942372BE3C00FD2885 /* PhysicianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E932372BE3C00FD2885 /* PhysicianModel.swift */; };
-		42E29E962372BE4B00FD2885 /* DoctorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */; };
-		42E29E982372BEC100FD2885 /* DentistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E972372BEC100FD2885 /* DentistModel.swift */; };
 		42E29E992372CAC400FD2885 /* AvatarPictureRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */; };
+		42E29E9B237355B200FD2885 /* View+AeniaBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E9A237355B200FD2885 /* View+AeniaBackground.swift */; };
+		42E29E9D23735E4300FD2885 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E9C23735E4300FD2885 /* SplashScreen.swift */; };
 		42F41C0123717EAA0068D899 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F41C0023717EAA0068D899 /* UserModel.swift */; };
 		42F41C03237181200068D899 /* Int+GetDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F41C02237181200068D899 /* Int+GetDigits.swift */; };
 		79CE503121D330AB4CC0038F /* Pods_Aetnia_Health_Insurance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C6A91BCA1C205E7D33C87 /* Pods_Aetnia_Health_Insurance.framework */; };
@@ -46,6 +48,11 @@
 		42002AFF2371E9000023AE46 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAndDocGenerator.swift; sourceTree = "<group>"; };
 		42002B04237230A20023AE46 /* AppMainNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainNavigationBar.swift; sourceTree = "<group>"; };
+		420625882373F80D00F5AB45 /* DoctorSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchView.swift; sourceTree = "<group>"; };
+		4206258A2374030A00F5AB45 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
+		420625902374057700F5AB45 /* DoctorsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsGenerator.swift; sourceTree = "<group>"; };
+		42062593237406CC00F5AB45 /* CoverageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageInfo.swift; sourceTree = "<group>"; };
+		420625952374076700F5AB45 /* UserGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGenerator.swift; sourceTree = "<group>"; };
 		423EA3F3236FB64B000E6208 /* AppColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorConstants.swift; sourceTree = "<group>"; };
 		423EA3F5236FE93A000E6208 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		4249BF82237159D60047093A /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
@@ -74,6 +81,8 @@
 		42E29E932372BE3C00FD2885 /* PhysicianModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicianModel.swift; sourceTree = "<group>"; };
 		42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProtocol.swift; sourceTree = "<group>"; };
 		42E29E972372BEC100FD2885 /* DentistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DentistModel.swift; sourceTree = "<group>"; };
+		42E29E9A237355B200FD2885 /* View+AeniaBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AeniaBackground.swift"; sourceTree = "<group>"; };
+		42E29E9C23735E4300FD2885 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		42F41C0023717EAA0068D899 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
 		42F41C02237181200068D899 /* Int+GetDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+GetDigits.swift"; sourceTree = "<group>"; };
 		438D880D6586F9446EB85505 /* Pods-Aetnia Health Insurance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aetnia Health Insurance.debug.xcconfig"; path = "Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance.debug.xcconfig"; sourceTree = "<group>"; };
@@ -97,8 +106,9 @@
 		42002B012371EB930023AE46 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */,
 				42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */,
+				420625902374057700F5AB45 /* DoctorsGenerator.swift */,
+				420625952374076700F5AB45 /* UserGenerator.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -122,7 +132,6 @@
 		42002B0823726CCF0023AE46 /* Doctor Search */ = {
 			isa = PBXGroup;
 			children = (
-				42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */,
 				42E29E922372BE0A00FD2885 /* Model */,
 				42E29E912372BDFA00FD2885 /* ViewModel */,
 				42E29E902372BDF200FD2885 /* View */,
@@ -152,6 +161,17 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		4206258D237404E900F5AB45 /* FAILED Protocol Attempt */ = {
+			isa = PBXGroup;
+			children = (
+				42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */,
+				42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */,
+				42E29E932372BE3C00FD2885 /* PhysicianModel.swift */,
+				42E29E972372BEC100FD2885 /* DentistModel.swift */,
+			);
+			path = "FAILED Protocol Attempt";
+			sourceTree = "<group>";
+		};
 		42AF854B236F4D650086AC78 = {
 			isa = PBXGroup;
 			children = (
@@ -173,6 +193,7 @@
 		42AF8556236F4D650086AC78 /* Aetnia Health Insurance */ = {
 			isa = PBXGroup;
 			children = (
+				4206258D237404E900F5AB45 /* FAILED Protocol Attempt */,
 				42AF8578236F5C980086AC78 /* Constants */,
 				42AF8571236F5A0E0086AC78 /* Features */,
 				42AF8570236F5A020086AC78 /* AppMain */,
@@ -241,8 +262,9 @@
 			isa = PBXGroup;
 			children = (
 				42AF8574236F5A570086AC78 /* Image+ImageAssetNames.swift */,
-				42AF8576236F5BAB0086AC78 /* UIColor+Constructors.swift */,
 				42F41C02237181200068D899 /* Int+GetDigits.swift */,
+				42AF8576236F5BAB0086AC78 /* UIColor+Constructors.swift */,
+				42E29E9A237355B200FD2885 /* View+AeniaBackground.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -309,6 +331,7 @@
 		42E29E902372BDF200FD2885 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				420625882373F80D00F5AB45 /* DoctorSearchView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,8 +346,8 @@
 		42E29E922372BE0A00FD2885 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				42E29E932372BE3C00FD2885 /* PhysicianModel.swift */,
-				42E29E972372BEC100FD2885 /* DentistModel.swift */,
+				4206258A2374030A00F5AB45 /* DoctorModel.swift */,
+				42062593237406CC00F5AB45 /* CoverageInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -353,6 +376,7 @@
 				42AF855B236F4D650086AC78 /* AppMainView.swift */,
 				4249BF8523715A800047093A /* HomeTabView.swift */,
 				42002B04237230A20023AE46 /* AppMainNavigationBar.swift */,
+				42E29E9C23735E4300FD2885 /* SplashScreen.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -498,21 +522,24 @@
 			files = (
 				423EA3F4236FB64B000E6208 /* AppColorConstants.swift in Sources */,
 				42E29E8D2372816600FD2885 /* HomeViewModel.swift in Sources */,
-				42002B032371EBD50023AE46 /* UserAndDocGenerator.swift in Sources */,
+				4206259A2374088400F5AB45 /* DentistModel.swift in Sources */,
 				42002B05237230A20023AE46 /* AppMainNavigationBar.swift in Sources */,
 				42AF856E236F58B10086AC78 /* ImageAssetName.swift in Sources */,
 				42AF857A236F9D3E0086AC78 /* LoginTextField.swift in Sources */,
+				420625992374088400F5AB45 /* PhysicianModel.swift in Sources */,
 				42AF857D236FB13D0086AC78 /* TextField(MOD)ClearButton.swift in Sources */,
 				42AF8575236F5A570086AC78 /* Image+ImageAssetNames.swift in Sources */,
-				42E29E942372BE3C00FD2885 /* PhysicianModel.swift in Sources */,
 				42AF8577236F5BAB0086AC78 /* UIColor+Constructors.swift in Sources */,
 				4249BF83237159D60047093A /* UserAuth.swift in Sources */,
 				42E29E862372713E00FD2885 /* CreateNewUserView.swift in Sources */,
 				42AF8558236F4D650086AC78 /* AppDelegate.swift in Sources */,
 				42F41C03237181200068D899 /* Int+GetDigits.swift in Sources */,
+				420625982374088400F5AB45 /* DoctorProtocol.swift in Sources */,
 				42E29E992372CAC400FD2885 /* AvatarPictureRandomizer.swift in Sources */,
+				42E29E9B237355B200FD2885 /* View+AeniaBackground.swift in Sources */,
+				42E29E9D23735E4300FD2885 /* SplashScreen.swift in Sources */,
+				420625972374088400F5AB45 /* UserAndDocGenerator.swift in Sources */,
 				42F41C0123717EAA0068D899 /* UserModel.swift in Sources */,
-				42E29E962372BE4B00FD2885 /* DoctorProtocol.swift in Sources */,
 				42AF855A236F4D650086AC78 /* SceneDelegate.swift in Sources */,
 				42E29E8423726E9400FD2885 /* HomeView.swift in Sources */,
 				423EA3F6236FE93A000E6208 /* UserDefaults.swift in Sources */,
@@ -521,7 +548,6 @@
 				42002B002371E9000023AE46 /* UserViewModel.swift in Sources */,
 				42AF8582236FB3880086AC78 /* BEMCheckBoxView.swift in Sources */,
 				42AF855C236F4D650086AC78 /* AppMainView.swift in Sources */,
-				42E29E982372BEC100FD2885 /* DentistModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
