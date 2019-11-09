@@ -8,19 +8,19 @@
 
 import Foundation
 
-class UserGenerator: DoctorsGenerator {
-    static func getFakeUser(username: String) -> UserModel {
+enum UserGenerator {
+    static func getFakeUser(username: String) -> User {
         
-         let doctor = PhysicianModel(acceptsHMO: true, firstName: "Nicholas", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber())
-         let dentist = DentistModel(acceptsHMO: false, firstName: "Jessica", lastName: "Day", address: getAddress()!, phoneNumber: getPhoneNumber())
+        let doctor = PhysicianModel(acceptsHMO: true, avatar: AvatarMaker.makeMeAnAvatarPlease(gender: .male, radius: 60), firstName: "Stephen", lastName: "Reed", address: DoctorsGenerator.getAddress()!, phoneNumber: DoctorsGenerator.getPhoneNumber(), officePhoto: .office1)
+        let dentist = DentistModel(acceptsHMO: false, avatar: AvatarMaker.makeMeAnAvatarPlease(gender: .female, radius: 60), firstName: "Catherine", lastName: "Molnar", address: DoctorsGenerator.getAddress()!, phoneNumber: DoctorsGenerator.getPhoneNumber(), officePhoto: .office6)
          let coverage = CoverageInfo(PCPInsuranceType: .HMO, dentistInsuranceType: .PPO, primaryCarePhysician: doctor, primaryDentist: dentist, memberID: "82-4987529-155", groupNumber: "297831-A")
          
          let mf = Gender(rawValue: Int.random(in: 0...1))
          switch mf {
          case .female:
-             return UserModel(username: username, coverageInfo: coverage, firstName: "Jennifer", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber(), profilePicture: nil, avatar: AvatarMaker.makeMeAnAvatarPlease(gender: .female))
+             return User(username: username, coverageInfo: coverage, firstName: "Jessica", lastName: "Miller", address: DoctorsGenerator.getAddress()!, phoneNumber: DoctorsGenerator.getPhoneNumber(), avatar: AvatarMaker.makeMeAnAvatarPlease(gender: .female))
          default:
-             return UserModel(username: username, coverageInfo: coverage, firstName: "Nicholas", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber(), profilePicture: nil, avatar: AvatarMaker.makeMeAnAvatarPlease(gender: .male))
+             return User(username: username, coverageInfo: coverage, firstName: "Nicholas", lastName: "Miller", address: DoctorsGenerator.getAddress()!, phoneNumber: DoctorsGenerator.getPhoneNumber(), avatar: AvatarMaker.makeMeAnAvatarPlease(gender: .male))
          }
     
      }

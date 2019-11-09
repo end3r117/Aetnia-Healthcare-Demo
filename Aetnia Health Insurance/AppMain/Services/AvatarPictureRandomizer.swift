@@ -11,16 +11,19 @@ import UIKit
 import SwiftUI
 
 protocol Avatar {
+    var id: UUID { get }
     var gender: Gender { get }
+    var components: AvatarComponents { get set }
+    
 }
 
 enum Gender: Int {
     case male, female
 }
 
-
-
 fileprivate struct FemaleAvatar: View, Avatar {
+    
+    var id = UUID()
     var gender: Gender = .female
     var radius: CGFloat
     var components: AvatarComponents
@@ -61,7 +64,7 @@ fileprivate struct FemaleAvatar: View, Avatar {
                             .renderingMode(.template)
                             .resizable()
                             .scaledToFit()
-                            .foregroundColor(components.femaleJacket)
+                            .foregroundColor(components.accessoryColor)
                         Image(uiImage: #imageLiteral(resourceName: "1_woman_collar"))
                         .renderingMode(.template)
                         .resizable()
@@ -76,6 +79,7 @@ fileprivate struct FemaleAvatar: View, Avatar {
 }
 
 fileprivate struct MaleAvatar: View, Avatar {
+    var id = UUID()
     var gender: Gender = .male
     var radius: CGFloat
     var components: AvatarComponents
@@ -96,7 +100,7 @@ fileprivate struct MaleAvatar: View, Avatar {
                             .renderingMode(.template)
                             .resizable()
                             .scaledToFit()
-                            .foregroundColor(components.maleTie)
+                            .foregroundColor(components.accessoryColor)
                         Image(uiImage:#imageLiteral(resourceName: "5_man_collar"))
                             .renderingMode(.template)
                             .resizable()
@@ -125,8 +129,13 @@ fileprivate struct MaleAvatar: View, Avatar {
     }
 }
 
-public struct AvatarView: View {
-    private var avatar: Avatar
+public struct AvatarView: View, Equatable, Identifiable {
+    public static func == (lhs: AvatarView, rhs: AvatarView) -> Bool {
+        lhs.avatar.id == rhs.avatar.id
+    }
+    
+    public var id = UUID()
+    var avatar: Avatar
     
     init(gender: Gender, radius: CGFloat) {
         self.avatar = AvatarPictureRandomizer.createAvatar(gender: gender, radius: radius)
@@ -135,16 +144,12 @@ public struct AvatarView: View {
     init(avatar: Avatar) {
         self.avatar = avatar
     }
-    
-    mutating func randomizeAvatar() {
-        self.avatar = AvatarPictureRandomizer.createAvatar(gender: (avatar.gender == .male ? .female : .male), radius: 120)
-    }
-    
-   
+
     public var body: some View {
         VStack {
             if avatar.gender == .male {
                 avatar as! MaleAvatar
+                
             }else {
                 avatar as! FemaleAvatar
             }
@@ -152,13 +157,47 @@ public struct AvatarView: View {
     }
 }
 
-public struct AvatarMaker {
+public enum AvatarMaker {
     static func makeMeAnAvatarPlease(gender: Gender, radius: CGFloat = 100) -> Avatar {
         return AvatarPictureRandomizer.createAvatar(gender: gender, radius: radius)
     }
+    
+    static func resizeAvatar(_ avatar: Avatar, radius: CGFloat) -> Avatar {
+        switch avatar.gender {
+        case .female:
+            let av = avatar as! FemaleAvatar
+            return FemaleAvatar(radius: radius, components: av.components)
+        case .male:
+            let av = avatar as! MaleAvatar
+            return MaleAvatar(radius: radius, components: av.components)
+        }
+    }
+    
+    static func resizeAvatar(_ avatar: Binding<Avatar>, radius: CGFloat) -> Avatar {
+        switch avatar.wrappedValue.gender {
+        case .female:
+            let av = avatar.wrappedValue as! FemaleAvatar
+            return FemaleAvatar(radius: radius, components: av.components)
+        default:
+            let av = avatar.wrappedValue as! MaleAvatar
+            return MaleAvatar(radius: radius, components: av.components)
+        }
+    }
+    
+    static func resizeAvatar(_ avatar: Binding<Avatar?>, radius: CGFloat) -> Avatar {
+        switch avatar.wrappedValue?.gender {
+        case .female:
+            let av = avatar.wrappedValue as! FemaleAvatar
+            return FemaleAvatar(radius: radius, components: av.components)
+        default:
+            let av = avatar.wrappedValue as! MaleAvatar
+            return MaleAvatar(radius: radius, components: av.components)
+        }
+    }
 }
 
-fileprivate struct AvatarComponents {
+struct AvatarComponents {
+    
     var gender: Gender
     var circularBackground: Color
     let faceShadow = Color(#colorLiteral(red: 0, green: 0, blue: 0, alpha: 0.3))
@@ -174,52 +213,23 @@ fileprivate struct AvatarComponents {
         }
     }
     var collarColor: Color
-    
-    var maleTie: Color?
-    var femaleJacket: Color?
-    
-    func listComponents(){
-        let collection = [String(describing: gender), String(describing: circularBackground), String(describing: faceColor), String(describing: hairColor), String(describing: maleTie), String(describing: collarColor), String(describing: femaleJacket), String(describing: shirtColor)]
-        
-print("""
-Gender: \(collection[0])
-Background Color: \(collection[1])
-Face Color: \(collection[2])
-Hair Color: \(collection[3])
-Tie Color: \(collection[4])
-Collar Color: \(collection[5])
-Female Jacket Color: \(collection[6])
-Shirt Color: \(collection[7])
+    var accessoryColor: Color?
 
-"""
-        )
-    }
     
-    init(hairColor: Color, faceColor: Color, collarColor: Color, maleTie: Color, shirtColor: Color, backgroundColor: Color) {
+    init(gender: Gender, hairColor: Color, faceColor: Color, collarColor: Color, accessoryColor: Color, shirtColor: Color, backgroundColor: Color) {
         self.gender = .male
         self.hairColor = hairColor
         self.faceColor = faceColor
         self.collarColor = collarColor
-        self.maleTie = maleTie
+        self.accessoryColor = accessoryColor
         self.shirtColor = shirtColor
         self.circularBackground = backgroundColor
         
     }
-    
-    init(collarColor: Color, femaleJacket: Color, shirtColor: Color, hairColor: Color, faceColor: Color, backgroundColor: Color) {
-        self.gender = .female
-        self.collarColor = collarColor
-        self.femaleJacket = femaleJacket
-        self.shirtColor = shirtColor
-        self.hairColor = hairColor
-        self.faceColor = faceColor
-        self.circularBackground = backgroundColor
-        
-    }
-    
+   
 }
 
-fileprivate struct AvatarPictureRandomizer {
+fileprivate enum AvatarPictureRandomizer {
     
     static let faceColors: [Color] = [Color(#colorLiteral(red: 0.9764705882, green: 0.9333333333, blue: 0.7215686275, alpha: 1)),Color(#colorLiteral(red: 0.9636437297, green: 0.9242001772, blue: 0.7632328272, alpha: 1)),Color(#colorLiteral(red: 0.9193914533, green: 0.7340729833, blue: 0.4250843525, alpha: 1)), Color(#colorLiteral(red: 0.6588235294, green: 0.537254902, blue: 0.3215686275, alpha: 1)), Color(#colorLiteral(red: 0.3137254902, green: 0.2784313725, blue: 0.2156862745, alpha: 1))]
     static let hairColors: [Color] = [Color(#colorLiteral(red: 0.143817842, green: 0.2658154964, blue: 0.3445550501, alpha: 1)), Color(#colorLiteral(red: 0.09355933219, green: 0.1345098317, blue: 0.1636455059, alpha: 1)), Color(#colorLiteral(red: 0.143817842, green: 0.2658154964, blue: 0.3445550501, alpha: 1)), Color(#colorLiteral(red: 0.09355933219, green: 0.1345098317, blue: 0.1636455059, alpha: 1)),Color(#colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)),Color(#colorLiteral(red: 0.971729815, green: 0.8831914067, blue: 0, alpha: 1)),Color(#colorLiteral(red: 0.5136131644, green: 0.4159292281, blue: 0.2751397491, alpha: 1)), Color(#colorLiteral(red: 1, green: 0.5273808837, blue: 0.2115378976, alpha: 1))]
@@ -233,11 +243,11 @@ fileprivate struct AvatarPictureRandomizer {
         
         switch gender {
         case .male:
-            let components = AvatarComponents(hairColor: hairColors.randomElement()!, faceColor: faceColors.randomElement()!, collarColor: collarColor, maleTie: tieColors.randomElement()!, shirtColor: shirtColors.randomElement()!, backgroundColor: backgroundCircleColors.randomElement()!)
+            let components = AvatarComponents(gender: .male, hairColor: hairColors.randomElement()!, faceColor: faceColors.randomElement()!, collarColor: collarColor, accessoryColor: tieColors.randomElement()!, shirtColor: shirtColors.randomElement()!, backgroundColor: backgroundCircleColors.randomElement()!)
             
             return MaleAvatar(radius: radius, components: components)
         case .female:
-            let components = AvatarComponents(collarColor: collarColor, femaleJacket: jacketColors.randomElement()!, shirtColor: shirtColors.randomElement()!, hairColor: hairColors.randomElement()!, faceColor: faceColors.randomElement()!, backgroundColor: backgroundCircleColors.randomElement()!)
+            let components = AvatarComponents(gender: .female, hairColor: hairColors.randomElement()!, faceColor: faceColors.randomElement()!, collarColor: collarColor, accessoryColor: jacketColors.randomElement()!, shirtColor: shirtColors.randomElement()!, backgroundColor: backgroundCircleColors.randomElement()!)
             
             return FemaleAvatar(radius: radius, components: components)
         }

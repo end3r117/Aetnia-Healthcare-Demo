@@ -9,8 +9,8 @@
 import Foundation
 
 struct UserViewModel {
-    var user: UserModel
-    var avatar: Avatar? { get { user.avatar } set { user.avatar = newValue }}
+    var user: User
+    var avatar: Avatar { get { user.avatar } set { user.avatar = newValue }}
     var firstName: String { get { user.firstName }}
     var lastName: String { get { user.lastName }}
     var address: String {
@@ -24,7 +24,7 @@ struct UserViewModel {
         }
     }
     
-    var PCPInsuranceType: InsuranceType { get { user.coverageInfo.PCPInsuranceType }}
+    var medicalInsuranceType: InsuranceType { get { user.coverageInfo.PCPInsuranceType }}
     var dentistInsuranceType: InsuranceType { get { user.coverageInfo.dentistInsuranceType }}
     var primaryCarePhysician: PhysicianModel { get { user.coverageInfo.primaryCarePhysician }}
     var primaryDentist: DentistModel { get { user.coverageInfo.primaryDentist }}

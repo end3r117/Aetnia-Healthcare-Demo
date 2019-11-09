@@ -7,42 +7,40 @@
 //
 
 import Foundation
+import SwiftUI
 
-class DoctorsGenerator {
-    
-    static func populateDoctors() -> [DoctorModel] {
-        return GetDoctorsOfType(PhysicianModel.self) + GetDoctorsOfType(DentistModel.self)
+struct DoctorsGenerator {
+
+    static func populateDoctors(completion: ([Doctor]) -> Void){
+        completion(GetDoctorsOfType(PhysicianModel.self) + GetDoctorsOfType(DentistModel.self))
     }
     
-//    static func getFakeUser(username: String) -> UserModel {
-//        let doctor = PhysicianModel(acceptsHMO: true, firstName: "Nicholas", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber())
-//        let dentist = DentistModel(acceptsHMO: false, firstName: "Jessica", lastName: "Day", address: getAddress()!, phoneNumber: getPhoneNumber())
-//        let coverage = CoverageInfo(PCPInsuranceType: .HMO, dentistInsuranceType: .PPO, primaryCarePhysician: doctor, primaryDentist: dentist, memberID: "82-4987529-155", groupNumber: "297831-A")
-//        
-//        let mf = Gender(rawValue: Int.random(in: 0...1))
-//        switch mf {
-//        case .female:
-//            return UserModel(username: username, coverageInfo: coverage, firstName: "Jennifer", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber(), profilePicture: nil, avatar: AvatarMaker.makeMeAnAvatarPlease(gender: .female))
-//        default:
-//            return UserModel(username: username, coverageInfo: coverage, firstName: "Nicholas", lastName: "Miller", address: getAddress()!, phoneNumber: getPhoneNumber(), profilePicture: nil, avatar: AvatarMaker.makeMeAnAvatarPlease(gender: .male))
-//        }
-//   
-//    }
-    
-    private static func GetDoctorsOfType<T: DoctorModel>(_: T.Type) -> [T] {
+    private static func GetDoctorsOfType<T: Doctor>(_: T.Type) -> [T] {
         var arry = [T]()
-        for _ in 0...50 {
-            let name = randomName()
+        for _ in 0...20 {
+            var avatar: Avatar!
+            
+            let mf = Gender(rawValue: Int.random(in: 0...1))!
+            let name = randomName(for: mf)
+            if mf == .male {
+                
+                avatar = AvatarMaker.makeMeAnAvatarPlease(gender: .male, radius: 50)
+            }else {
+                avatar = AvatarMaker.makeMeAnAvatarPlease(gender: .female, radius: 50)
+            }
             let firstName = name.firstName
             let lastName = name.lastName
             guard let address = getAddress() else { return [] }
             let acceptsHMO = arc4random_uniform(2) == 0
-            print(acceptsHMO)
-            arry.append(T(acceptsHMO: acceptsHMO, firstName: firstName, lastName: lastName, address: address, phoneNumber: getPhoneNumber()))
+            
+            if T.self == PhysicianModel.self {
+                arry.append(T(acceptsHMO: acceptsHMO, avatar: avatar, firstName: firstName, lastName: lastName, address: address, phoneNumber: getPhoneNumber(), officePhoto: officeImages.randomElement()!))
+            }else {
+                arry.append(T(acceptsHMO: acceptsHMO, avatar: avatar, firstName: firstName, lastName: lastName, address: address, phoneNumber: getPhoneNumber(), officePhoto: (officeImages + dentistOfficeImages).randomElement()!))
+            }
             
         }
         
-        print(arry)
         return arry
     }
     
@@ -50,14 +48,30 @@ class DoctorsGenerator {
         return PhoneNumber(countryCode: 1, areaCode: Int(californiaAreaCodes[Int.random(in: 0..<californiaAreaCodes.count)])!, number: Int.random(in: 2000000...9999999))
     }
     
-    static func randomName() -> (firstName: String, lastName: String) {
-        let firstNamesNum = firstNames.count
-        let lastNamesNum = lastNames.count
+    static func randomName(for gender: Gender) -> (firstName: String, lastName: String) {
+        var firstName: String!
+        var lastName: String!
+        switch gender {
+        case .female:
+            let firstNamesNum = femaleNames.count
+            let lastNamesNum = lastNames.count
+            
+            firstName = femaleNames[Int(arc4random_uniform(UInt32(firstNamesNum)))]
+            lastName = lastNames[Int(arc4random_uniform(UInt32(lastNamesNum)))]
         
-        let firstName = firstNames[Int(arc4random_uniform(UInt32(firstNamesNum)))]
-        let lastName = lastNames[Int(arc4random_uniform(UInt32(lastNamesNum)))]
-        
+        default:
+            let firstNamesNum = maleNames.count
+            let lastNamesNum = lastNames.count
+            
+            firstName = maleNames[Int(arc4random_uniform(UInt32(firstNamesNum)))]
+            lastName = lastNames[Int(arc4random_uniform(UInt32(lastNamesNum)))]
+        }
         return (firstName, lastName)
+    }
+    
+    static func getAddressFromPlacesAPI() -> [Address]? {
+        
+        return nil
     }
     
     static func getAddress() -> Address? {
@@ -82,6 +96,8 @@ class DoctorsGenerator {
             return nil
         }
     }
+    static let dentistOfficeImages = [ImageAssetName.officeDentist1, .officeDentist2, .officeDentist3]
+    static let officeImages = [ImageAssetName.office1, .office2, .office3, .office4, .office5]
     
     static let femaleNames = ["Lyssette","Macalah","Machala","Machayla","Machenzie","Mackensey","Mackinzee","Maday","Madchen","Madeley","Madelina","Madellyn","Madiha","Madisan","Madlynn","Madyn","Madysin","Maeci","Maeson","Magdelena","Magdelene","Mahalah","Mahkayla","Mahoganie","Maiana","Maigan","Maijah","Mailynn","Maisen","Maitri","Makaelyn","Makailee","Makalla","Makel","Makenah","Makenize","Makeyla","Makita","Malani","Malashia","Malayzia","Malee","Maleigh","Maley","Mallari","Mallarie","Malley","Mally","Malvika","Manaia","Manali","Mania","Manijah","Mannat","Manyah","Maple","Maraia","Marcayla","Marcelia","Marche","Maredith","Margalit","Margarett","Marianita","Mariapaula","Mariavictoria","Maribell","Maricel","Maricia","Marierose","Mariesa","Marigrace","Marijah","Marilisa","Marinah","Marisah","Marisel","Marjory","Marki","Markiya","Marleah","Nao","Narda","Naria","Nashea","Nashley","Nasrin","Nataiya","Natalieann","Natalina","Natalyia","Natane","Natasja","Natelie","Natilee","Natilie","Natya","Navada","Nayaly","Naysa","Nazifa","Nealie","Nedra","Neelam","Neesha","Nefertari","Nekeisha","Nelissa","Nelli","Neoma","Nermeen","Nery","Nesa","Nethania","Nethra","Neysha","Niambi","Nianna","Nica","Nickeya","Nijay","Nikera","Nikoleta","Niloufar","Ninamarie","Ninti","Nisreen","Nittaya","Niva","Niyla","Niyonna","Nkechi","Noe","Noga","Noheli","Noriah","Nouci","Nubian","Nupur","Nyajah","Nyani","Nyasiah","Nyelle","Nykeah","Nykiah","Nylea","Nyshia","Nysia","Nytasia","Nyteria","Odali","Odett","Odilia","Oluwatoyin","Omaira","Omunique","Ondrea","Onisha","Oonagh","Osheana","Otilia","Paden","Patrisia","Patrycia","Pattie","Paytyn","Pelin","Peter","Petrina","Phenix","Philena","Philicity","Emily","Hannah","Madison","Ashley","Sarah","Alexis","Samantha","Jessica","Elizabeth","Taylor","Lauren","Alyssa","Kayla","Abigail","Brianna","Olivia","Emma","Megan","Grace","Victoria","Rachel","Anna","Sydney","Destiny","Morgan","Jennifer","Jasmine","Haley","Julia","Kaitlyn","Nicole","Amanda","Katherine","Natalie","Hailey","Alexandra","Savannah","Chloe","Rebecca","Stephanie","Maria","Sophia","Mackenzie","Allison","Isabella","Amber","Mary","Danielle","Gabrielle","Jordan","Brooke","Michelle","Sierra","Katelyn","Andrea","Madeline","Sara","Kimberly","Courtney","Erin","Brittany","Vanessa","Jenna","Jacqueline","Caroline","Faith","Makayla","Bailey","Paige","Shelby","Melissa","Kaylee","Christina","Trinity","Mariah","Caitlin","Autumn","Marissa","Breanna","Angela","Catherine","Zoe","Briana","Jada","Laura","Claire","Alexa","Kelsey","Kathryn","Leslie","Alexandria","Sabrina","Mia","Isabel","Molly","Leah","Katie","Gabriella","Cheyenne","Cassandra","Tiffany","Erica","Lindsey","Kylie","Amy","Diana","Cassidy","Mikayla","Ariana","Margaret","Kelly","Miranda","Maya","Melanie","Audrey","Jade","Gabriela","Caitlyn","Angel","Jillian","Alicia","Jocelyn","Erika","Lily","Heather","Madelyn","Adriana","Arianna","Lillian","Kiara","Riley","Crystal","Mckenzie","Meghan","Skylar","Ana","Britney","Angelica","Kennedy","Chelsea","Daisy","Kristen","Veronica","Isabelle","Summer","Hope","Brittney","Lydia","Hayley","Evelyn","Bethany","Shannon","Michaela","Karen","Jamie","Daniela","Angelina","Kaitlin","Karina","Sophie","Sofia","Diamond","Payton","Cynthia","Alexia","Valerie","Monica","Peyton","Carly","Bianca","Hanna","Brenda","Rebekah","Alejandra","Mya","Avery","Brooklyn","Ashlyn","Lindsay","Ava","Desiree","Alondra","Camryn","Ariel","Naomi","Jordyn","Kendra","Mckenna","Holly","Julie","Kendall","Kara","Jasmin","Selena","Esmeralda","Amaya","Kylee","Maggie","Makenzie","Claudia","Kyra","Cameron","Karla","Kathleen","Abby","Delaney","Amelia","Casey","Serena","Savanna","Aaliyah","Giselle","Mallory","April","Raven","Adrianna","Christine","Kristina","Nina","Asia","Natalia","Valeria","Aubrey","Lauryn","Kate","Patricia","Jazmin","Rachael","Katelynn","Cierra","Alison","Macy","Nancy","Elena","Kyla","Katrina","Jazmine","Joanna","Tara","Gianna","Juliana","Fatima","Allyson","Gracie","Sadie","Guadalupe","Genesis","Yesenia","Julianna","Skyler","Tatiana","Alexus","Alana","Elise","Kirsten","Nadia","Sandra","Dominique","Ruby","Haylee","Jayla","Tori","Cindy","Sidney","Ella","Tessa","Carolina","Camille","Jaqueline","Whitney","Carmen","Vivian","Priscilla","Bridget","Celeste","Kiana","Makenna","Alissa","Madeleine","Miriam","Natasha","Ciara","Cecilia","Mercedes","Kassandra","Reagan","Aliyah","Josephine","Charlotte","Rylee","Shania","Kira","Meredith","Eva","Lisa","Dakota","Hallie","Anne","Rose","Liliana","Kristin","Deanna","Imani","Marisa","Kailey","Annie","Nia","Carolyn","Anastasia","Brenna","Dana","Shayla","Ashlee","Kassidy","Alaina","Rosa","Wendy","Logan","Tabitha","Paola","Callie","Addison","Lucy","Gillian","Clarissa","Destinee","Josie","Esther","Denise","Katlyn","Mariana","Bryanna","Emilee","Georgia","Deja","Kamryn","Ashleigh","Cristina","Baylee","Heaven","Ruth","Raquel","Monique","Teresa","Helen","Krystal","Tiana","Cassie","Kayleigh","Marina","Heidi","Ivy","Ashton","Clara","Meagan","Gina","Linda","Gloria","Jacquelyn","Ellie","Jenny","Renee","Daniella","Lizbeth","Anahi","Virginia","Gisselle","Kaitlynn","Julissa","Cheyanne","Lacey","Haleigh","Marie","Martha","Eleanor","Kierra","Tiara","Talia","Eliza"]
 

@@ -10,47 +10,26 @@ import SwiftUI
 
 struct HomeTabView: View {
     @EnvironmentObject var userAuth: UserAuth
-    @State private var selection = 0 {
-        didSet {
-            print(selection)
-        }
-    }
+    @EnvironmentObject var doctorSearchViewModel: DoctorSearchViewModel
+    @State private var selection = 0
+    @State private var first = true
+    
     var body: some View {
-        VStack {
-            GeometryReader { geo in
-                ZStack(alignment: .top) {
-                    Rectangle()
-                    .fill(Color.aetniaBlue)
-                    .edgesIgnoringSafeArea([.leading, .trailing, .top])
-                    .frame(minWidth: geo.size.width, idealWidth: geo.size.width, maxWidth: .infinity, minHeight: 20, idealHeight: 44, maxHeight: 48)
-                    Text("Aetnia")
-                        .font(.custom("Arial-BoldItalicMT", size: 28))
-                        .foregroundColor(.white)
-                    HStack(alignment: .top) {
-                        Spacer()
-                        Button(action: {
-                            self.userAuth.logout()
-                        }, label: {
-                            Image(.logoutButton)
-                                .renderingMode(.template)
-                                .resizable()
-                                .scaledToFit()
-                                .frame(width: 40, height: 36)
-                                .accentColor(.white)
-                        }).padding(.trailing, 16)
-                    }
-                        
-                }
-            //NavigationView {
-                TabView(selection: self.$selection){
+        ZStack {
+            Rectangle()
+                .fill()
+                .foregroundColor(Color(.appColor(.navBarColor)))
+                .edgesIgnoringSafeArea(.all)
+            TabView(selection: self.$selection){
+                NavigationView {
+                    HomeView(model: UserInfoViewModel(model: UserViewModel(user: userAuth.loggedInUser))).modifier(AetniaNavConfig(navTitle: "Aetnia"))
+                    }.navigationViewStyle(StackNavigationViewStyle()).accentColor(Color(UIColor.systemBackground))
+                .tabItem {
+                    Image(self.selection == 0 ? .homeFilled : .home)
+                    Text("Home")
                 
-                    HomeView(homeViewModel: HomeViewModel(loggedInUser: self.userAuth.loggedInUser))
-                    .animation(nil)
-                    .tabItem {
-                        Image(self.selection == 0 ? .homeFilled : .home)
-                        Text("Home")
-                }
-                .tag(0)
+                }.tag(0)
+                
                 Text("Documents")
                     .tabItem {
                         Image(self.selection == 1 ? .documentsFilled : .documents)
@@ -58,8 +37,11 @@ struct HomeTabView: View {
                         
                         Text("Documents")
                 }
+                
                 .tag(1)
-                Text("Doctor Search")
+                NavigationView {
+                    DoctorSearchView(viewModel: self.doctorSearchViewModel).modifier(AetniaNavConfig(navTitle: "Aetnia"))
+                }//.navigationViewStyle(StackNavigationViewStyle()).accentColor(Color(UIColor.systemBackground))
                     .tabItem {
                         Image(self.selection == 2 ? .docSearchFilled : .docSearch)
                             .resizable()
@@ -78,26 +60,28 @@ struct HomeTabView: View {
                         Text("Rx")
                 }
                 .tag(4)
-                }.padding(.top, (geo.size.width > geo.size.height ? 0 : 44 ))
-            /*
-            .navigationBarTitle("Aetnia", displayMode: .inline)
-                .navigationBarItems(trailing:
-                    Button(action: {
-                        self.userAuth.logout()
-                    }, label: {
-                        Image(.logoutButton)
-                            .renderingMode(.template)
-                            .resizable()
-                            .accentColor(.white)
-                    })
-            )
-                .background(AppMainNavigationBar())
-                .transition(.opacity)
-                .animation(.easeOut)
-            //}
-            */
             }
+                .accentColor(.appColor(.aetniaBlue))
+            
         }
-        .modifier(AetniaBackgroundViewModifier())
     }
 }
+
+
+/*
+ .navigationBarTitle("Aetnia", displayMode: .inline)
+ .navigationBarItems(trailing:
+ Button(action: {
+ self.userAuth.logout()
+ }, label: {
+ Image(.logoutButton)
+ .renderingMode(.template)
+ .resizable()
+ .accentColor(.white)
+ })
+ )
+ .background(AppMainNavigationBar())
+ .transition(.opacity)
+ .animation(.easeOut)
+ //}
+ */

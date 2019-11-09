@@ -7,14 +7,16 @@
 //
 
 import UIKit
-import SwiftUI
+//import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
     let userAuth = UserAuth()
     let userDefaults = UserDefaultsSwiftUI()
-    
+    var navConfig = NavConfig()
+    var nav: UINavigationController!
+    var rootVC: UIViewController!
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         // Use this method to optionally configure and attach the UIWindow `window` to the provided UIWindowScene `scene`.
@@ -22,15 +24,41 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
 
         // Create the SwiftUI view that provides the window contents.
-        let appMainView = AppMainView()        
-
+//        let appMainView = AppMainView()
+//        nav = UINavigationController(rootViewController: UIHostingController(rootView: appMainView.environmentObject(navConfig).environmentObject(userAuth).environmentObject(userDefaults)))
+//        nav.navigationBar.isHidden = true
+//        navConfig.navigationController = nav
+//        // Use a UIHostingController as window root view controller.
+//        if let windowScene = scene as? UIWindowScene {
+//            let window = UIWindow(windowScene: windowScene)
+//            window.rootViewController = nav
+//                //UIHostingController(rootView: appMainView.environmentObject(navConfig).environmentObject(userAuth).environmentObject(userDefaults))//.onTapGesture { window.endEditing(false)})
+//            self.window = window
+//            self.window?.makeKeyAndVisible()
+//        }
+        
+        
+//        let appMainView = UIHostingController(rootView: AppMainView().environmentObject(navConfig).environmentObject(userAuth).environmentObject(userDefaults))
+        rootVC = UIViewController()
+        rootVC.view.backgroundColor = .aetniaBlue
+        
+//        rootVC.addChild(appMainView)
+//        rootVC.view.addSubview(appMainView.view)
+//        appMainView.view.fillSuperview()
+        
+        nav = UINavigationController(rootViewController: rootVC)
+        nav.navigationBar.isHidden = true
+        navConfig.navigationController = nav
+        navConfig.rootVC = rootVC
+        let avc = AppointmentsViewController()
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
-            let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: appMainView.environmentObject(userAuth).environmentObject(userDefaults))//.onTapGesture { window.endEditing(false)})
-            self.window = window
-            self.window?.makeKeyAndVisible()
+            window = UIWindow(windowScene: windowScene)
+            window?.rootViewController = avc
+            //UIHostingController(rootView: appMainView.environmentObject(navConfig).environmentObject(userAuth).environmentObject(userDefaults))//.onTapGesture { window.endEditing(false)})
+            window?.makeKeyAndVisible()
         }
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

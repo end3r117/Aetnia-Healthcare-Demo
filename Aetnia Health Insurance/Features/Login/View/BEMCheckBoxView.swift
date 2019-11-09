@@ -19,8 +19,8 @@ struct BEMCheckBoxView: UIViewRepresentable {
     func makeUIView(context: Context) -> BEMCheckBox {
         let cb = BEMCheckBox()
         
-        cb.onFillColor = .aetniaBlue
-        cb.onCheckColor = .white
+        cb.onFillColor = .appColor(.aetniaBlue)
+        cb.onCheckColor = .systemBackground
         cb.offFillColor = .systemBackground
         cb.tintColor = .systemGray4
         cb.onTintColor = .aetniaBlue
@@ -39,6 +39,11 @@ struct BEMCheckBoxView: UIViewRepresentable {
 
     func updateUIView(_ uiView: BEMCheckBox, context: Context) {
         uiView.on = self.on
+        uiView.onFillColor = .appColor(.aetniaBlue)
+        uiView.onCheckColor = .systemBackground
+        uiView.offFillColor = .systemBackground
+        uiView.tintColor = .systemGray4
+        uiView.onTintColor = .aetniaBlue
     }
     
     func makeCoordinator() -> Coordinator {
@@ -51,10 +56,6 @@ struct BEMCheckBoxView: UIViewRepresentable {
         init(_ control: BEMCheckBoxView) {
             self.control = control
         }
-
-//        func didTap(_ checkBox: BEMCheckBox) {
-//            control.on = checkBox.on
-//        }
         
         func animationDidStop(for checkBox: BEMCheckBox) {
             control.on = checkBox.on

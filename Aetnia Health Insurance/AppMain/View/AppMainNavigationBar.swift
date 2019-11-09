@@ -7,13 +7,47 @@
 //
 import SwiftUI
 
+class NavConfig: ObservableObject {
+    var navigationController: UINavigationController!
+    var rootVC: UIViewController!
+    
+    init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(deviceTurned(_:)), name: .rotationEngaged, object: nil)
+    }
+    
+    @Published var orientation: Orientation = .portrait
+    @Published var barStyle: UIBarStyle = .default
+    @Published var barTintColor: UIColor = .appColor(.aetniaBlue)
+    @Published var backgroundColor: UIColor = .appColor(.aetniaBlue)
+    @Published var titleTextAttributes: [NSAttributedString.Key: Any] = [
+               .foregroundColor : UIColor.white,
+               .font: UIFont(name: "Arial-BoldItalicMT", size: 34) ?? UIFont.systemFont(ofSize: 34, weight: .bold)
+           ]
+    var fontSize: CGFloat = 34 {
+        didSet {
+            titleTextAttributes = [
+                .foregroundColor : UIColor.white,
+                .font: UIFont(name: "Arial-BoldItalicMT", size: fontSize) ?? UIFont.systemFont(ofSize: 34, weight: .bold)
+            ]
+        }
+    }
+    
+    @objc func deviceTurned(_ notification: Notification) {
+        if let dict = notification.userInfo as? [String:Orientation], let orientation = dict["orientation"] {
+            self.orientation = orientation
+            print("New orientation: \(orientation.rawValue)")
+        }
+    }
+}
+
 struct AppMainNavigationBar: UIViewControllerRepresentable {
-    var configure: (UINavigationController) -> Void = { nc in
-        nc.navigationBar.barTintColor = .aetniaBlue
-        nc.navigationBar.titleTextAttributes = [
-            .foregroundColor : UIColor.white,
-            .font: UIFont(name: "Arial-BoldItalicMT", size: 36)
-        ]
+    @EnvironmentObject var navConfig: NavConfig
+    
+    var configure: (UINavigationController, NavConfig) -> Void = { nc, navConfig in
+        nc.navigationBar.barStyle = navConfig.barStyle
+        nc.navigationBar.barTintColor = navConfig.barTintColor
+        nc.navigationBar.backgroundColor = navConfig.backgroundColor
+        nc.navigationBar.titleTextAttributes = navConfig.titleTextAttributes
     }
 
     func makeUIViewController(context: UIViewControllerRepresentableContext<AppMainNavigationBar>) -> UIViewController {
@@ -21,10 +55,8 @@ struct AppMainNavigationBar: UIViewControllerRepresentable {
     }
     func updateUIViewController(_ uiViewController: UIViewController, context: UIViewControllerRepresentableContext<AppMainNavigationBar>) {
         if let nc = uiViewController.navigationController {
-            self.configure(nc)
+            self.configure(nc, self.navConfig)
         }
-//        self.accentColor(.aetniaBlue)
-//        self.font(.title)
     }
 
 }

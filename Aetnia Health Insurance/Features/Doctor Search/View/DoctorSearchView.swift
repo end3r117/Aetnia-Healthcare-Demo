@@ -7,12 +7,40 @@
 //
 
 import SwiftUI
+import Combine
 
 struct DoctorSearchView: View {
-    @State var dataSource: [DoctorModel] = DoctorsGenerator.populateDoctors()
+    var doctorSearchViewModel: DoctorSearchViewModel
+    @State var showDetail: Bool = false
     
+    init(viewModel: DoctorSearchViewModel) {
+        self.doctorSearchViewModel = viewModel
+    }
     
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+        ZStack {
+            Rectangle()
+                .fill()
+                .foregroundColor(Color(UIColor.systemGroupedBackground))
+            VStack {
+                Spacer()
+                    .frame(maxHeight: UIScreen.main.bounds.height / 8)
+            }
+            List {
+                Section(header: Text("Results")) {
+                    if doctorSearchViewModel.dataSource.isEmpty {
+                        Text("No doctors match your search criteria.")
+                    }else {
+                        Group{
+                            ForEach(doctorSearchViewModel.dataSource.sorted(by: {$0.firstName < $1.firstName})){ model in
+                                NavigationLink(destination: DoctorInfoView(dataModel: DoctorSearchRowViewModel(doctor: model), avatar: model.avatar!).navigationBarTitle("Dr. \(model.lastName)")) {
+                                    DoctorSearchRow(viewModel: DoctorSearchRowViewModel(doctor: model))
+                                }
+                            }.drawingGroup()
+                        }
+                    }
+                }
+            }.listStyle(GroupedListStyle())
+        }
     }
 }

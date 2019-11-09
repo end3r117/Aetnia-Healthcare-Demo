@@ -48,8 +48,8 @@ final class UserDefaultsSwiftUI: ObservableObject {
         }
     }
     
-    @UserDefault(.savedUsername, defaultValue: nil)
-    var savedUsername: String? {
+    @UserDefault(.savedUsername, defaultValue: "")
+    var savedUsername: String {
         willSet {
             objectWillChange.send()
         }

@@ -7,64 +7,112 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		42002B002371E9000023AE46 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002AFF2371E9000023AE46 /* UserViewModel.swift */; };
-		42002B05237230A20023AE46 /* AppMainNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002B04237230A20023AE46 /* AppMainNavigationBar.swift */; };
-		420625972374088400F5AB45 /* UserAndDocGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */; };
-		420625982374088400F5AB45 /* DoctorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */; };
-		420625992374088400F5AB45 /* PhysicianModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E932372BE3C00FD2885 /* PhysicianModel.swift */; };
-		4206259A2374088400F5AB45 /* DentistModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E972372BEC100FD2885 /* DentistModel.swift */; };
-		423EA3F4236FB64B000E6208 /* AppColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EA3F3236FB64B000E6208 /* AppColorConstants.swift */; };
-		423EA3F6236FE93A000E6208 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EA3F5236FE93A000E6208 /* UserDefaults.swift */; };
-		4249BF83237159D60047093A /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249BF82237159D60047093A /* UserAuth.swift */; };
-		4249BF8623715A800047093A /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249BF8523715A800047093A /* HomeTabView.swift */; };
-		42AF8558236F4D650086AC78 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8557236F4D650086AC78 /* AppDelegate.swift */; };
-		42AF855A236F4D650086AC78 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8559236F4D650086AC78 /* SceneDelegate.swift */; };
-		42AF855C236F4D650086AC78 /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF855B236F4D650086AC78 /* AppMainView.swift */; };
-		42AF855E236F4D650086AC78 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42AF855D236F4D650086AC78 /* Assets.xcassets */; };
-		42AF8561236F4D650086AC78 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42AF8560236F4D650086AC78 /* Preview Assets.xcassets */; };
-		42AF8564236F4D650086AC78 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AF8562236F4D650086AC78 /* LaunchScreen.storyboard */; };
-		42AF856C236F53A00086AC78 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF856B236F53A00086AC78 /* LoginView.swift */; };
-		42AF856E236F58B10086AC78 /* ImageAssetName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF856D236F58B10086AC78 /* ImageAssetName.swift */; };
-		42AF8575236F5A570086AC78 /* Image+ImageAssetNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8574236F5A570086AC78 /* Image+ImageAssetNames.swift */; };
-		42AF8577236F5BAB0086AC78 /* UIColor+Constructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8576236F5BAB0086AC78 /* UIColor+Constructors.swift */; };
-		42AF857A236F9D3E0086AC78 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8579236F9D3E0086AC78 /* LoginTextField.swift */; };
-		42AF857D236FB13D0086AC78 /* TextField(MOD)ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF857C236FB13D0086AC78 /* TextField(MOD)ClearButton.swift */; };
-		42AF8582236FB3880086AC78 /* BEMCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8581236FB3880086AC78 /* BEMCheckBoxView.swift */; };
-		42E29E8423726E9400FD2885 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8323726E9400FD2885 /* HomeView.swift */; };
-		42E29E862372713E00FD2885 /* CreateNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E852372713E00FD2885 /* CreateNewUserView.swift */; };
-		42E29E8823727F9A00FD2885 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8723727F9A00FD2885 /* MapKit.framework */; };
-		42E29E8A23727FA000FD2885 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8923727FA000FD2885 /* CoreLocation.framework */; };
-		42E29E8D2372816600FD2885 /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8C2372816600FD2885 /* HomeViewModel.swift */; };
-		42E29E992372CAC400FD2885 /* AvatarPictureRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */; };
-		42E29E9B237355B200FD2885 /* View+AeniaBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E9A237355B200FD2885 /* View+AeniaBackground.swift */; };
-		42E29E9D23735E4300FD2885 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E9C23735E4300FD2885 /* SplashScreen.swift */; };
-		42F41C0123717EAA0068D899 /* UserModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F41C0023717EAA0068D899 /* UserModel.swift */; };
-		42F41C03237181200068D899 /* Int+GetDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F41C02237181200068D899 /* Int+GetDigits.swift */; };
-		79CE503121D330AB4CC0038F /* Pods_Aetnia_Health_Insurance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C6A91BCA1C205E7D33C87 /* Pods_Aetnia_Health_Insurance.framework */; };
+		427EBBB02377B7F600A0C6E5 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E9C23735E4300FD2885 /* SplashScreen.swift */; };
+		427EBBB12377B7F600A0C6E5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8557236F4D650086AC78 /* AppDelegate.swift */; };
+		427EBBB22377B7F600A0C6E5 /* UserAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249BF82237159D60047093A /* UserAuth.swift */; };
+		427EBBB32377B7F600A0C6E5 /* DateHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E7652377297B005BF1EC /* DateHelper.swift */; };
+		427EBBB42377B7F600A0C6E5 /* Notification+Names.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E76D23772BDE005BF1EC /* Notification+Names.swift */; };
+		427EBBB52377B7F600A0C6E5 /* DoctorSearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420625A023740A3500F5AB45 /* DoctorSearchViewModel.swift */; };
+		427EBBB62377B7F600A0C6E5 /* DoctorSearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420625A22374819D00F5AB45 /* DoctorSearchRow.swift */; };
+		427EBBB72377B7F600A0C6E5 /* TimeSlotCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E75F237727B9005BF1EC /* TimeSlotCollectionViewCell.swift */; };
+		427EBBB82377B7F600A0C6E5 /* ImageAssetName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF856D236F58B10086AC78 /* ImageAssetName.swift */; };
+		427EBBB92377B7F600A0C6E5 /* BEMCheckBoxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8581236FB3880086AC78 /* BEMCheckBoxView.swift */; };
+		427EBBBA2377B7F600A0C6E5 /* CoverageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42062593237406CC00F5AB45 /* CoverageInfo.swift */; };
+		427EBBBB2377B7F600A0C6E5 /* Image+ImageAssetNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8574236F5A570086AC78 /* Image+ImageAssetNames.swift */; };
+		427EBBBC2377B7F600A0C6E5 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420E4E392375191D0021959E /* UserInfoView.swift */; };
+		427EBBBD2377B7F600A0C6E5 /* UIColor+Constructors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8576236F5BAB0086AC78 /* UIColor+Constructors.swift */; };
+		427EBBBE2377B7F600A0C6E5 /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E76723772A03005BF1EC /* CalendarViewCell.swift */; };
+		427EBBBF2377B7F600A0C6E5 /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280BE3A2377955B00FB7480 /* AppointmentsViewController.swift */; };
+		427EBBC02377B7F600A0C6E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8323726E9400FD2885 /* HomeView.swift */; };
+		427EBBC12377B7F600A0C6E5 /* AppointmentsCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E756237724BE005BF1EC /* AppointmentsCalendarManager.swift */; };
+		427EBBC22377B7F600A0C6E5 /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF855B236F4D650086AC78 /* AppMainView.swift */; };
+		427EBBC32377B7F600A0C6E5 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8579236F9D3E0086AC78 /* LoginTextField.swift */; };
+		427EBBC42377B7F600A0C6E5 /* AppointmentsCalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E75B237726A0005BF1EC /* AppointmentsCalendarHeader.swift */; };
+		427EBBC52377B7F600A0C6E5 /* UserGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420625952374076700F5AB45 /* UserGenerator.swift */; };
+		427EBBC62377B7F600A0C6E5 /* UIView+Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E75D2377271B005BF1EC /* UIView+Layout.swift */; };
+		427EBBC72377B7F600A0C6E5 /* NavigationView(MOD)AetniaNavConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256F3CA2375FF8B00B097DB /* NavigationView(MOD)AetniaNavConfig.swift */; };
+		427EBBC82377B7F600A0C6E5 /* UIAlertController+QuickAlerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E7582377252D005BF1EC /* UIAlertController+QuickAlerts.swift */; };
+		427EBBC92377B7F600A0C6E5 /* AppMainNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002B04237230A20023AE46 /* AppMainNavigationBar.swift */; };
+		427EBBCA2377B7F600A0C6E5 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EA3F5236FE93A000E6208 /* UserDefaults.swift */; };
+		427EBBCB2377B7F600A0C6E5 /* DoctorsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420625902374057700F5AB45 /* DoctorsGenerator.swift */; };
+		427EBBCC2377B7F600A0C6E5 /* CALayer+AddBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E76B23772AEB005BF1EC /* CALayer+AddBorder.swift */; };
+		427EBBCD2377B7F600A0C6E5 /* TextField(MOD)ClearButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF857C236FB13D0086AC78 /* TextField(MOD)ClearButton.swift */; };
+		427EBBCE2377B7F600A0C6E5 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F41C0023717EAA0068D899 /* User.swift */; };
+		427EBBCF2377B7F600A0C6E5 /* Int+GetDigits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42F41C02237181200068D899 /* Int+GetDigits.swift */; };
+		427EBBD02377B7F600A0C6E5 /* AppColorConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 423EA3F3236FB64B000E6208 /* AppColorConstants.swift */; };
+		427EBBD12377B7F600A0C6E5 /* AvatarPictureRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */; };
+		427EBBD22377B7F600A0C6E5 /* View(MOD)AeniaBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E9A237355B200FD2885 /* View(MOD)AeniaBackground.swift */; };
+		427EBBD32377B7F600A0C6E5 /* DoctorSearchRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420625A42374847100F5AB45 /* DoctorSearchRowViewModel.swift */; };
+		427EBBD52377B7F600A0C6E5 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002AFF2371E9000023AE46 /* UserViewModel.swift */; };
+		427EBBD62377B7F600A0C6E5 /* DoctorSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420625882373F80D00F5AB45 /* DoctorSearchView.swift */; };
+		427EBBD72377B7F600A0C6E5 /* CreateNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E852372713E00FD2885 /* CreateNewUserView.swift */; };
+		427EBBD82377B7F600A0C6E5 /* DoctorInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256F3C42375BA1900B097DB /* DoctorInfoView.swift */; };
+		427EBBD92377B7F600A0C6E5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF856B236F53A00086AC78 /* LoginView.swift */; };
+		427EBBDA2377B7F600A0C6E5 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280BD9923773CB900FB7480 /* Appointment.swift */; };
+		427EBBDB2377B7F600A0C6E5 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249BF8523715A800047093A /* HomeTabView.swift */; };
+		427EBBDC2377B7F600A0C6E5 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206258A2374030A00F5AB45 /* Doctor.swift */; };
+		427EBBDE2377B7F600A0C6E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8923727FA000FD2885 /* CoreLocation.framework */; };
+		427EBBDF2377B7F600A0C6E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8723727F9A00FD2885 /* MapKit.framework */; };
+		427EBBE02377B7F600A0C6E5 /* Pods_Aetnia_Health_Insurance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C6A91BCA1C205E7D33C87 /* Pods_Aetnia_Health_Insurance.framework */; };
+		427EBBE22377B7F600A0C6E5 /* AppointmentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4277E761237728A4005BF1EC /* AppointmentsViewController.xib */; };
+		427EBBE32377B7F600A0C6E5 /* CalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4277E76823772A03005BF1EC /* CalendarViewCell.xib */; };
+		427EBBE42377B7F600A0C6E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AF8562236F4D650086AC78 /* LaunchScreen.storyboard */; };
+		427EBBE52377B7F600A0C6E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42AF8560236F4D650086AC78 /* Preview Assets.xcassets */; };
+		427EBBE62377B7F600A0C6E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42AF855D236F4D650086AC78 /* Assets.xcassets */; };
+		427EBBEF2377E16A00A0C6E5 /* AppointmentRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EBBEE2377E16A00A0C6E5 /* AppointmentRowViewModel.swift */; };
+		427EBBF22377E1F500A0C6E5 /* AppointmentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EBBF12377E1F500A0C6E5 /* AppointmentRow.swift */; };
+		427EBBF42377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EBBF32377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift */; };
+		427EBBF62377FBB200A0C6E5 /* UITextView+CenterVertically.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EBBF52377FBB200A0C6E5 /* UITextView+CenterVertically.swift */; };
+		42C4B4A32378BD5200C60265 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4A22378BD5200C60265 /* UserInfoViewModel.swift */; };
+		42C4B4A62378CAD700C60265 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4A52378CAD700C60265 /* ZoomableImageView.swift */; };
+		42C4B4A8237901FF00C60265 /* ContactButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4A7237901FF00C60265 /* ContactButton.swift */; };
+		42C4B4AC237939DD00C60265 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4AB237939DD00C60265 /* MapView.swift */; };
+		42C4B4AE23793C5200C60265 /* GeolocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4AD23793C5200C60265 /* GeolocationHelper.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B052A419F331A537CB1ACEB /* Pods-Aetnia Health Insurance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aetnia Health Insurance.release.xcconfig"; path = "Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance.release.xcconfig"; sourceTree = "<group>"; };
 		42002AFF2371E9000023AE46 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
-		42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAndDocGenerator.swift; sourceTree = "<group>"; };
 		42002B04237230A20023AE46 /* AppMainNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainNavigationBar.swift; sourceTree = "<group>"; };
 		420625882373F80D00F5AB45 /* DoctorSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchView.swift; sourceTree = "<group>"; };
-		4206258A2374030A00F5AB45 /* DoctorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorModel.swift; sourceTree = "<group>"; };
+		4206258A2374030A00F5AB45 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
 		420625902374057700F5AB45 /* DoctorsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsGenerator.swift; sourceTree = "<group>"; };
 		42062593237406CC00F5AB45 /* CoverageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoverageInfo.swift; sourceTree = "<group>"; };
 		420625952374076700F5AB45 /* UserGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserGenerator.swift; sourceTree = "<group>"; };
+		420625A023740A3500F5AB45 /* DoctorSearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchViewModel.swift; sourceTree = "<group>"; };
+		420625A22374819D00F5AB45 /* DoctorSearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchRow.swift; sourceTree = "<group>"; };
+		420625A42374847100F5AB45 /* DoctorSearchRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchRowViewModel.swift; sourceTree = "<group>"; };
+		420E4E392375191D0021959E /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
 		423EA3F3236FB64B000E6208 /* AppColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorConstants.swift; sourceTree = "<group>"; };
 		423EA3F5236FE93A000E6208 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		4249BF82237159D60047093A /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
 		4249BF8523715A800047093A /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
-		42AF8554236F4D650086AC78 /* Aetnia Health Insurance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aetnia Health Insurance.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4256F3C42375BA1900B097DB /* DoctorInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorInfoView.swift; sourceTree = "<group>"; };
+		4256F3CA2375FF8B00B097DB /* NavigationView(MOD)AetniaNavConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationView(MOD)AetniaNavConfig.swift"; sourceTree = "<group>"; };
+		4277E756237724BE005BF1EC /* AppointmentsCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsCalendarManager.swift; sourceTree = "<group>"; };
+		4277E7582377252D005BF1EC /* UIAlertController+QuickAlerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController+QuickAlerts.swift"; sourceTree = "<group>"; };
+		4277E75B237726A0005BF1EC /* AppointmentsCalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsCalendarHeader.swift; sourceTree = "<group>"; };
+		4277E75D2377271B005BF1EC /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
+		4277E75F237727B9005BF1EC /* TimeSlotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlotCollectionViewCell.swift; sourceTree = "<group>"; };
+		4277E761237728A4005BF1EC /* AppointmentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppointmentsViewController.xib; sourceTree = "<group>"; };
+		4277E7652377297B005BF1EC /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
+		4277E76723772A03005BF1EC /* CalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
+		4277E76823772A03005BF1EC /* CalendarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewCell.xib; sourceTree = "<group>"; };
+		4277E76B23772AEB005BF1EC /* CALayer+AddBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CALayer+AddBorder.swift"; sourceTree = "<group>"; };
+		4277E76D23772BDE005BF1EC /* Notification+Names.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Names.swift"; sourceTree = "<group>"; };
+		427EBBEB2377B7F600A0C6E5 /* Aetnia Health Insurance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Aetnia Health Insurance.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		427EBBEC2377B7F700A0C6E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/anthonyrosario/Desktop/Faultliner Applications/Aetnia Health Insurance App/Aetnia Health Insurance/Aetnia Health Insurance/Supporting Files/Info.plist"; sourceTree = "<absolute>"; };
+		427EBBEE2377E16A00A0C6E5 /* AppointmentRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentRowViewModel.swift; sourceTree = "<group>"; };
+		427EBBF12377E1F500A0C6E5 /* AppointmentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentRow.swift; sourceTree = "<group>"; };
+		427EBBF32377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+ViewRepresentable.swift"; sourceTree = "<group>"; };
+		427EBBF52377FBB200A0C6E5 /* UITextView+CenterVertically.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+CenterVertically.swift"; sourceTree = "<group>"; };
+		4280BD9923773CB900FB7480 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		4280BE3A2377955B00FB7480 /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
 		42AF8557236F4D650086AC78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42AF8559236F4D650086AC78 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		42AF855B236F4D650086AC78 /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
 		42AF855D236F4D650086AC78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42AF8560236F4D650086AC78 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42AF8563236F4D650086AC78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		42AF8565236F4D650086AC78 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		42AF856B236F53A00086AC78 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		42AF856D236F58B10086AC78 /* ImageAssetName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageAssetName.swift; sourceTree = "<group>"; };
 		42AF8574236F5A570086AC78 /* Image+ImageAssetNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image+ImageAssetNames.swift"; sourceTree = "<group>"; };
@@ -72,31 +120,32 @@
 		42AF8579236F9D3E0086AC78 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		42AF857C236FB13D0086AC78 /* TextField(MOD)ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField(MOD)ClearButton.swift"; sourceTree = "<group>"; };
 		42AF8581236FB3880086AC78 /* BEMCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BEMCheckBoxView.swift; sourceTree = "<group>"; };
+		42C4B4A22378BD5200C60265 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
+		42C4B4A52378CAD700C60265 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
+		42C4B4A7237901FF00C60265 /* ContactButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactButton.swift; sourceTree = "<group>"; };
+		42C4B4AB237939DD00C60265 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		42C4B4AD23793C5200C60265 /* GeolocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationHelper.swift; sourceTree = "<group>"; };
 		42E29E8323726E9400FD2885 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		42E29E852372713E00FD2885 /* CreateNewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewUserView.swift; sourceTree = "<group>"; };
 		42E29E8723727F9A00FD2885 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		42E29E8923727FA000FD2885 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		42E29E8C2372816600FD2885 /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPictureRandomizer.swift; sourceTree = "<group>"; };
-		42E29E932372BE3C00FD2885 /* PhysicianModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicianModel.swift; sourceTree = "<group>"; };
-		42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorProtocol.swift; sourceTree = "<group>"; };
-		42E29E972372BEC100FD2885 /* DentistModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DentistModel.swift; sourceTree = "<group>"; };
-		42E29E9A237355B200FD2885 /* View+AeniaBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+AeniaBackground.swift"; sourceTree = "<group>"; };
+		42E29E9A237355B200FD2885 /* View(MOD)AeniaBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View(MOD)AeniaBackground.swift"; sourceTree = "<group>"; };
 		42E29E9C23735E4300FD2885 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
-		42F41C0023717EAA0068D899 /* UserModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserModel.swift; sourceTree = "<group>"; };
+		42F41C0023717EAA0068D899 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		42F41C02237181200068D899 /* Int+GetDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+GetDigits.swift"; sourceTree = "<group>"; };
 		438D880D6586F9446EB85505 /* Pods-Aetnia Health Insurance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aetnia Health Insurance.debug.xcconfig"; path = "Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance.debug.xcconfig"; sourceTree = "<group>"; };
 		CE9C6A91BCA1C205E7D33C87 /* Pods_Aetnia_Health_Insurance.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Aetnia_Health_Insurance.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		42AF8551236F4D650086AC78 /* Frameworks */ = {
+		427EBBDD2377B7F600A0C6E5 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42E29E8A23727FA000FD2885 /* CoreLocation.framework in Frameworks */,
-				42E29E8823727F9A00FD2885 /* MapKit.framework in Frameworks */,
-				79CE503121D330AB4CC0038F /* Pods_Aetnia_Health_Insurance.framework in Frameworks */,
+				427EBBDE2377B7F600A0C6E5 /* CoreLocation.framework in Frameworks */,
+				427EBBDF2377B7F600A0C6E5 /* MapKit.framework in Frameworks */,
+				427EBBE02377B7F600A0C6E5 /* Pods_Aetnia_Health_Insurance.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +158,7 @@
 				42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */,
 				420625902374057700F5AB45 /* DoctorsGenerator.swift */,
 				420625952374076700F5AB45 /* UserGenerator.swift */,
+				42C4B4AD23793C5200C60265 /* GeolocationHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -161,15 +211,53 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		4206258D237404E900F5AB45 /* FAILED Protocol Attempt */ = {
+		4256F3C62375BB0900B097DB /* Appointment Scheduler */ = {
 			isa = PBXGroup;
 			children = (
-				42002B022371EBD50023AE46 /* UserAndDocGenerator.swift */,
-				42E29E952372BE4B00FD2885 /* DoctorProtocol.swift */,
-				42E29E932372BE3C00FD2885 /* PhysicianModel.swift */,
-				42E29E972372BEC100FD2885 /* DentistModel.swift */,
+				4277E75A2377267D005BF1EC /* UIKit */,
+				4256F3C92375BB2600B097DB /* Model */,
+				427EBBED2377E13900A0C6E5 /* ViewModel */,
+				427EBBF02377E1BE00A0C6E5 /* View */,
 			);
-			path = "FAILED Protocol Attempt";
+			path = "Appointment Scheduler";
+			sourceTree = "<group>";
+		};
+		4256F3C92375BB2600B097DB /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				4280BD9923773CB900FB7480 /* Appointment.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		4277E75A2377267D005BF1EC /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				4277E756237724BE005BF1EC /* AppointmentsCalendarManager.swift */,
+				4277E75B237726A0005BF1EC /* AppointmentsCalendarHeader.swift */,
+				4280BE3A2377955B00FB7480 /* AppointmentsViewController.swift */,
+				4277E761237728A4005BF1EC /* AppointmentsViewController.xib */,
+				4277E76723772A03005BF1EC /* CalendarViewCell.swift */,
+				4277E76823772A03005BF1EC /* CalendarViewCell.xib */,
+				4277E75F237727B9005BF1EC /* TimeSlotCollectionViewCell.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		427EBBED2377E13900A0C6E5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				427EBBEE2377E16A00A0C6E5 /* AppointmentRowViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		427EBBF02377E1BE00A0C6E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				427EBBF12377E1F500A0C6E5 /* AppointmentRow.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		42AF854B236F4D650086AC78 = {
@@ -185,7 +273,7 @@
 		42AF8555236F4D650086AC78 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				42AF8554236F4D650086AC78 /* Aetnia Health Insurance.app */,
+				427EBBEB2377B7F600A0C6E5 /* Aetnia Health Insurance.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -193,7 +281,6 @@
 		42AF8556236F4D650086AC78 /* Aetnia Health Insurance */ = {
 			isa = PBXGroup;
 			children = (
-				4206258D237404E900F5AB45 /* FAILED Protocol Attempt */,
 				42AF8578236F5C980086AC78 /* Constants */,
 				42AF8571236F5A0E0086AC78 /* Features */,
 				42AF8570236F5A020086AC78 /* AppMain */,
@@ -218,7 +305,7 @@
 				42AF8573236F5A360086AC78 /* Extensions */,
 				42AF855D236F4D650086AC78 /* Assets.xcassets */,
 				42AF8562236F4D650086AC78 /* LaunchScreen.storyboard */,
-				42AF8565236F4D650086AC78 /* Info.plist */,
+				427EBBEC2377B7F700A0C6E5 /* Info.plist */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -237,6 +324,9 @@
 		42AF8571236F5A0E0086AC78 /* Features */ = {
 			isa = PBXGroup;
 			children = (
+				42C4B4A9237939C600C60265 /* Maps */,
+				42C4B4A42378CAC000C60265 /* Image Viewer */,
+				4256F3C62375BB0900B097DB /* Appointment Scheduler */,
 				42002B0A23726CE60023AE46 /* Prescriptions */,
 				42002B0923726CDF0023AE46 /* Notifications */,
 				42002B0823726CCF0023AE46 /* Doctor Search */,
@@ -261,10 +351,16 @@
 		42AF8573236F5A360086AC78 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				4277E76B23772AEB005BF1EC /* CALayer+AddBorder.swift */,
+				4277E7652377297B005BF1EC /* DateHelper.swift */,
 				42AF8574236F5A570086AC78 /* Image+ImageAssetNames.swift */,
 				42F41C02237181200068D899 /* Int+GetDigits.swift */,
+				4277E7582377252D005BF1EC /* UIAlertController+QuickAlerts.swift */,
 				42AF8576236F5BAB0086AC78 /* UIColor+Constructors.swift */,
-				42E29E9A237355B200FD2885 /* View+AeniaBackground.swift */,
+				4277E75D2377271B005BF1EC /* UIView+Layout.swift */,
+				4277E76D23772BDE005BF1EC /* Notification+Names.swift */,
+				427EBBF32377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift */,
+				427EBBF52377FBB200A0C6E5 /* UITextView+CenterVertically.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -283,6 +379,8 @@
 			isa = PBXGroup;
 			children = (
 				42AF857C236FB13D0086AC78 /* TextField(MOD)ClearButton.swift */,
+				4256F3CA2375FF8B00B097DB /* NavigationView(MOD)AetniaNavConfig.swift */,
+				42E29E9A237355B200FD2885 /* View(MOD)AeniaBackground.swift */,
 			);
 			path = "View Modifiers";
 			sourceTree = "<group>";
@@ -312,10 +410,35 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		42C4B4A42378CAC000C60265 /* Image Viewer */ = {
+			isa = PBXGroup;
+			children = (
+				42C4B4A52378CAD700C60265 /* ZoomableImageView.swift */,
+			);
+			path = "Image Viewer";
+			sourceTree = "<group>";
+		};
+		42C4B4A9237939C600C60265 /* Maps */ = {
+			isa = PBXGroup;
+			children = (
+				42C4B4AA237939CF00C60265 /* View */,
+			);
+			path = Maps;
+			sourceTree = "<group>";
+		};
+		42C4B4AA237939CF00C60265 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42C4B4AB237939DD00C60265 /* MapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		42E29E8223726E6600FD2885 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				42E29E8323726E9400FD2885 /* HomeView.swift */,
+				420E4E392375191D0021959E /* UserInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,7 +446,7 @@
 		42E29E8B2372814600FD2885 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				42E29E8C2372816600FD2885 /* HomeViewModel.swift */,
+				42C4B4A22378BD5200C60265 /* UserInfoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -331,7 +454,10 @@
 		42E29E902372BDF200FD2885 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				42C4B4A7237901FF00C60265 /* ContactButton.swift */,
+				420625A22374819D00F5AB45 /* DoctorSearchRow.swift */,
 				420625882373F80D00F5AB45 /* DoctorSearchView.swift */,
+				4256F3C42375BA1900B097DB /* DoctorInfoView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -339,6 +465,8 @@
 		42E29E912372BDFA00FD2885 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				420625A42374847100F5AB45 /* DoctorSearchRowViewModel.swift */,
+				420625A023740A3500F5AB45 /* DoctorSearchViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -346,7 +474,7 @@
 		42E29E922372BE0A00FD2885 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				4206258A2374030A00F5AB45 /* DoctorModel.swift */,
+				4206258A2374030A00F5AB45 /* Doctor.swift */,
 				42062593237406CC00F5AB45 /* CoverageInfo.swift */,
 			);
 			path = Model;
@@ -355,7 +483,7 @@
 		42F41BFD23717DF80068D899 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				42F41C0023717EAA0068D899 /* UserModel.swift */,
+				42F41C0023717EAA0068D899 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -371,7 +499,6 @@
 		42F41BFF23717E130068D899 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				42AF8559236F4D650086AC78 /* SceneDelegate.swift */,
 				42AF8557236F4D650086AC78 /* AppDelegate.swift */,
 				42AF855B236F4D650086AC78 /* AppMainView.swift */,
 				4249BF8523715A800047093A /* HomeTabView.swift */,
@@ -403,15 +530,15 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		42AF8553236F4D650086AC78 /* Aetnia Health Insurance */ = {
+		427EBBAD2377B7F600A0C6E5 /* Aetnia Health Insurance */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 42AF8568236F4D650086AC78 /* Build configuration list for PBXNativeTarget "Aetnia Health Insurance" */;
+			buildConfigurationList = 427EBBE82377B7F600A0C6E5 /* Build configuration list for PBXNativeTarget "Aetnia Health Insurance" */;
 			buildPhases = (
-				4E7361BDD3117CA6500D271D /* [CP] Check Pods Manifest.lock */,
-				42AF8550236F4D650086AC78 /* Sources */,
-				42AF8551236F4D650086AC78 /* Frameworks */,
-				42AF8552236F4D650086AC78 /* Resources */,
-				72747026C697B7065509BA1F /* [CP] Embed Pods Frameworks */,
+				427EBBAE2377B7F600A0C6E5 /* [CP] Check Pods Manifest.lock */,
+				427EBBAF2377B7F600A0C6E5 /* Sources */,
+				427EBBDD2377B7F600A0C6E5 /* Frameworks */,
+				427EBBE12377B7F600A0C6E5 /* Resources */,
+				427EBBE72377B7F600A0C6E5 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -419,7 +546,7 @@
 			);
 			name = "Aetnia Health Insurance";
 			productName = "Aetnia Health Insurance";
-			productReference = 42AF8554236F4D650086AC78 /* Aetnia Health Insurance.app */;
+			productReference = 427EBBEB2377B7F600A0C6E5 /* Aetnia Health Insurance.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -431,11 +558,6 @@
 				LastSwiftUpdateCheck = 1110;
 				LastUpgradeCheck = 1110;
 				ORGANIZATIONNAME = "Faultliner Applications, LLC";
-				TargetAttributes = {
-					42AF8553236F4D650086AC78 = {
-						CreatedOnToolsVersion = 11.1;
-					};
-				};
 			};
 			buildConfigurationList = 42AF854F236F4D650086AC78 /* Build configuration list for PBXProject "Aetnia Health Insurance" */;
 			compatibilityVersion = "Xcode 9.3";
@@ -450,26 +572,28 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				42AF8553236F4D650086AC78 /* Aetnia Health Insurance */,
+				427EBBAD2377B7F600A0C6E5 /* Aetnia Health Insurance */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		42AF8552236F4D650086AC78 /* Resources */ = {
+		427EBBE12377B7F600A0C6E5 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				42AF8564236F4D650086AC78 /* LaunchScreen.storyboard in Resources */,
-				42AF8561236F4D650086AC78 /* Preview Assets.xcassets in Resources */,
-				42AF855E236F4D650086AC78 /* Assets.xcassets in Resources */,
+				427EBBE22377B7F600A0C6E5 /* AppointmentsViewController.xib in Resources */,
+				427EBBE32377B7F600A0C6E5 /* CalendarViewCell.xib in Resources */,
+				427EBBE42377B7F600A0C6E5 /* LaunchScreen.storyboard in Resources */,
+				427EBBE52377B7F600A0C6E5 /* Preview Assets.xcassets in Resources */,
+				427EBBE62377B7F600A0C6E5 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4E7361BDD3117CA6500D271D /* [CP] Check Pods Manifest.lock */ = {
+		427EBBAE2377B7F600A0C6E5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -491,7 +615,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		72747026C697B7065509BA1F /* [CP] Embed Pods Frameworks */ = {
+		427EBBE72377B7F600A0C6E5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -501,12 +625,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/BEMCheckBox/BEMCheckBox.framework",
+				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BEMCheckBox.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -516,38 +642,63 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		42AF8550236F4D650086AC78 /* Sources */ = {
+		427EBBAF2377B7F600A0C6E5 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				423EA3F4236FB64B000E6208 /* AppColorConstants.swift in Sources */,
-				42E29E8D2372816600FD2885 /* HomeViewModel.swift in Sources */,
-				4206259A2374088400F5AB45 /* DentistModel.swift in Sources */,
-				42002B05237230A20023AE46 /* AppMainNavigationBar.swift in Sources */,
-				42AF856E236F58B10086AC78 /* ImageAssetName.swift in Sources */,
-				42AF857A236F9D3E0086AC78 /* LoginTextField.swift in Sources */,
-				420625992374088400F5AB45 /* PhysicianModel.swift in Sources */,
-				42AF857D236FB13D0086AC78 /* TextField(MOD)ClearButton.swift in Sources */,
-				42AF8575236F5A570086AC78 /* Image+ImageAssetNames.swift in Sources */,
-				42AF8577236F5BAB0086AC78 /* UIColor+Constructors.swift in Sources */,
-				4249BF83237159D60047093A /* UserAuth.swift in Sources */,
-				42E29E862372713E00FD2885 /* CreateNewUserView.swift in Sources */,
-				42AF8558236F4D650086AC78 /* AppDelegate.swift in Sources */,
-				42F41C03237181200068D899 /* Int+GetDigits.swift in Sources */,
-				420625982374088400F5AB45 /* DoctorProtocol.swift in Sources */,
-				42E29E992372CAC400FD2885 /* AvatarPictureRandomizer.swift in Sources */,
-				42E29E9B237355B200FD2885 /* View+AeniaBackground.swift in Sources */,
-				42E29E9D23735E4300FD2885 /* SplashScreen.swift in Sources */,
-				420625972374088400F5AB45 /* UserAndDocGenerator.swift in Sources */,
-				42F41C0123717EAA0068D899 /* UserModel.swift in Sources */,
-				42AF855A236F4D650086AC78 /* SceneDelegate.swift in Sources */,
-				42E29E8423726E9400FD2885 /* HomeView.swift in Sources */,
-				423EA3F6236FE93A000E6208 /* UserDefaults.swift in Sources */,
-				42AF856C236F53A00086AC78 /* LoginView.swift in Sources */,
-				4249BF8623715A800047093A /* HomeTabView.swift in Sources */,
-				42002B002371E9000023AE46 /* UserViewModel.swift in Sources */,
-				42AF8582236FB3880086AC78 /* BEMCheckBoxView.swift in Sources */,
-				42AF855C236F4D650086AC78 /* AppMainView.swift in Sources */,
+				427EBBB02377B7F600A0C6E5 /* SplashScreen.swift in Sources */,
+				427EBBF42377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift in Sources */,
+				427EBBB12377B7F600A0C6E5 /* AppDelegate.swift in Sources */,
+				427EBBB22377B7F600A0C6E5 /* UserAuth.swift in Sources */,
+				427EBBB32377B7F600A0C6E5 /* DateHelper.swift in Sources */,
+				427EBBB42377B7F600A0C6E5 /* Notification+Names.swift in Sources */,
+				427EBBB52377B7F600A0C6E5 /* DoctorSearchViewModel.swift in Sources */,
+				427EBBB62377B7F600A0C6E5 /* DoctorSearchRow.swift in Sources */,
+				427EBBB72377B7F600A0C6E5 /* TimeSlotCollectionViewCell.swift in Sources */,
+				427EBBB82377B7F600A0C6E5 /* ImageAssetName.swift in Sources */,
+				427EBBB92377B7F600A0C6E5 /* BEMCheckBoxView.swift in Sources */,
+				427EBBBA2377B7F600A0C6E5 /* CoverageInfo.swift in Sources */,
+				427EBBBB2377B7F600A0C6E5 /* Image+ImageAssetNames.swift in Sources */,
+				427EBBBC2377B7F600A0C6E5 /* UserInfoView.swift in Sources */,
+				427EBBBD2377B7F600A0C6E5 /* UIColor+Constructors.swift in Sources */,
+				427EBBBE2377B7F600A0C6E5 /* CalendarViewCell.swift in Sources */,
+				427EBBBF2377B7F600A0C6E5 /* AppointmentsViewController.swift in Sources */,
+				42C4B4AC237939DD00C60265 /* MapView.swift in Sources */,
+				427EBBC02377B7F600A0C6E5 /* HomeView.swift in Sources */,
+				427EBBC12377B7F600A0C6E5 /* AppointmentsCalendarManager.swift in Sources */,
+				427EBBC22377B7F600A0C6E5 /* AppMainView.swift in Sources */,
+				427EBBF22377E1F500A0C6E5 /* AppointmentRow.swift in Sources */,
+				42C4B4A8237901FF00C60265 /* ContactButton.swift in Sources */,
+				427EBBC32377B7F600A0C6E5 /* LoginTextField.swift in Sources */,
+				427EBBC42377B7F600A0C6E5 /* AppointmentsCalendarHeader.swift in Sources */,
+				427EBBC52377B7F600A0C6E5 /* UserGenerator.swift in Sources */,
+				427EBBC62377B7F600A0C6E5 /* UIView+Layout.swift in Sources */,
+				427EBBC72377B7F600A0C6E5 /* NavigationView(MOD)AetniaNavConfig.swift in Sources */,
+				427EBBC82377B7F600A0C6E5 /* UIAlertController+QuickAlerts.swift in Sources */,
+				427EBBC92377B7F600A0C6E5 /* AppMainNavigationBar.swift in Sources */,
+				427EBBCA2377B7F600A0C6E5 /* UserDefaults.swift in Sources */,
+				427EBBCB2377B7F600A0C6E5 /* DoctorsGenerator.swift in Sources */,
+				427EBBCC2377B7F600A0C6E5 /* CALayer+AddBorder.swift in Sources */,
+				427EBBCD2377B7F600A0C6E5 /* TextField(MOD)ClearButton.swift in Sources */,
+				42C4B4AE23793C5200C60265 /* GeolocationHelper.swift in Sources */,
+				427EBBCE2377B7F600A0C6E5 /* User.swift in Sources */,
+				427EBBCF2377B7F600A0C6E5 /* Int+GetDigits.swift in Sources */,
+				427EBBD02377B7F600A0C6E5 /* AppColorConstants.swift in Sources */,
+				427EBBF62377FBB200A0C6E5 /* UITextView+CenterVertically.swift in Sources */,
+				427EBBD12377B7F600A0C6E5 /* AvatarPictureRandomizer.swift in Sources */,
+				42C4B4A32378BD5200C60265 /* UserInfoViewModel.swift in Sources */,
+				427EBBD22377B7F600A0C6E5 /* View(MOD)AeniaBackground.swift in Sources */,
+				42C4B4A62378CAD700C60265 /* ZoomableImageView.swift in Sources */,
+				427EBBD32377B7F600A0C6E5 /* DoctorSearchRowViewModel.swift in Sources */,
+				427EBBD52377B7F600A0C6E5 /* UserViewModel.swift in Sources */,
+				427EBBD62377B7F600A0C6E5 /* DoctorSearchView.swift in Sources */,
+				427EBBD72377B7F600A0C6E5 /* CreateNewUserView.swift in Sources */,
+				427EBBD82377B7F600A0C6E5 /* DoctorInfoView.swift in Sources */,
+				427EBBD92377B7F600A0C6E5 /* LoginView.swift in Sources */,
+				427EBBEF2377E16A00A0C6E5 /* AppointmentRowViewModel.swift in Sources */,
+				427EBBDA2377B7F600A0C6E5 /* Appointment.swift in Sources */,
+				427EBBDB2377B7F600A0C6E5 /* HomeTabView.swift in Sources */,
+				427EBBDC2377B7F600A0C6E5 /* Doctor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -565,6 +716,54 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		427EBBE92377B7F600A0C6E5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 438D880D6586F9446EB85505 /* Pods-Aetnia Health Insurance.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Aetnia Health Insurance/Preview Content\"";
+				DEVELOPMENT_TEAM = G2E74W75L6;
+				ENABLE_PREVIEWS = NO;
+				INFOPLIST_FILE = "/Users/anthonyrosario/Desktop/Faultliner Applications/Aetnia Health Insurance App/Aetnia Health Insurance/Aetnia Health Insurance/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.faultlinerapps.Aetnia-Health-Insurance";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		427EBBEA2377B7F600A0C6E5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2B052A419F331A537CB1ACEB /* Pods-Aetnia Health Insurance.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"Aetnia Health Insurance/Preview Content\"";
+				DEVELOPMENT_TEAM = G2E74W75L6;
+				ENABLE_PREVIEWS = NO;
+				INFOPLIST_FILE = "/Users/anthonyrosario/Desktop/Faultliner Applications/Aetnia Health Insurance App/Aetnia Health Insurance/Aetnia Health Insurance/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.faultlinerapps.Aetnia-Health-Insurance";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		42AF8566236F4D650086AC78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -615,7 +814,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				INFOPLIST_FILE = "/Users/anthonyrosario/Desktop/Faultliner Applications/Aetnia Health Insurance App/Aetnia Health Insurance/Aetnia Health Insurance/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -669,7 +869,8 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
+				INFOPLIST_FILE = "/Users/anthonyrosario/Desktop/Faultliner Applications/Aetnia Health Insurance App/Aetnia Health Insurance/Aetnia Health Insurance/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -679,65 +880,23 @@
 			};
 			name = Release;
 		};
-		42AF8569236F4D650086AC78 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 438D880D6586F9446EB85505 /* Pods-Aetnia Health Insurance.debug.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Aetnia Health Insurance/Preview Content\"";
-				DEVELOPMENT_TEAM = G2E74W75L6;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Aetnia Health Insurance/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.faultlinerapps.Aetnia-Health-Insurance";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		42AF856A236F4D650086AC78 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2B052A419F331A537CB1ACEB /* Pods-Aetnia Health Insurance.release.xcconfig */;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"Aetnia Health Insurance/Preview Content\"";
-				DEVELOPMENT_TEAM = G2E74W75L6;
-				ENABLE_PREVIEWS = YES;
-				INFOPLIST_FILE = "Aetnia Health Insurance/Supporting Files/Info.plist";
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.faultlinerapps.Aetnia-Health-Insurance";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		427EBBE82377B7F600A0C6E5 /* Build configuration list for PBXNativeTarget "Aetnia Health Insurance" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				427EBBE92377B7F600A0C6E5 /* Debug */,
+				427EBBEA2377B7F600A0C6E5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		42AF854F236F4D650086AC78 /* Build configuration list for PBXProject "Aetnia Health Insurance" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				42AF8566236F4D650086AC78 /* Debug */,
 				42AF8567236F4D650086AC78 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		42AF8568236F4D650086AC78 /* Build configuration list for PBXNativeTarget "Aetnia Health Insurance" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				42AF8569236F4D650086AC78 /* Debug */,
-				42AF856A236F4D650086AC78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

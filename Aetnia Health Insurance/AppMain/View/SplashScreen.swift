@@ -33,9 +33,9 @@ struct SplashScreen: View {
                         .font(Font.custom("Arial", size: 80).italic().bold())
                         .foregroundColor(.aetniaBlue)
                     
-                }.padding(.bottom, geo.size.height / 4)
+                }.padding(.bottom, geo.size.height / 3.8)
             }
             
-        }
+        }.background(Color(.systemBackground))
     }
 }

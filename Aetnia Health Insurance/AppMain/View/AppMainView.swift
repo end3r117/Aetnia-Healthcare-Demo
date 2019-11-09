@@ -11,6 +11,7 @@ import SwiftUI
 struct AppMainView: View {
     @EnvironmentObject var userAuth: UserAuth
     @EnvironmentObject var userDefaults: UserDefaultsSwiftUI
+    let doctorSearchViewModel: DoctorSearchViewModel = DoctorSearchViewModel()
     
     @State var showSplash: Bool = true
     
@@ -30,16 +31,13 @@ struct AppMainView: View {
                 }
             }else {
                 if self.userAuth.isLoggedIn {
-                    //withAnimation(loginAnimation) {
-                        HomeTabView()
-                            //.modifier(AetniaBackgroundViewModifier())
+                    HomeTabView().environmentObject(doctorSearchViewModel).environmentObject(userAuth)
                             .transition(.opacity)
-                            //.animation(Animation.easeOut(duration: 3))
-                    //}
                 }else {
                     withAnimation(loginAnimation) {
                         LoginView()
                             .transition(.opacity)
+                        
                         
                     }
                     

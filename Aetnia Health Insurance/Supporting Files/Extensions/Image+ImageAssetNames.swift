@@ -8,6 +8,7 @@
 
 import SwiftUI
 
+@available(iOS 13.0, *)
 extension Image {
     init(_ imageAssetName: ImageAssetName) {
         self.init(imageAssetName.rawValue)

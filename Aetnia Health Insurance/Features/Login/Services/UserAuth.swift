@@ -9,7 +9,7 @@
 import Combine
 
 class UserAuth: ObservableObject {
-    var loggedInUser: UserModel!
+    var loggedInUser: User!
     
     @Published var isLoggedIn = false {
         didSet {
@@ -27,7 +27,7 @@ class UserAuth: ObservableObject {
     
     func login(username: String, password: String) {
         if username != "" && password != "" {
-            self.loggedInUser = UserAndDocGenerator.getFakeUser(username: username)
+            self.loggedInUser = UserGenerator.getFakeUser(username: username)
             self.isLoggedIn = true
         }else {
             self.isLoggedIn = false

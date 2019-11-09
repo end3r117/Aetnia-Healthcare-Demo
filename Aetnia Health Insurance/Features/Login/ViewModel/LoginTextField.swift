@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct LoginTextField: View {
     @Binding var text: String
@@ -15,7 +16,7 @@ struct LoginTextField: View {
     var title: String
     var isPrivate: Bool
     var size: CGSize
-    var roundedStyle: RoundedRectStyle.RoundedStyle
+    var roundedStyle: RoundedStyle
     
     var body: some View {
         ZStack {
@@ -45,25 +46,43 @@ struct LoginTextField: View {
         }
     }
 }
-
+enum RoundedStyle {
+    case roundedTop
+    case roundedBottom
+}
 struct RoundedRectStyle: TextFieldStyle {
-    enum RoundedStyle {
-        case roundedTop
-        case roundedBottom
-    }
+    
     
     var roundedStyle: RoundedStyle
     
     public func _body(configuration: TextField<Self._Label>) -> some View {
         GeometryReader { geo in
-        configuration
-            .padding(8)
-            .background(
-                Image(self.roundedStyle == .roundedTop ? ImageAssetName.usernameTextField : ImageAssetName.passwordTextField)
-                    .resizable()
-                    .frame(width: geo.size.width + 12, height: geo.size.height + 12)
-                    .padding(EdgeInsets(top: 4, leading: -20, bottom: 4, trailing: 0))
+            configuration
+                .padding(8)
+                .background(
+                    (self.roundedStyle == .roundedTop ? RoundedRect(style: .roundedTop) : RoundedRect(style: .roundedBottom))
+                        .fill()
+                        .shadow(color: Color(UIColor.rgb(red: 160, green: 160, blue: 160, alpha: 0.3)), radius: 7, x: 0.5, y: 0.5)
+                        .foregroundColor(Color(UIColor.systemBackground))
+                        .frame(width: geo.size.width + 8, height: geo.size.height)
+                        .padding(EdgeInsets(top: 4, leading: -20, bottom: 4, trailing: -20))
             )
         }
+    }
+}
+
+struct RoundedRect: Shape {
+    var style: RoundedStyle
+    var corners: [UIRectCorner] {
+        get {
+            if self.style == .roundedTop {
+                return [.topLeft, .topRight]
+            }else {
+                return [.bottomLeft, .bottomRight]
+            }
+        }
+    }
+    func path(in rect: CGRect) -> Path {
+        return Path(UIBezierPath(roundedRect: rect, byRoundingCorners: [corners[0], corners[1]], cornerRadii: CGSize(width: 20, height: 20)).cgPath)
     }
 }

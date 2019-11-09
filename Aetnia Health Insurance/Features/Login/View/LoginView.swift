@@ -31,14 +31,14 @@ struct LoginView: View {
                 VStack  {
                     Text(verbatim: "Aetnia")
                         .font(Font.custom("Arial", size: 80).italic().bold())
-                        .foregroundColor(.aetniaBlue)
+                        .foregroundColor(Color(UIColor.appColor(.aetniaBlue)))
                         
                     HStack {
                         Spacer()
                             .frame(maxWidth: geometry.size.width / 2 + geometry.size.width * 0.02)
                         Text(verbatim: "healthcare partners")
                             .font(Font.custom("Arial", size: 20))
-                            .foregroundColor(.aetniaBlue)
+                            .foregroundColor(Color(UIColor.appColor(.aetniaBlue)))
                         Spacer()
                     }.padding([.trailing], geometry.size.width * 0.08)
                     Spacer()
@@ -46,8 +46,8 @@ struct LoginView: View {
                     VStack(alignment: .leading) {
                         LoginTextField(text: self.$username, title: "Username", isPrivate: false, size:(UIDevice.current.userInterfaceIdiom == .phone ? CGSize(width: geometry.size.width * 0.67, height: 44) : CGSize(width: geometry.size.width * 0.33, height: 44)), roundedStyle: .roundedTop)
                             .onAppear {
-                                if self.userDefaults.savedUsername != nil && self.userDefaults.rememberUsername {
-                                    self.username = self.userDefaults.savedUsername ?? ""
+                                if self.userDefaults.savedUsername != "" && self.userDefaults.rememberUsername {
+                                    self.username = self.userDefaults.savedUsername
                                     self.shouldRememberUsername = true
                                 }
                         }
@@ -60,7 +60,7 @@ struct LoginView: View {
                                 .frame(width: 20, height: 20)
                             Text("Remember me")
                                 .font(.system(size: 14, weight: .medium))
-                                .foregroundColor(Color(UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)))
+                                .foregroundColor(.aetniaGrey)
                                 .padding(.leading, 2)
                                 .opacity(0.85)
                         }.padding(.top, 10)
@@ -69,7 +69,7 @@ struct LoginView: View {
                                 .frame(width: 20, height: 20)
                             Text("Keep me logged in")
                                 .font(.system(size: 14, weight: .medium))
-                                .foregroundColor(Color(UIColor.rgb(red: 0, green: 0, blue: 0, alpha: 0.5)))
+                                .foregroundColor(.aetniaGrey)
                                 .padding(.leading, 2)
                                 .opacity(0.85)
                         }.padding(.top, 2)
@@ -84,7 +84,7 @@ struct LoginView: View {
                                 if self.shouldRememberUsername {
                                     self.userDefaults.savedUsername = self.username
                                 }else {
-                                    self.userDefaults.savedUsername = nil
+                                    self.userDefaults.savedUsername = ""
                                 }
                                 self.userAuth.login(username: self.username, password: self.password)
                             }
@@ -93,13 +93,13 @@ struct LoginView: View {
                                 .font(.system(size: 18, weight: .bold))
                                 .padding()
                                 .frame(width: geometry.size.width * 0.30, height: geometry.size.height * 0.05)
-                                .background(Color.aetniaBlue)
+                                .background(Color(UIColor.appColor(.aetniaBlue)))
                                 .cornerRadius(8)
-                                .foregroundColor(.white)
+                                    .foregroundColor(Color(UIColor.systemBackground))
                                 .padding(3)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
-                                        .stroke(Color.aetniaBlue, lineWidth: 2)
+                                        .stroke(Color(UIColor.appColor(.aetniaBlue)), lineWidth: 2)
                             )
                                 .alert(isPresented: self.$showAlert) {
                                     Alert(title: Text(""), message: Text("You must enter a username and password."), dismissButton: .default(Text("Got it")))
@@ -113,7 +113,7 @@ struct LoginView: View {
                     }) {
                         Text("Trouble logging in?")
                             .font(.system(size: 16, weight: .regular))
-                            .foregroundColor(.aetniaBlue)
+                            .foregroundColor(Color(UIColor.appColor(.aetniaBlue)))
                             .padding(.bottom, 24)
                     }
                     Button(action: {
@@ -122,14 +122,14 @@ struct LoginView: View {
                         Text("Register new account")
                             .font(.system(size: geometry.size.width * 0.05, weight: .bold))
                             .kerning(0.2)
-                            .foregroundColor(.aetniaBlue)
+                            .foregroundColor(Color(UIColor.appColor(.aetniaBlue)))
                             .padding(.bottom, geometry.size.height * 0.02)
                     }.sheet(isPresented: self.$showRegistration, onDismiss: {
                         print("Bye")
                     }) {
                         CreateNewUserView()
                     }
-                }
+                    }.navigationBarHidden(true)
                 .padding(.top, geometry.size.height * 0.05)
             }
         }.onTapGesture {
