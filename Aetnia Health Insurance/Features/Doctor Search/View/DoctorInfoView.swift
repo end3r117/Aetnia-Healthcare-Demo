@@ -31,7 +31,7 @@ struct DoctorInfoView: View {
                                 self.mainImage
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(minWidth: UIScreen.main.bounds.width, maxWidth: UIScreen.main.bounds.width, minHeight: 0, maxHeight: UIScreen.main.bounds.height / 5)
+                                    .frame(minWidth: UIScreen.main.bounds.width, maxWidth: UIScreen.main.bounds.width, minHeight: 0, maxHeight: UIScreen.main.bounds.height / 6)
                                     .clipped()
                                     .onTapGesture {
                                         withAnimation {
@@ -43,25 +43,23 @@ struct DoctorInfoView: View {
                                 }
                                 .transition(.asymmetric(insertion: .move(edge: .bottom), removal: .move(edge: .bottom)))
                                 Spacer()
+                                    
                             }
-                            AvatarView(avatar: AvatarMaker.resizeAvatar(self.$avatar, radius: (self.navConfig.orientation == .portrait ? 200 : 100)))
-                                .padding(.top, UIScreen.main.bounds.height / 10)
+                            AvatarView(avatar: AvatarMaker.resizeAvatar(self.$avatar, diameter: (self.navConfig.orientation == .portrait ? 140 : 100)))
+                                .padding(.top, 12)
                                 .animation(nil)
                                 .layoutPriority(1)
+                            
                         }
                     }
                     ScrollView {
                         VStack {
                             Text("\(self.dataModel.doctorFirstName) \(self.dataModel.doctorLastName), \(self.dataModel.docType.rawValue)").bold()
                             Text("\(self.dataModel.addressNumberStreet)")
-                            Text("\(self.dataModel.addressCityStateZip)")
+                            Text("\(self.dataModel.addressCityState) \(self.dataModel.addressZip)")
                                 .layoutPriority(1)
                         }
                         VStack {
-                            MapView(cityName: self.dataModel.addressCityStateZip)
-                                .frame(width: UIScreen.main.bounds.width * 0.7, height: (self.navConfig.orientation == .portrait ? 200 : 100))
-                                .padding()
-                            Spacer()
                             VStack {
                                 ContactButton(text: "Schedule Appointment", size: geo.size, textColor: Color(.systemBackground), backgroundColor: Color(.systemPurple), icon: Image(.calendar), action: {
                                     let windowRVC = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.rootViewController as? UINavigationController
@@ -75,8 +73,24 @@ struct DoctorInfoView: View {
                                 Spacer()
                                 ContactButton(text: "Call", size: geo.size, textColor: Color(.systemBackground), backgroundColor: Color(.systemGreen), icon: Image(.call).renderingMode(.original), disabled: true)
                                     .padding(.top, 4)
+                                ContactButton(text: "Message", size: geo.size, textColor: Color(.systemBackground), backgroundColor: .navBarDarkMode, icon: Image(.message).renderingMode(.template), disabled: false)
+                                    
+                                    .padding(.top, 4)
                             }
-                            
+                            MapView(cityName: self.dataModel.addressCityState, description: "Dr. \(self.dataModel.doctorLastName)", avatar: self.dataModel.avatar)
+                                .frame(width: UIScreen.main.bounds.width * 0.7, height: (self.navConfig.orientation == .portrait ? 200 : 100))
+                            .padding()
+                            Button(action: {
+                                
+                            }, label: {
+                                HStack {
+                                    Text("Get Directions")
+                                    Image(.directions)
+                                        .resizable()
+                                        .scaledToFill()
+                                        .frame(width: 30, height: 30)
+                                }.foregroundColor(Color(.darkGray))
+                            })
                         }
                         
                         Spacer()

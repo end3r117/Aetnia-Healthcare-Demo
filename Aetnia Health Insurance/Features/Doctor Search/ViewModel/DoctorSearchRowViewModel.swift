@@ -22,5 +22,6 @@ struct DoctorSearchRowViewModel {
 \(doctor.address.city), \(doctor.address.state) \(doctor.address.zip)
 """ }}
     var addressNumberStreet: String { get { "\(doctor.address.number) \(doctor.address.street)" }}
-    var addressCityStateZip: String { get { "\(doctor.address.city), \(doctor.address.state) \(doctor.address.zip)" }}
+    var addressCityState: String { get { "\(doctor.address.city), \(doctor.address.state)" }}
+    var addressZip: String { get { "\(doctor.address.zip)" }}
 }

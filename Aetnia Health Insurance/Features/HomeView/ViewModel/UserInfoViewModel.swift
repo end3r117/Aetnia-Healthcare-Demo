@@ -19,9 +19,9 @@ struct UserInfoViewModel {
     var avatar: Avatar { get { userViewModel.avatar} set { userViewModel.avatar = newValue } }
     var userAvatarView: AvatarView
     func refreshAvatar(_ radius: CGFloat = 200) -> AvatarView {
-            return AvatarView(gender: self.avatar.gender, radius: radius)
+        return AvatarView(gender: self.avatar.gender, diameter: radius)
     }
-    func getUserAvatarView(_ radius: CGFloat) -> AvatarView { AvatarView(avatar: AvatarMaker.resizeAvatar(userViewModel.avatar, radius: radius)) }
+    func getUserAvatarView(_ radius: CGFloat) -> AvatarView { AvatarView(avatar: AvatarMaker.resizeAvatar(userViewModel.avatar, diameter: radius)) }
     var userMedicalType: InsuranceType { get { userViewModel.medicalInsuranceType }}
     var userDentalType: InsuranceType { get { userViewModel.dentistInsuranceType }}
     

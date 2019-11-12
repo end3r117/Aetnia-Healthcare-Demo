@@ -24,9 +24,9 @@ struct DoctorsGenerator {
             let name = randomName(for: mf)
             if mf == .male {
                 
-                avatar = AvatarMaker.makeMeAnAvatarPlease(gender: .male, radius: 50)
+                avatar = AvatarMaker.makeMeAnAvatarPlease(gender: .male, diameter: 50)
             }else {
-                avatar = AvatarMaker.makeMeAnAvatarPlease(gender: .female, radius: 50)
+                avatar = AvatarMaker.makeMeAnAvatarPlease(gender: .female, diameter: 50)
             }
             let firstName = name.firstName
             let lastName = name.lastName

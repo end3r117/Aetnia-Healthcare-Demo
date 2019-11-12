@@ -34,10 +34,10 @@ struct ContactButton: View {
                     icon
                         .resizable()
                         .scaledToFill()
-                        .frame(width: 35, height: 35)
+                        .frame(width: 45, height: 35)
                         .foregroundColor(textColor)
                         .padding(self.additionalPaddingForIcon)
-                        .clipped()
+                        //.clipped()
                     Rectangle()
                         .stroke()
                         .frame(width: 0.5)//, height: 48) //size.width / 8.1)

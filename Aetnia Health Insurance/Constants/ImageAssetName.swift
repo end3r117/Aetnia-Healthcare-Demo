@@ -28,5 +28,5 @@ enum ImageAssetName: String, CaseIterable {
     case officeDentist3 = "office_dentist3"
     case dentist1, dentist2, dentist3, dentist4
     case dentistBanner1 = "dentistbanner1"
-    case calendar, call
+    case calendar, call, message, directions
 }

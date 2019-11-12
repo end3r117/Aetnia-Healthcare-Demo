@@ -68,6 +68,9 @@
 		42C4B4AC237939DD00C60265 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4AB237939DD00C60265 /* MapView.swift */; };
 		42C4B4AE23793C5200C60265 /* GeolocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4AD23793C5200C60265 /* GeolocationHelper.swift */; };
 		42EBAD41237A287D00C383AA /* UIView+AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD40237A287D00C383AA /* UIView+AddSubviews.swift */; };
+		42EBAD44237A791A00C383AA /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD43237A791A00C383AA /* Capital.swift */; };
+		42EBAD49237A86BC00C383AA /* UIView+AsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD48237A86BC00C383AA /* UIView+AsImage.swift */; };
+		42EBAD4B237A8F1100C383AA /* Color+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD4A237A8F1100C383AA /* Color+UIColor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -132,6 +135,9 @@
 		42E29E9A237355B200FD2885 /* View(MOD)AeniaBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View(MOD)AeniaBackground.swift"; sourceTree = "<group>"; };
 		42E29E9C23735E4300FD2885 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		42EBAD40237A287D00C383AA /* UIView+AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviews.swift"; sourceTree = "<group>"; };
+		42EBAD43237A791A00C383AA /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
+		42EBAD48237A86BC00C383AA /* UIView+AsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AsImage.swift"; sourceTree = "<group>"; };
+		42EBAD4A237A8F1100C383AA /* Color+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+UIColor.swift"; sourceTree = "<group>"; };
 		42F41C0023717EAA0068D899 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		42F41C02237181200068D899 /* Int+GetDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+GetDigits.swift"; sourceTree = "<group>"; };
 		438D880D6586F9446EB85505 /* Pods-Aetnia Health Insurance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aetnia Health Insurance.debug.xcconfig"; path = "Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,7 +164,6 @@
 				42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */,
 				420625902374057700F5AB45 /* DoctorsGenerator.swift */,
 				420625952374076700F5AB45 /* UserGenerator.swift */,
-				42C4B4AD23793C5200C60265 /* GeolocationHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -361,6 +366,8 @@
 				427EBBF32377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift */,
 				427EBBF52377FBB200A0C6E5 /* UITextView+CenterVertically.swift */,
 				42EBAD40237A287D00C383AA /* UIView+AddSubviews.swift */,
+				42EBAD48237A86BC00C383AA /* UIView+AsImage.swift */,
+				42EBAD4A237A8F1100C383AA /* Color+UIColor.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -421,6 +428,8 @@
 		42C4B4A9237939C600C60265 /* Maps */ = {
 			isa = PBXGroup;
 			children = (
+				42EBAD45237A79EE00C383AA /* Services */,
+				42EBAD42237A78ED00C383AA /* Model */,
 				42C4B4AA237939CF00C60265 /* View */,
 			);
 			path = Maps;
@@ -478,6 +487,22 @@
 				42062593237406CC00F5AB45 /* CoverageInfo.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		42EBAD42237A78ED00C383AA /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42EBAD43237A791A00C383AA /* Capital.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		42EBAD45237A79EE00C383AA /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				42C4B4AD23793C5200C60265 /* GeolocationHelper.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		42F41BFD23717DF80068D899 /* Model */ = {
@@ -664,12 +689,14 @@
 				427EBBBE2377B7F600A0C6E5 /* CalendarViewCell.swift in Sources */,
 				427EBBBF2377B7F600A0C6E5 /* AppointmentsViewController.swift in Sources */,
 				42C4B4AC237939DD00C60265 /* MapView.swift in Sources */,
+				42EBAD44237A791A00C383AA /* Capital.swift in Sources */,
 				427EBBC02377B7F600A0C6E5 /* HomeView.swift in Sources */,
 				427EBBC12377B7F600A0C6E5 /* AppointmentsCalendarManager.swift in Sources */,
 				427EBBC22377B7F600A0C6E5 /* AppMainView.swift in Sources */,
 				427EBBF22377E1F500A0C6E5 /* AppointmentRow.swift in Sources */,
 				42C4B4A8237901FF00C60265 /* ContactButton.swift in Sources */,
 				427EBBC32377B7F600A0C6E5 /* LoginTextField.swift in Sources */,
+				42EBAD49237A86BC00C383AA /* UIView+AsImage.swift in Sources */,
 				427EBBC42377B7F600A0C6E5 /* AppointmentsCalendarHeader.swift in Sources */,
 				427EBBC52377B7F600A0C6E5 /* UserGenerator.swift in Sources */,
 				427EBBC62377B7F600A0C6E5 /* UIView+Layout.swift in Sources */,
@@ -678,6 +705,7 @@
 				427EBBC92377B7F600A0C6E5 /* AppMainNavigationBar.swift in Sources */,
 				427EBBCA2377B7F600A0C6E5 /* UserDefaults.swift in Sources */,
 				427EBBCB2377B7F600A0C6E5 /* DoctorsGenerator.swift in Sources */,
+				42EBAD4B237A8F1100C383AA /* Color+UIColor.swift in Sources */,
 				427EBBCC2377B7F600A0C6E5 /* CALayer+AddBorder.swift in Sources */,
 				427EBBCD2377B7F600A0C6E5 /* TextField(MOD)ClearButton.swift in Sources */,
 				42C4B4AE23793C5200C60265 /* GeolocationHelper.swift in Sources */,
