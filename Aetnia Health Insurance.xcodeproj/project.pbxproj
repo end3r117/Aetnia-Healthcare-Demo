@@ -54,7 +54,6 @@
 		427EBBDE2377B7F600A0C6E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8923727FA000FD2885 /* CoreLocation.framework */; };
 		427EBBDF2377B7F600A0C6E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8723727F9A00FD2885 /* MapKit.framework */; };
 		427EBBE02377B7F600A0C6E5 /* Pods_Aetnia_Health_Insurance.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C6A91BCA1C205E7D33C87 /* Pods_Aetnia_Health_Insurance.framework */; };
-		427EBBE22377B7F600A0C6E5 /* AppointmentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4277E761237728A4005BF1EC /* AppointmentsViewController.xib */; };
 		427EBBE32377B7F600A0C6E5 /* CalendarViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4277E76823772A03005BF1EC /* CalendarViewCell.xib */; };
 		427EBBE42377B7F600A0C6E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 42AF8562236F4D650086AC78 /* LaunchScreen.storyboard */; };
 		427EBBE52377B7F600A0C6E5 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42AF8560236F4D650086AC78 /* Preview Assets.xcassets */; };
@@ -68,6 +67,7 @@
 		42C4B4A8237901FF00C60265 /* ContactButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4A7237901FF00C60265 /* ContactButton.swift */; };
 		42C4B4AC237939DD00C60265 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4AB237939DD00C60265 /* MapView.swift */; };
 		42C4B4AE23793C5200C60265 /* GeolocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4AD23793C5200C60265 /* GeolocationHelper.swift */; };
+		42EBAD41237A287D00C383AA /* UIView+AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD40237A287D00C383AA /* UIView+AddSubviews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -94,7 +94,6 @@
 		4277E75B237726A0005BF1EC /* AppointmentsCalendarHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsCalendarHeader.swift; sourceTree = "<group>"; };
 		4277E75D2377271B005BF1EC /* UIView+Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Layout.swift"; sourceTree = "<group>"; };
 		4277E75F237727B9005BF1EC /* TimeSlotCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeSlotCollectionViewCell.swift; sourceTree = "<group>"; };
-		4277E761237728A4005BF1EC /* AppointmentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AppointmentsViewController.xib; sourceTree = "<group>"; };
 		4277E7652377297B005BF1EC /* DateHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateHelper.swift; sourceTree = "<group>"; };
 		4277E76723772A03005BF1EC /* CalendarViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
 		4277E76823772A03005BF1EC /* CalendarViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CalendarViewCell.xib; sourceTree = "<group>"; };
@@ -132,6 +131,7 @@
 		42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarPictureRandomizer.swift; sourceTree = "<group>"; };
 		42E29E9A237355B200FD2885 /* View(MOD)AeniaBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View(MOD)AeniaBackground.swift"; sourceTree = "<group>"; };
 		42E29E9C23735E4300FD2885 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
+		42EBAD40237A287D00C383AA /* UIView+AddSubviews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AddSubviews.swift"; sourceTree = "<group>"; };
 		42F41C0023717EAA0068D899 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		42F41C02237181200068D899 /* Int+GetDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+GetDigits.swift"; sourceTree = "<group>"; };
 		438D880D6586F9446EB85505 /* Pods-Aetnia Health Insurance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aetnia Health Insurance.debug.xcconfig"; path = "Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance.debug.xcconfig"; sourceTree = "<group>"; };
@@ -236,7 +236,6 @@
 				4277E756237724BE005BF1EC /* AppointmentsCalendarManager.swift */,
 				4277E75B237726A0005BF1EC /* AppointmentsCalendarHeader.swift */,
 				4280BE3A2377955B00FB7480 /* AppointmentsViewController.swift */,
-				4277E761237728A4005BF1EC /* AppointmentsViewController.xib */,
 				4277E76723772A03005BF1EC /* CalendarViewCell.swift */,
 				4277E76823772A03005BF1EC /* CalendarViewCell.xib */,
 				4277E75F237727B9005BF1EC /* TimeSlotCollectionViewCell.swift */,
@@ -361,6 +360,7 @@
 				4277E76D23772BDE005BF1EC /* Notification+Names.swift */,
 				427EBBF32377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift */,
 				427EBBF52377FBB200A0C6E5 /* UITextView+CenterVertically.swift */,
+				42EBAD40237A287D00C383AA /* UIView+AddSubviews.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -582,7 +582,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				427EBBE22377B7F600A0C6E5 /* AppointmentsViewController.xib in Resources */,
 				427EBBE32377B7F600A0C6E5 /* CalendarViewCell.xib in Resources */,
 				427EBBE42377B7F600A0C6E5 /* LaunchScreen.storyboard in Resources */,
 				427EBBE52377B7F600A0C6E5 /* Preview Assets.xcassets in Resources */,
@@ -654,6 +653,7 @@
 				427EBBB42377B7F600A0C6E5 /* Notification+Names.swift in Sources */,
 				427EBBB52377B7F600A0C6E5 /* DoctorSearchViewModel.swift in Sources */,
 				427EBBB62377B7F600A0C6E5 /* DoctorSearchRow.swift in Sources */,
+				42EBAD41237A287D00C383AA /* UIView+AddSubviews.swift in Sources */,
 				427EBBB72377B7F600A0C6E5 /* TimeSlotCollectionViewCell.swift in Sources */,
 				427EBBB82377B7F600A0C6E5 /* ImageAssetName.swift in Sources */,
 				427EBBB92377B7F600A0C6E5 /* BEMCheckBoxView.swift in Sources */,

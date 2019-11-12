@@ -55,6 +55,10 @@ class MainNavigationController: UINavigationController {
 enum Orientation: String {
     case landscape, portrait
     
+    func opposite() -> Orientation {
+        self == .portrait ? .landscape : .portrait
+    }
+    
     static func getOrientation(from size: CGSize) -> Orientation {
         if size.width > size.height {
             return .landscape

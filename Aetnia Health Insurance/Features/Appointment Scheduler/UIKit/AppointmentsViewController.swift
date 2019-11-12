@@ -18,80 +18,187 @@ class AppointmentsViewController: UIViewController {
     init(dataModel: DoctorSearchRowViewModel, userAuth: UserAuth) {
         self.userAuth = userAuth
         self.doctorDataModel = dataModel
-        super.init(nibName: "AppointmentsViewController", bundle: nil)
+        super.init(nibName: nil, bundle: nil)
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    @IBOutlet weak var doctorNameLabel: UILabel! {
-        didSet {
-            doctorNameLabel.text = doctorName
-        }
-    }
+    lazy var doctorNameLabel: UILabel = {
+        let lbl = UILabel()
+        
+        lbl.text = doctorName
+        lbl.font = UIFont.systemFont(ofSize: 22, weight: .regular)
+        lbl.textAlignment = .center
+        
+        return lbl
+    }()
     
-    @IBOutlet weak var calendarAndDaysEmbeddedView: UIView!
-    @IBOutlet weak var calendarAndDaysHeightConstraint: NSLayoutConstraint!
-    @IBOutlet weak var calendarShade: UIView!
-    @IBOutlet var calendarView: JTAppleCalendarView! {
-        didSet {
-            calendarView.backgroundColor = ibCollectionViewBackgroundColor
-            setupCalendarView()
-            
-            calendarView.allowsMultipleSelection = false
-        }
-    }
-    @IBOutlet weak var lengthOfTimeTextField: UITextField! {
-        didSet {
-            lengthOfTimeTextField.backgroundColor = .aetniaLightBlue
-        }
-    }
-    @IBOutlet weak var servicePicker: UIPickerView! {
-        didSet {
-            servicePicker.setupShadow(opacity: 0.5, radius: 2, offset: CGSize(width: 0, height: 1), color: .aetniaBlue)
-        }
-    }
-    @IBOutlet weak var calendarDaysStackView: UIStackView! {
-           didSet {
-            calendarDaysStackView.arrangedSubviews.forEach({
-                if $0 is UILabel, let label = $0 as? UILabel {
-                    label.font = UIFont.systemFont(ofSize: 16, weight: .medium)
-                }
-            })
-           }
-       }
+    var chooseDateAndTimeLabel: UILabel = {
+        let lbl = UILabel()
+        
+        lbl.text = "Choose an available date and time"
+        lbl.font = UIFont.systemFont(ofSize: 17, weight: .regular)
+        
+        return lbl
+        
+    }()
+
+    var calendarShade: UIView = {
+        let v = UIView()
+        v.alpha = 0.5
+        v.backgroundColor = .secondarySystemBackground
+        
+        return v
+    }()
     
-    @IBOutlet weak var timeSlotsShade: UIView!
-    @IBOutlet weak var timeSlotsCollectionView: UICollectionView! {
-        willSet {
-            ibCollectionViewBackgroundColor = newValue.backgroundColor
-        }
-    }
-    @IBOutlet weak var continueButton: UIButton! {
-        didSet {
-            continueButton.backgroundColor = UIColor.aetniaBlue.withAlphaComponent(0.3)
-            continueButton.isEnabled = false
-        }
-    }
-    @IBOutlet weak var timeSlotsTextView: UITextView!
-    @IBOutlet weak var addEventCBLabel: UILabel!
-    @IBOutlet weak var addEventToCalendarCheckBox: BEMCheckBox! {
-        didSet {
-            addEventToCalendarCheckBox.boxType = .square
-            addEventToCalendarCheckBox.onCheckColor = .white
-            addEventToCalendarCheckBox.onAnimationType = .bounce
-            addEventToCalendarCheckBox.offAnimationType = .fade
-            addEventToCalendarCheckBox.offFillColor = .clear
-            addEventToCalendarCheckBox.onFillColor = .aetniaBlue
-            addEventToCalendarCheckBox.onTintColor = .aetniaBlue
-            addEventToCalendarCheckBox.tintColor = .aetniaBlue
-            
-        }
-    }
+    lazy var calendarView: JTAppleCalendarView = {
+        let cv = JTAppleCalendarView()
+        cv.backgroundColor = ibCollectionViewBackgroundColor
+        cv.scrollDirection = .horizontal
+        cv.scrollingMode = .stopAtEachSection
+        cv.allowsMultipleSelection = false
+        
+        return cv
+    }()
+    var serviceTextField: UITextField  = {
+        let tf = UITextField()
+        tf.backgroundColor = .aetniaLightBlue
+        tf.text = "--"
+        tf.textAlignment = .center
+        tf.font = UIFont.systemFont(ofSize: 18)
+        tf.textColor = .label
+        tf.layer.cornerRadius = 8
+        
+        return tf
+    }()
+    
+    var servicePicker: UIPickerView = {
+        let picker = UIPickerView()
+        picker.backgroundColor = .secondarySystemBackground
+        picker.setupShadow(opacity: 0.5, radius: 2, offset: CGSize(width: 0, height: 1), color: .aetniaBlue)
+        picker.isHidden = true
+        picker.layer.cornerRadius = 8
+        
+        return picker
+    }()
+    var calendarDaysStackView: UIStackView = {
+        let dayLabel = UILabel()
+        dayLabel.font = .systemFont(ofSize: 16, weight: .medium)
+        dayLabel.textAlignment = .center
+        dayLabel.numberOfLines = 1
+        dayLabel.textColor = .aetniaBlue
+        let days = [UILabel](repeating: dayLabel, count: 7)
+        
+        days[0].text = "S"
+        days[1].text = "M"
+        days[2].text = "T"
+        days[3].text = "W"
+        days[4].text = "T"
+        days[5].text = "F"
+        days[6].text = "S"
+        
+        let stackView = UIStackView(arrangedSubviews: days)
+        stackView.axis = .horizontal
+        stackView.alignment = .fill
+        stackView.distribution = .equalSpacing
+        stackView.spacing = 0
+        
+        return stackView
+    }()
+    
+    var timeSlotsShade: UIView = {
+        let v = UIView()
+        v.alpha = 0.5
+        v.backgroundColor = .secondarySystemBackground
+        
+        return v
+    }()
+    
+    var timeSlotsCollectionView: UICollectionView = {
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewLayout())
+        cv.backgroundColor = .secondarySystemBackground
+        
+        return cv
+    }()
+    
+    var continueButton: UIButton = {
+        let btn = UIButton(type: .custom)
+        btn.setTitle("Continue", for: .normal)
+        btn.setTitleColor(.systemBackground, for: .normal)
+        btn.backgroundColor = UIColor.aetniaBlue.withAlphaComponent(0.3)
+        btn.layer.cornerRadius = 8
+        btn.isEnabled = false
+        
+        return btn
+    }()
+    var timeSlotsTextView: UITextView = {
+        let tv = UITextView()
+        tv.font = UIFont(name: "HelveticaNeue- LightItalic", size: 12)
+        tv.textColor = UIColor.rgb(red: 74, green: 74, blue: 74, alpha: 0.7)
+        tv.text = "Tap an available date on the calendar to see available time-slots."
+        tv.textAlignment = .center
+        tv.backgroundColor = .clear
+        tv.isEditable = false
+        tv.isUserInteractionEnabled = false
+        tv.isSelectable = false
+        
+        return tv
+    }()
+    
+    var addEventCBLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.text = "Also add event to Calendar"
+        lbl.textColor = .darkGray
+        lbl.font = .systemFont(ofSize: 12)
+        lbl.alpha = 0.3
+        
+        return lbl
+    }()
+    
+    var addEventToCalendarCheckBox: BEMCheckBox = {
+        let cb = BEMCheckBox()
+        cb.on = true
+        cb.boxType = .square
+        cb.onCheckColor = .white
+        cb.onAnimationType = .bounce
+        cb.offAnimationType = .fade
+        cb.offFillColor = .clear
+        cb.onFillColor = .aetniaBlue
+        cb.onTintColor = .aetniaBlue
+        cb.tintColor = .aetniaBlue
+        
+        return cb
+    }()
+    
+    var scheduleAppointmentLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = .systemFont(ofSize: 19)
+        lbl.text = "Schedule an appointment with"
+        lbl.textAlignment = .center
+        lbl.textColor = UIColor.rgb(red: 74, green: 74, blue: 74)
+        
+        return lbl
+    }()
+    
+    var reasonForVisitLabel: UILabel = {
+        let lbl = UILabel()
+        lbl.font = .systemFont(ofSize: 17)
+        lbl.text = "Reason for your visit"
+        lbl.textColor = .label
+        
+        return lbl
+    }()
+        
+    var scrollView = UIScrollView()
+    var contentView = UIView()
+    var height: NSLayoutConstraint!
+    
     let store = EKEventStore()
     var eventsCalendarManager: EventsCalendarManager!
-    
+    var constraintsForPortrait = [NSLayoutConstraint]()
+    var constraintsForLandscape = [NSLayoutConstraint]()
     var calendarCellsAreHidden = true
     var calendarHeader: AppointmentsCalendarHeader?
     var currentlySelectedDate: Date?
@@ -117,7 +224,7 @@ class AppointmentsViewController: UIViewController {
             }
         }
     }
-    var ibCollectionViewBackgroundColor: UIColor!
+    var ibCollectionViewBackgroundColor: UIColor = .secondarySystemBackground
     enum LeftOrRight {
         case left, right
     }
@@ -130,7 +237,7 @@ class AppointmentsViewController: UIViewController {
             calendarView.scrollToSegment(.previous)
         }
     }
-    @IBAction func continueTapped(_ sender: Any) {
+    @objc func continueTapped(_ sender: Any) {
         if !(addEventToCalendarCheckBox.on) {
             
             return
@@ -203,15 +310,24 @@ class AppointmentsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView = UIScrollView(frame: view.frame)
+        servicePicker.delegate = self
+        servicePicker.dataSource = self
         eventsCalendarManager = EventsCalendarManager(eventStore: self.store, presenter: self)
         calendarHeader = AppointmentsCalendarHeader()
-        lengthOfTimeTextField.delegate = self
-//        setupCalendarView()
+        serviceTextField.delegate = self
+        setupCalendarView()
         setupTimeSlotsCollectionView()
-        servicePicker.selectRow(0, inComponent: 0, animated: false)
+        //servicePicker.selectRow(0, inComponent: 0, animated: false)
         let tapGest = UITapGestureRecognizer(target: self, action: #selector(hidePicker))
         tapGest.cancelsTouchesInView = false
         self.view.addGestureRecognizer(tapGest)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(handleRotationNotification(_:)), name: .rotationEngaged, object: nil)
+        
+        continueButton.addTarget(self, action: #selector(continueTapped(_:)), for: .touchUpInside)
+        //scrollView.delegate = self
+        fillConstraintsCollections()
     }
     
     @objc func hidePicker() {
@@ -284,22 +400,34 @@ extension AppointmentsViewController: UIPickerViewDelegate, UIPickerViewDataSour
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return (doctorDataModel.docType == .physician ? PhysicianServices.allCases.count : DentalServices.allCases.count)
     }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return (doctorDataModel.docType == .physician ? PhysicianServices.allCases[row].rawValue : DentalServices.allCases[row].rawValue)
+    func pickerView(_ pickerView: UIPickerView, attributedTitleForRow row: Int, forComponent component: Int) -> NSAttributedString? {
+        let str = (doctorDataModel.docType == .physician ? PhysicianServices.allCases[row].rawValue : DentalServices.allCases[row].rawValue)
+        let attributes: [NSAttributedString.Key: Any] = [
+            .font : UIFont.systemFont(ofSize: 14, weight: .regular),
+            .foregroundColor : UIColor.label
+        ]
+        let attrStr = NSAttributedString(string: str, attributes: attributes)
+        
+        return attrStr
     }
     
+//    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+//
+//
+//        return (doctorDataModel.docType == .physician ? PhysicianServices.allCases[row].rawValue : DentalServices.allCases[row].rawValue)
+//    }
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        lengthOfTimeTextField.text = (doctorDataModel.docType == .physician ? PhysicianServices.allCases[row].rawValue : DentalServices.allCases[row].rawValue)
+        serviceTextField.text = (doctorDataModel.docType == .physician ? PhysicianServices.allCases[row].rawValue : DentalServices.allCases[row].rawValue)
         timeNeededChanged()
         pickerView.resignFirstResponder()
         pickerView.isHidden = true
     }
     
     func timeNeededChanged() {
-        if lengthOfTimeTextField.text == "--" {
+        if serviceTextField.text == "--" {
             continueButton.isEnabled = false
-            lengthOfTimeTextField.backgroundColor = .aetniaLightBlue
+            serviceTextField.backgroundColor = .aetniaLightBlue
             calendarView.backgroundColor = ibCollectionViewBackgroundColor
             calendarShade.isHidden = false
             timeSlotsShade.isHidden = false
@@ -309,7 +437,7 @@ extension AppointmentsViewController: UIPickerViewDelegate, UIPickerViewDataSour
             addEventToCalendarCheckBox.alpha = 0.3
             
         }else {
-            lengthOfTimeTextField.backgroundColor = ibCollectionViewBackgroundColor
+            serviceTextField.backgroundColor = ibCollectionViewBackgroundColor
             calendarShade.isHidden = true
             timeSlotsShade.isHidden = true
 
@@ -331,6 +459,8 @@ extension AppointmentsViewController: UIPickerViewDelegate, UIPickerViewDataSour
 extension AppointmentsViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     
     private func setupTimeSlotsCollectionView() {
+        timeSlotsCollectionView.delegate = self
+        timeSlotsCollectionView.dataSource = self
         timeSlotsCollectionView.register(TimeSlotCollectionViewCell.self, forCellWithReuseIdentifier: TimeSlotCollectionViewCell.reuseIdentifier)
         
         let layout = UICollectionViewFlowLayout()
@@ -459,17 +589,17 @@ extension AppointmentsViewController: JTAppleCalendarViewDelegate, JTAppleCalend
         currentCell.dateLabel.text = " " + cellState.text
         
 //        if !(currentCell.dateLabel?.textColor == .white) {
-//            currentCell.contentView.layer.cornerRadius = 4.0
-//            currentCell.contentView.layer.borderWidth = 1.0
-//            currentCell.contentView.layer.borderColor = UIColor.clear.cgColor
-//            currentCell.contentView.layer.masksToBounds = true
+//            currentCell.view.safeAreaLayoutGuide.layer.cornerRadius = 4.0
+//            currentCell.view.safeAreaLayoutGuide.layer.borderWidth = 1.0
+//            currentCell.view.safeAreaLayoutGuide.layer.borderColor = UIColor.clear.cgColor
+//            currentCell.view.safeAreaLayoutGuide.layer.masksToBounds = true
 //
 //            currentCell.layer.shadowColor = UIColor.aetniaBlue.cgColor
 //            currentCell.layer.shadowOffset = CGSize(width: 0, height: 1.0)
 //            currentCell.layer.shadowRadius = 1.0
 //            currentCell.layer.shadowOpacity = 1.0
 //            currentCell.layer.masksToBounds = false
-//            currentCell.layer.shadowPath = UIBezierPath(roundedRect: currentCell.bounds, cornerRadius: currentCell.contentView.layer.cornerRadius).cgPath
+//            currentCell.layer.shadowPath = UIBezierPath(roundedRect: currentCell.bounds, cornerRadius: currentCell.view.safeAreaLayoutGuide.layer.cornerRadius).cgPath
 //            currentCell.layer.backgroundColor = UIColor.white.cgColor
 //        }
         
@@ -588,7 +718,6 @@ extension AppointmentsViewController: JTAppleCalendarViewDelegate, JTAppleCalend
         if timeSlotsDictionary[date] == nil {
             timeSlotsDictionary[date] = returnTimesForSelectedDate(date)
         }
-        //timeSlotsForCurrentDate = timeSlotsDictionary[date] ?? []
         configureCell(cell: cell, cellState: cellState)
         calendar.backgroundColor = ibCollectionViewBackgroundColor
         continueButton.isEnabled = false
@@ -622,3 +751,141 @@ extension AppointmentsViewController: JTAppleCalendarViewDelegate, JTAppleCalend
 }
 
 
+extension AppointmentsViewController: UIScrollViewDelegate {
+    
+//    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+//        scrollView.contentOffset.x = 0
+//    }
+    
+    @objc func handleRotationNotification(_ sender: Notification) {
+        if let dict = sender.userInfo as? [String:Orientation] {
+            let orientation = dict["orientation"]
+            DispatchQueue.main.async {
+                self.refreshConstraintsForNewOrientation(orientation!)
+            }
+        }
+    }
+    
+    func refreshConstraintsForNewOrientation(_ orientation: Orientation) {
+        NSLayoutConstraint.deactivate(constraintsForPortrait)
+        NSLayoutConstraint.deactivate(constraintsForLandscape)
+        
+        orientation == .portrait ? (NSLayoutConstraint.activate(constraintsForPortrait)) : (NSLayoutConstraint.activate(constraintsForPortrait))
+        
+    }
+    
+    func fillConstraintsCollections() {
+        view.addSubviews(views: scrollView, translatesAutoResizingMaskIntoConstraints: false)
+        
+        contentView.backgroundColor = .blue
+        //contentView.removeFromSuperview()
+        contentView = UIView(frame: view.frame)
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        scrollView.addSubviews(views: contentView, translatesAutoResizingMaskIntoConstraints: false)
+        
+        contentView.addSubviews(views: chooseDateAndTimeLabel,calendarDaysStackView,calendarView,calendarShade,timeSlotsCollectionView,timeSlotsTextView,serviceTextField,timeSlotsShade,addEventToCalendarCheckBox,addEventCBLabel,scheduleAppointmentLabel,doctorNameLabel,reasonForVisitLabel,continueButton,servicePicker, translatesAutoResizingMaskIntoConstraints: false)
+        
+        
+        height = contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 860)//contentSizeForScrollView)
+        height.priority = UILayoutPriority(rawValue: 999)
+        constraintsForPortrait = [
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0),
+            scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0),
+            scrollView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            height,
+            
+            contentView.topAnchor.constraint(equalTo: scrollView.topAnchor, constant: 0),
+            contentView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            
+            scheduleAppointmentLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
+            scheduleAppointmentLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            scheduleAppointmentLabel.heightAnchor.constraint(equalToConstant: 25),
+            scheduleAppointmentLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1),
+            
+            
+            doctorNameLabel.topAnchor.constraint(equalTo: scheduleAppointmentLabel.bottomAnchor, constant: 12),
+            doctorNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),
+            doctorNameLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: 0),
+            doctorNameLabel.heightAnchor.constraint(equalToConstant: 25),
+            
+            serviceTextField.topAnchor.constraint(equalTo: doctorNameLabel.bottomAnchor, constant: 20),
+            serviceTextField.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -20),
+            serviceTextField.leadingAnchor.constraint(equalTo: contentView.centerXAnchor),
+            serviceTextField.heightAnchor.constraint(equalToConstant: 40),
+            
+            servicePicker.topAnchor.constraint(equalTo: serviceTextField.topAnchor),
+            servicePicker.leadingAnchor.constraint(equalTo: serviceTextField.leadingAnchor),
+            servicePicker.trailingAnchor.constraint(equalTo: serviceTextField.trailingAnchor),
+            servicePicker.heightAnchor.constraint(equalToConstant: 150),
+            
+            reasonForVisitLabel.centerYAnchor.constraint(equalTo: serviceTextField.centerYAnchor),
+            reasonForVisitLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            reasonForVisitLabel.trailingAnchor.constraint(equalTo: contentView.centerXAnchor),
+            
+            chooseDateAndTimeLabel.topAnchor.constraint(equalTo: serviceTextField.bottomAnchor, constant: 8),
+            chooseDateAndTimeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 8),
+            chooseDateAndTimeLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            chooseDateAndTimeLabel.heightAnchor.constraint(equalToConstant: 40),
+            
+            calendarDaysStackView.topAnchor.constraint(equalTo: chooseDateAndTimeLabel.bottomAnchor, constant: 8),
+            calendarDaysStackView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            calendarDaysStackView.heightAnchor.constraint(equalToConstant: 18),
+            calendarDaysStackView.widthAnchor.constraint(equalToConstant: 320),
+            
+            calendarView.widthAnchor.constraint(equalToConstant: 350),
+            calendarView.heightAnchor.constraint(equalToConstant: 320),
+            calendarView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            calendarView.topAnchor.constraint(equalTo: chooseDateAndTimeLabel.bottomAnchor, constant: 30),
+            
+            calendarShade.topAnchor.constraint(equalTo: calendarDaysStackView.topAnchor),
+            calendarShade.leadingAnchor.constraint(equalTo: calendarView.leadingAnchor),
+            calendarShade.trailingAnchor.constraint(equalTo: calendarView.trailingAnchor),
+            calendarShade.bottomAnchor.constraint(equalTo: calendarView.bottomAnchor),
+            
+            timeSlotsCollectionView.topAnchor.constraint(equalTo: calendarView.bottomAnchor, constant: 30),
+            timeSlotsCollectionView.heightAnchor.constraint(equalToConstant: 125),
+            timeSlotsCollectionView.widthAnchor.constraint(equalTo: calendarView.widthAnchor, multiplier: 1),
+            timeSlotsCollectionView.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            
+            timeSlotsTextView.heightAnchor.constraint(equalToConstant: 54),
+            timeSlotsTextView.widthAnchor.constraint(equalTo: timeSlotsCollectionView.widthAnchor, multiplier: 1),
+            timeSlotsTextView.centerXAnchor.constraint(equalTo: timeSlotsCollectionView.centerXAnchor),
+            timeSlotsTextView.centerYAnchor.constraint(equalTo: timeSlotsCollectionView.centerYAnchor),
+            
+            timeSlotsShade.widthAnchor.constraint(equalTo: timeSlotsCollectionView.widthAnchor, multiplier: 1),
+            timeSlotsShade.heightAnchor.constraint(equalTo: timeSlotsCollectionView.heightAnchor, multiplier: 1),
+            timeSlotsShade.centerYAnchor.constraint(equalTo: timeSlotsCollectionView.centerYAnchor),
+            timeSlotsShade.centerXAnchor.constraint(equalTo: timeSlotsCollectionView.centerXAnchor),
+            
+            addEventToCalendarCheckBox.widthAnchor.constraint(equalToConstant: 18),
+            addEventToCalendarCheckBox.heightAnchor.constraint(equalToConstant: 18),
+            addEventToCalendarCheckBox.leadingAnchor.constraint(equalTo: timeSlotsCollectionView.leadingAnchor),
+            
+            addEventToCalendarCheckBox.topAnchor.constraint(equalTo: timeSlotsCollectionView.bottomAnchor, constant: 12),
+            
+            addEventCBLabel.centerYAnchor.constraint(equalTo: addEventToCalendarCheckBox.centerYAnchor),
+            addEventCBLabel.leadingAnchor.constraint(equalTo: addEventToCalendarCheckBox.trailingAnchor, constant: 8),
+            addEventCBLabel.heightAnchor.constraint(equalToConstant: 18),
+            addEventCBLabel.trailingAnchor.constraint(equalTo: timeSlotsCollectionView.trailingAnchor),
+            
+            continueButton.widthAnchor.constraint(equalToConstant: 300),
+            continueButton.heightAnchor.constraint(equalToConstant: 50),
+            continueButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            continueButton.topAnchor.constraint(equalTo: addEventToCalendarCheckBox.bottomAnchor, constant: 40),
+            continueButton.bottomAnchor.constraint(lessThanOrEqualTo: contentView.bottomAnchor, constant: -20)
+            
+            
+            
+        ]
+        
+        DispatchQueue.main.async {
+           
+            self.scrollView.bringSubviewToFront(self.servicePicker)
+            self.refreshConstraintsForNewOrientation(UIDevice.current.orientation == .portrait ? .portrait : .landscape)
+        }
+    }
+}
