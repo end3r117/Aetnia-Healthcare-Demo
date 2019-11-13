@@ -10,6 +10,9 @@ import SwiftUI
 import MapKit
 
 struct DoctorInfoView: View {
+    
+    
+    
     var dataModel: DoctorSearchRowViewModel
     @EnvironmentObject var navConfig: NavConfig
     @EnvironmentObject var userAuth: UserAuth
@@ -21,6 +24,7 @@ struct DoctorInfoView: View {
     @State var height: CGFloat = 0
     var mainImage: Image { get { Image(dataModel.doctorOffice) }}
     
+    
     var body: some View {
         ZStack {
             GeometryReader { geo in
@@ -31,7 +35,7 @@ struct DoctorInfoView: View {
                                 self.mainImage
                                     .resizable()
                                     .scaledToFill()
-                                    .frame(minWidth: UIScreen.main.bounds.width, maxWidth: UIScreen.main.bounds.width, minHeight: 0, maxHeight: UIScreen.main.bounds.height / 6)
+                                    .frame(minWidth: UIScreen.main.bounds.width, maxHeight: UIScreen.main.bounds.height / 6)
                                     .clipped()
                                     .onTapGesture {
                                         withAnimation {
@@ -79,34 +83,33 @@ struct DoctorInfoView: View {
                             }
                             MapView(cityName: self.dataModel.addressCityState, description: "Dr. \(self.dataModel.doctorLastName)", avatar: self.dataModel.avatar)
                                 .frame(width: UIScreen.main.bounds.width * 0.7, height: (self.navConfig.orientation == .portrait ? 200 : 100))
-                            .padding()
+                                .padding()
                             Button(action: {
                                 
                             }, label: {
                                 HStack {
                                     Text("Get Directions")
-                                    Image(.directions)
-                                        .resizable()
-                                        .scaledToFill()
-                                        .frame(width: 30, height: 30)
-                                }.foregroundColor(Color(.darkGray))
+                                    Image(systemName: "location")
+                                }
                             })
-                        }
+                        }.frame(width: UIScreen.main.bounds.width)
                         
                         Spacer()
-                    }
+                    }.frame(width: UIScreen.main.bounds.width)
+                    
                 }
+                    .navigationBarItems(leading:
+                        Button(action: {
+                            self.mode.wrappedValue.dismiss()
+                        }, label: {
+                            Image(systemName: "chevron.left")
+                                .foregroundColor(Color(.systemBackground))
+                            Text("Results")
+                                .foregroundColor(Color(.systemBackground))
+                        })
+                    )
                 .blur(radius: self.showEnlarged ? 4 : 0)
-                .navigationBarItems(leading:
-                    Button(action: {
-                        self.mode.wrappedValue.dismiss()
-                    }, label: {
-                        Image(systemName: "chevron.left")
-                            .foregroundColor(Color(.systemBackground))
-                        Text("Results")
-                    })
-                )
-            }.animation(nil)
+            }
             if self.showEnlarged {
                 withAnimation {
                     ZoomableImageView(image: self.$enlargedImage, visible: self.$showEnlarged)

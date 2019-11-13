@@ -8,15 +8,15 @@
 
 import Foundation
 
-enum InsuranceType: String {
+enum InsuranceType: String, Codable {
     case HMO, PPO
 }
 
-struct CoverageInfo {
+struct CoverageInfo: Codable {
     var PCPInsuranceType: InsuranceType
     var dentistInsuranceType: InsuranceType
-    var primaryCarePhysician: PhysicianModel
-    var primaryDentist: DentistModel
+    var primaryCarePhysician: Doctor
+    var primaryDentist: Doctor
     var memberID: String
     var groupNumber: String
 }

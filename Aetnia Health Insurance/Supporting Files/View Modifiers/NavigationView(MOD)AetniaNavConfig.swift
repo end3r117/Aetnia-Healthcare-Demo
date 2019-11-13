@@ -16,6 +16,8 @@ struct AetniaNavConfig: ViewModifier {
         
             content
                 .navigationBarTitle(Text(self.navTitle), displayMode: .inline)
+                .transition(.opacity)
+                .animation(.easeOut)
                 .navigationBarItems(trailing:
                     Button(action: {
                         self.userAuth.logout()
@@ -27,9 +29,5 @@ struct AetniaNavConfig: ViewModifier {
                     })
             )
                 .background(AppMainNavigationBar())
-                .transition(.opacity)
-                .animation(.easeOut)
-        
     }
 }
-

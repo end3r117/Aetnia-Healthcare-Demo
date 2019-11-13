@@ -40,11 +40,10 @@ struct ContactButton: View {
                         //.clipped()
                     Rectangle()
                         .stroke()
-                        .frame(width: 0.5)//, height: 48) //size.width / 8.1)
+                        .frame(width: 0.5)
                         .padding()
                         .foregroundColor(textColor)
                     Text(text)
-                        //.frame(width: size.width * 0.5)
                         .frame(width: 200)
                         .foregroundColor(textColor)
                         .lineLimit(0)
@@ -61,23 +60,7 @@ struct ContactButton: View {
                         .disabled(true)
                 }
             }.padding(4)
-        }.frame(maxWidth: 300, maxHeight: 44)
+        }.frame(maxWidth: 200, maxHeight: 44)
             .scaleEffect(self.navConfig.orientation == .portrait ? 0.8 : 1)
     }
 }
-
-/*
- icon
- .resizable()
- .scaledToFit()
- .frame(maxHeight: size.width / 8)
- .foregroundColor(textColor)
- .padding()
- */
-
-/*
- Rectangle()
- .stroke()
- .frame(width: 0.5, height: size.width / 8.1)
- .padding()
- */

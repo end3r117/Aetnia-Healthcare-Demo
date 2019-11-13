@@ -19,8 +19,27 @@ class DoctorSearchViewModel: ObservableObject {
            willSet {
                willChange.send(self)
            }
-           
        }
+    func filtered(query: Binding<String>, includeDoctors: Binding<Bool>, includeDentists: Binding<Bool>) -> [Doctor] {
+        
+        let ds = dataSource.sorted(by: {$0.firstName.lowercased() < $1.firstName.lowercased()}).filter({ model in
+            if query.wrappedValue != "" {
+                return model.firstName.lowercased().contains(query.wrappedValue.lowercased()) || model.lastName.lowercased().contains(query.wrappedValue.lowercased()) || model.address.city.lowercased().contains(query.wrappedValue.lowercased())
+            }
+            return true
+        }).filter({model in
+            if includeDoctors.wrappedValue && includeDentists.wrappedValue {
+                return true
+            }else if includeDoctors.wrappedValue && !includeDentists.wrappedValue {
+                return model.doctorType == .physician
+            }else if !includeDoctors.wrappedValue && includeDentists.wrappedValue {
+                return model.doctorType == .dentist
+            }else {
+                return false
+            }
+        })
+        return ds
+    }
     
     let didChange = PassthroughSubject<DoctorSearchViewModel,Never>()
     let willChange = PassthroughSubject<DoctorSearchViewModel,Never>()

@@ -25,7 +25,7 @@
 		427EBBBF2377B7F600A0C6E5 /* AppointmentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280BE3A2377955B00FB7480 /* AppointmentsViewController.swift */; };
 		427EBBC02377B7F600A0C6E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8323726E9400FD2885 /* HomeView.swift */; };
 		427EBBC12377B7F600A0C6E5 /* AppointmentsCalendarManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E756237724BE005BF1EC /* AppointmentsCalendarManager.swift */; };
-		427EBBC22377B7F600A0C6E5 /* AppMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF855B236F4D650086AC78 /* AppMainView.swift */; };
+		427EBBC22377B7F600A0C6E5 /* AppContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF855B236F4D650086AC78 /* AppContainerView.swift */; };
 		427EBBC32377B7F600A0C6E5 /* LoginTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF8579236F9D3E0086AC78 /* LoginTextField.swift */; };
 		427EBBC42377B7F600A0C6E5 /* AppointmentsCalendarHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4277E75B237726A0005BF1EC /* AppointmentsCalendarHeader.swift */; };
 		427EBBC52377B7F600A0C6E5 /* UserGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420625952374076700F5AB45 /* UserGenerator.swift */; };
@@ -43,13 +43,13 @@
 		427EBBD12377B7F600A0C6E5 /* AvatarPictureRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */; };
 		427EBBD22377B7F600A0C6E5 /* View(MOD)AeniaBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E9A237355B200FD2885 /* View(MOD)AeniaBackground.swift */; };
 		427EBBD32377B7F600A0C6E5 /* DoctorSearchRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420625A42374847100F5AB45 /* DoctorSearchRowViewModel.swift */; };
-		427EBBD52377B7F600A0C6E5 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002AFF2371E9000023AE46 /* UserViewModel.swift */; };
+		427EBBD52377B7F600A0C6E5 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42002AFF2371E9000023AE46 /* UserInfoViewModel.swift */; };
 		427EBBD62377B7F600A0C6E5 /* DoctorSearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 420625882373F80D00F5AB45 /* DoctorSearchView.swift */; };
 		427EBBD72377B7F600A0C6E5 /* CreateNewUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42E29E852372713E00FD2885 /* CreateNewUserView.swift */; };
 		427EBBD82377B7F600A0C6E5 /* DoctorInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4256F3C42375BA1900B097DB /* DoctorInfoView.swift */; };
 		427EBBD92377B7F600A0C6E5 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AF856B236F53A00086AC78 /* LoginView.swift */; };
 		427EBBDA2377B7F600A0C6E5 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4280BD9923773CB900FB7480 /* Appointment.swift */; };
-		427EBBDB2377B7F600A0C6E5 /* HomeTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249BF8523715A800047093A /* HomeTabView.swift */; };
+		427EBBDB2377B7F600A0C6E5 /* AppMainTabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4249BF8523715A800047093A /* AppMainTabView.swift */; };
 		427EBBDC2377B7F600A0C6E5 /* Doctor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4206258A2374030A00F5AB45 /* Doctor.swift */; };
 		427EBBDE2377B7F600A0C6E5 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8923727FA000FD2885 /* CoreLocation.framework */; };
 		427EBBDF2377B7F600A0C6E5 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 42E29E8723727F9A00FD2885 /* MapKit.framework */; };
@@ -60,9 +60,16 @@
 		427EBBE62377B7F600A0C6E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 42AF855D236F4D650086AC78 /* Assets.xcassets */; };
 		427EBBEF2377E16A00A0C6E5 /* AppointmentRowViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EBBEE2377E16A00A0C6E5 /* AppointmentRowViewModel.swift */; };
 		427EBBF22377E1F500A0C6E5 /* AppointmentRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EBBF12377E1F500A0C6E5 /* AppointmentRow.swift */; };
-		427EBBF42377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EBBF32377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift */; };
+		427EBBF42377F7B800A0C6E5 /* HyperlinkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EBBF32377F7B800A0C6E5 /* HyperlinkView.swift */; };
 		427EBBF62377FBB200A0C6E5 /* UITextView+CenterVertically.swift in Sources */ = {isa = PBXBuildFile; fileRef = 427EBBF52377FBB200A0C6E5 /* UITextView+CenterVertically.swift */; };
-		42C4B4A32378BD5200C60265 /* UserInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4A22378BD5200C60265 /* UserInfoViewModel.swift */; };
+		42855957237B87FC0075BE90 /* DocumentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42855956237B87FC0075BE90 /* DocumentsView.swift */; };
+		4285595A237B88330075BE90 /* DocumentsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42855959237B88330075BE90 /* DocumentsViewModel.swift */; };
+		4285595C237B88790075BE90 /* DocumentsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4285595B237B88790075BE90 /* DocumentsRow.swift */; };
+		4285595E237B89EA0075BE90 /* CBCSample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4285595D237B89EA0075BE90 /* CBCSample.pdf */; };
+		42855966237B983E0075BE90 /* ActivityViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42855965237B983E0075BE90 /* ActivityViewer.swift */; };
+		42AD11A9237F446E0050AD3D /* ScrollView(MOD)ShowsScrollViewIndicators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AD11A8237F446E0050AD3D /* ScrollView(MOD)ShowsScrollViewIndicators.swift */; };
+		42AD11D0237F65DB0050AD3D /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42855960237B8C4B0075BE90 /* Document.swift */; };
+		42AD11D3237F70BC0050AD3D /* DocumentEntity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42AD11D1237F70BC0050AD3D /* DocumentEntity.xcdatamodeld */; };
 		42C4B4A62378CAD700C60265 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4A52378CAD700C60265 /* ZoomableImageView.swift */; };
 		42C4B4A8237901FF00C60265 /* ContactButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4A7237901FF00C60265 /* ContactButton.swift */; };
 		42C4B4AC237939DD00C60265 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4AB237939DD00C60265 /* MapView.swift */; };
@@ -71,11 +78,14 @@
 		42EBAD44237A791A00C383AA /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD43237A791A00C383AA /* Capital.swift */; };
 		42EBAD49237A86BC00C383AA /* UIView+AsImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD48237A86BC00C383AA /* UIView+AsImage.swift */; };
 		42EBAD4B237A8F1100C383AA /* Color+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD4A237A8F1100C383AA /* Color+UIColor.swift */; };
+		42EBAD4D237B59B300C383AA /* UIApplication+EndEditing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD4C237B59B300C383AA /* UIApplication+EndEditing.swift */; };
+		42EBAD4F237B59F800C383AA /* View+DismissKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD4E237B59F800C383AA /* View+DismissKeyboard.swift */; };
+		42EBAD52237B868700C383AA /* PDFViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD51237B868700C383AA /* PDFViewer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		2B052A419F331A537CB1ACEB /* Pods-Aetnia Health Insurance.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aetnia Health Insurance.release.xcconfig"; path = "Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance.release.xcconfig"; sourceTree = "<group>"; };
-		42002AFF2371E9000023AE46 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
+		42002AFF2371E9000023AE46 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		42002B04237230A20023AE46 /* AppMainNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainNavigationBar.swift; sourceTree = "<group>"; };
 		420625882373F80D00F5AB45 /* DoctorSearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorSearchView.swift; sourceTree = "<group>"; };
 		4206258A2374030A00F5AB45 /* Doctor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Doctor.swift; sourceTree = "<group>"; };
@@ -89,7 +99,7 @@
 		423EA3F3236FB64B000E6208 /* AppColorConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorConstants.swift; sourceTree = "<group>"; };
 		423EA3F5236FE93A000E6208 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
 		4249BF82237159D60047093A /* UserAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuth.swift; sourceTree = "<group>"; };
-		4249BF8523715A800047093A /* HomeTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabView.swift; sourceTree = "<group>"; };
+		4249BF8523715A800047093A /* AppMainTabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainTabView.swift; sourceTree = "<group>"; };
 		4256F3C42375BA1900B097DB /* DoctorInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorInfoView.swift; sourceTree = "<group>"; };
 		4256F3CA2375FF8B00B097DB /* NavigationView(MOD)AetniaNavConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NavigationView(MOD)AetniaNavConfig.swift"; sourceTree = "<group>"; };
 		4277E756237724BE005BF1EC /* AppointmentsCalendarManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsCalendarManager.swift; sourceTree = "<group>"; };
@@ -106,12 +116,20 @@
 		427EBBEC2377B7F700A0C6E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = "/Users/anthonyrosario/Desktop/Faultliner Applications/Aetnia Health Insurance App/Aetnia Health Insurance/Aetnia Health Insurance/Supporting Files/Info.plist"; sourceTree = "<absolute>"; };
 		427EBBEE2377E16A00A0C6E5 /* AppointmentRowViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentRowViewModel.swift; sourceTree = "<group>"; };
 		427EBBF12377E1F500A0C6E5 /* AppointmentRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentRow.swift; sourceTree = "<group>"; };
-		427EBBF32377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+ViewRepresentable.swift"; sourceTree = "<group>"; };
+		427EBBF32377F7B800A0C6E5 /* HyperlinkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HyperlinkView.swift; sourceTree = "<group>"; };
 		427EBBF52377FBB200A0C6E5 /* UITextView+CenterVertically.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextView+CenterVertically.swift"; sourceTree = "<group>"; };
 		4280BD9923773CB900FB7480 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
 		4280BE3A2377955B00FB7480 /* AppointmentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppointmentsViewController.swift; sourceTree = "<group>"; };
+		42855956237B87FC0075BE90 /* DocumentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsView.swift; sourceTree = "<group>"; };
+		42855959237B88330075BE90 /* DocumentsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsViewModel.swift; sourceTree = "<group>"; };
+		4285595B237B88790075BE90 /* DocumentsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DocumentsRow.swift; sourceTree = "<group>"; };
+		4285595D237B89EA0075BE90 /* CBCSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CBCSample.pdf; sourceTree = "<group>"; };
+		42855960237B8C4B0075BE90 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
+		42855965237B983E0075BE90 /* ActivityViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewer.swift; sourceTree = "<group>"; };
+		42AD11A8237F446E0050AD3D /* ScrollView(MOD)ShowsScrollViewIndicators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView(MOD)ShowsScrollViewIndicators.swift"; sourceTree = "<group>"; };
+		42AD11D2237F70BC0050AD3D /* DocumentEntity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DocumentEntity.xcdatamodel; sourceTree = "<group>"; };
 		42AF8557236F4D650086AC78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		42AF855B236F4D650086AC78 /* AppMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppMainView.swift; sourceTree = "<group>"; };
+		42AF855B236F4D650086AC78 /* AppContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContainerView.swift; sourceTree = "<group>"; };
 		42AF855D236F4D650086AC78 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		42AF8560236F4D650086AC78 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		42AF8563236F4D650086AC78 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,7 +140,6 @@
 		42AF8579236F9D3E0086AC78 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		42AF857C236FB13D0086AC78 /* TextField(MOD)ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField(MOD)ClearButton.swift"; sourceTree = "<group>"; };
 		42AF8581236FB3880086AC78 /* BEMCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BEMCheckBoxView.swift; sourceTree = "<group>"; };
-		42C4B4A22378BD5200C60265 /* UserInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoViewModel.swift; sourceTree = "<group>"; };
 		42C4B4A52378CAD700C60265 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 		42C4B4A7237901FF00C60265 /* ContactButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactButton.swift; sourceTree = "<group>"; };
 		42C4B4AB237939DD00C60265 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
@@ -138,6 +155,9 @@
 		42EBAD43237A791A00C383AA /* Capital.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Capital.swift; sourceTree = "<group>"; };
 		42EBAD48237A86BC00C383AA /* UIView+AsImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+AsImage.swift"; sourceTree = "<group>"; };
 		42EBAD4A237A8F1100C383AA /* Color+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+UIColor.swift"; sourceTree = "<group>"; };
+		42EBAD4C237B59B300C383AA /* UIApplication+EndEditing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIApplication+EndEditing.swift"; sourceTree = "<group>"; };
+		42EBAD4E237B59F800C383AA /* View+DismissKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+DismissKeyboard.swift"; sourceTree = "<group>"; };
+		42EBAD51237B868700C383AA /* PDFViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PDFViewer.swift; sourceTree = "<group>"; };
 		42F41C0023717EAA0068D899 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		42F41C02237181200068D899 /* Int+GetDigits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+GetDigits.swift"; sourceTree = "<group>"; };
 		438D880D6586F9446EB85505 /* Pods-Aetnia Health Insurance.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Aetnia Health Insurance.debug.xcconfig"; path = "Target Support Files/Pods-Aetnia Health Insurance/Pods-Aetnia Health Insurance.debug.xcconfig"; sourceTree = "<group>"; };
@@ -158,16 +178,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		42002B012371EB930023AE46 /* Services */ = {
-			isa = PBXGroup;
-			children = (
-				42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */,
-				420625902374057700F5AB45 /* DoctorsGenerator.swift */,
-				420625952374076700F5AB45 /* UserGenerator.swift */,
-			);
-			path = Services;
-			sourceTree = "<group>";
-		};
 		42002B0623726CB00023AE46 /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
@@ -180,6 +190,10 @@
 		42002B0723726CC00023AE46 /* Documents */ = {
 			isa = PBXGroup;
 			children = (
+				42AD11D1237F70BC0050AD3D /* DocumentEntity.xcdatamodeld */,
+				42855962237B8C590075BE90 /* Model */,
+				42855958237B88200075BE90 /* ViewModel */,
+				42EBAD50237B865900C383AA /* View */,
 			);
 			path = Documents;
 			sourceTree = "<group>";
@@ -211,6 +225,9 @@
 		42002B0B23726D010023AE46 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				42E29E8E2372979D00FD2885 /* AvatarPictureRandomizer.swift */,
+				420625902374057700F5AB45 /* DoctorsGenerator.swift */,
+				420625952374076700F5AB45 /* UserGenerator.swift */,
 				4249BF82237159D60047093A /* UserAuth.swift */,
 			);
 			path = Services;
@@ -264,6 +281,30 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		42855958237B88200075BE90 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				42855959237B88330075BE90 /* DocumentsViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		4285595F237B89F20075BE90 /* PDFSampleDocs */ = {
+			isa = PBXGroup;
+			children = (
+				4285595D237B89EA0075BE90 /* CBCSample.pdf */,
+			);
+			path = PDFSampleDocs;
+			sourceTree = "<group>";
+		};
+		42855962237B8C590075BE90 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42855960237B8C4B0075BE90 /* Document.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		42AF854B236F4D650086AC78 = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +346,7 @@
 		42AF856F236F59260086AC78 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4285595F237B89F20075BE90 /* PDFSampleDocs */,
 				42AF857B236FB0F90086AC78 /* View Modifiers */,
 				42AF8573236F5A360086AC78 /* Extensions */,
 				42AF855D236F4D650086AC78 /* Assets.xcassets */,
@@ -317,9 +359,6 @@
 		42AF8570236F5A020086AC78 /* AppMain */ = {
 			isa = PBXGroup;
 			children = (
-				42002B012371EB930023AE46 /* Services */,
-				42F41BFD23717DF80068D899 /* Model */,
-				42F41BFE23717E030068D899 /* ViewModel */,
 				42F41BFF23717E130068D899 /* View */,
 			);
 			path = AppMain;
@@ -356,18 +395,19 @@
 			isa = PBXGroup;
 			children = (
 				4277E76B23772AEB005BF1EC /* CALayer+AddBorder.swift */,
+				42EBAD4A237A8F1100C383AA /* Color+UIColor.swift */,
 				4277E7652377297B005BF1EC /* DateHelper.swift */,
 				42AF8574236F5A570086AC78 /* Image+ImageAssetNames.swift */,
 				42F41C02237181200068D899 /* Int+GetDigits.swift */,
-				4277E7582377252D005BF1EC /* UIAlertController+QuickAlerts.swift */,
-				42AF8576236F5BAB0086AC78 /* UIColor+Constructors.swift */,
-				4277E75D2377271B005BF1EC /* UIView+Layout.swift */,
 				4277E76D23772BDE005BF1EC /* Notification+Names.swift */,
-				427EBBF32377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift */,
+				4277E7582377252D005BF1EC /* UIAlertController+QuickAlerts.swift */,
+				42EBAD4C237B59B300C383AA /* UIApplication+EndEditing.swift */,
+				42AF8576236F5BAB0086AC78 /* UIColor+Constructors.swift */,
 				427EBBF52377FBB200A0C6E5 /* UITextView+CenterVertically.swift */,
 				42EBAD40237A287D00C383AA /* UIView+AddSubviews.swift */,
 				42EBAD48237A86BC00C383AA /* UIView+AsImage.swift */,
-				42EBAD4A237A8F1100C383AA /* Color+UIColor.swift */,
+				4277E75D2377271B005BF1EC /* UIView+Layout.swift */,
+				42EBAD4E237B59F800C383AA /* View+DismissKeyboard.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -388,6 +428,7 @@
 				42AF857C236FB13D0086AC78 /* TextField(MOD)ClearButton.swift */,
 				4256F3CA2375FF8B00B097DB /* NavigationView(MOD)AetniaNavConfig.swift */,
 				42E29E9A237355B200FD2885 /* View(MOD)AeniaBackground.swift */,
+				42AD11A8237F446E0050AD3D /* ScrollView(MOD)ShowsScrollViewIndicators.swift */,
 			);
 			path = "View Modifiers";
 			sourceTree = "<group>";
@@ -395,9 +436,11 @@
 		42AF857E236FB3100086AC78 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				42AF8579236F9D3E0086AC78 /* LoginTextField.swift */,
 				42AF856B236F53A00086AC78 /* LoginView.swift */,
 				42AF8581236FB3880086AC78 /* BEMCheckBoxView.swift */,
 				42E29E852372713E00FD2885 /* CreateNewUserView.swift */,
+				427EBBF32377F7B800A0C6E5 /* HyperlinkView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -405,7 +448,6 @@
 		42AF857F236FB32A0086AC78 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				42AF8579236F9D3E0086AC78 /* LoginTextField.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -413,6 +455,7 @@
 		42AF8580236FB3400086AC78 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				42F41C0023717EAA0068D899 /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -455,7 +498,7 @@
 		42E29E8B2372814600FD2885 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				42C4B4A22378BD5200C60265 /* UserInfoViewModel.swift */,
+				42002AFF2371E9000023AE46 /* UserInfoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -505,28 +548,23 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
-		42F41BFD23717DF80068D899 /* Model */ = {
+		42EBAD50237B865900C383AA /* View */ = {
 			isa = PBXGroup;
 			children = (
-				42F41C0023717EAA0068D899 /* User.swift */,
+				42EBAD51237B868700C383AA /* PDFViewer.swift */,
+				4285595B237B88790075BE90 /* DocumentsRow.swift */,
+				42855956237B87FC0075BE90 /* DocumentsView.swift */,
+				42855965237B983E0075BE90 /* ActivityViewer.swift */,
 			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		42F41BFE23717E030068D899 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				42002AFF2371E9000023AE46 /* UserViewModel.swift */,
-			);
-			path = ViewModel;
+			path = View;
 			sourceTree = "<group>";
 		};
 		42F41BFF23717E130068D899 /* View */ = {
 			isa = PBXGroup;
 			children = (
 				42AF8557236F4D650086AC78 /* AppDelegate.swift */,
-				42AF855B236F4D650086AC78 /* AppMainView.swift */,
-				4249BF8523715A800047093A /* HomeTabView.swift */,
+				42AF855B236F4D650086AC78 /* AppContainerView.swift */,
+				4249BF8523715A800047093A /* AppMainTabView.swift */,
 				42002B04237230A20023AE46 /* AppMainNavigationBar.swift */,
 				42E29E9C23735E4300FD2885 /* SplashScreen.swift */,
 			);
@@ -607,6 +645,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4285595E237B89EA0075BE90 /* CBCSample.pdf in Resources */,
 				427EBBE32377B7F600A0C6E5 /* CalendarViewCell.xib in Resources */,
 				427EBBE42377B7F600A0C6E5 /* LaunchScreen.storyboard in Resources */,
 				427EBBE52377B7F600A0C6E5 /* Preview Assets.xcassets in Resources */,
@@ -671,15 +710,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				427EBBB02377B7F600A0C6E5 /* SplashScreen.swift in Sources */,
-				427EBBF42377F7B800A0C6E5 /* UITextView+ViewRepresentable.swift in Sources */,
+				427EBBF42377F7B800A0C6E5 /* HyperlinkView.swift in Sources */,
 				427EBBB12377B7F600A0C6E5 /* AppDelegate.swift in Sources */,
 				427EBBB22377B7F600A0C6E5 /* UserAuth.swift in Sources */,
 				427EBBB32377B7F600A0C6E5 /* DateHelper.swift in Sources */,
 				427EBBB42377B7F600A0C6E5 /* Notification+Names.swift in Sources */,
+				42EBAD4F237B59F800C383AA /* View+DismissKeyboard.swift in Sources */,
 				427EBBB52377B7F600A0C6E5 /* DoctorSearchViewModel.swift in Sources */,
+				42855966237B983E0075BE90 /* ActivityViewer.swift in Sources */,
 				427EBBB62377B7F600A0C6E5 /* DoctorSearchRow.swift in Sources */,
 				42EBAD41237A287D00C383AA /* UIView+AddSubviews.swift in Sources */,
 				427EBBB72377B7F600A0C6E5 /* TimeSlotCollectionViewCell.swift in Sources */,
+				42855957237B87FC0075BE90 /* DocumentsView.swift in Sources */,
 				427EBBB82377B7F600A0C6E5 /* ImageAssetName.swift in Sources */,
 				427EBBB92377B7F600A0C6E5 /* BEMCheckBoxView.swift in Sources */,
 				427EBBBA2377B7F600A0C6E5 /* CoverageInfo.swift in Sources */,
@@ -687,12 +729,15 @@
 				427EBBBC2377B7F600A0C6E5 /* UserInfoView.swift in Sources */,
 				427EBBBD2377B7F600A0C6E5 /* UIColor+Constructors.swift in Sources */,
 				427EBBBE2377B7F600A0C6E5 /* CalendarViewCell.swift in Sources */,
+				4285595A237B88330075BE90 /* DocumentsViewModel.swift in Sources */,
 				427EBBBF2377B7F600A0C6E5 /* AppointmentsViewController.swift in Sources */,
 				42C4B4AC237939DD00C60265 /* MapView.swift in Sources */,
 				42EBAD44237A791A00C383AA /* Capital.swift in Sources */,
 				427EBBC02377B7F600A0C6E5 /* HomeView.swift in Sources */,
 				427EBBC12377B7F600A0C6E5 /* AppointmentsCalendarManager.swift in Sources */,
-				427EBBC22377B7F600A0C6E5 /* AppMainView.swift in Sources */,
+				42AD11D0237F65DB0050AD3D /* Document.swift in Sources */,
+				4285595C237B88790075BE90 /* DocumentsRow.swift in Sources */,
+				427EBBC22377B7F600A0C6E5 /* AppContainerView.swift in Sources */,
 				427EBBF22377E1F500A0C6E5 /* AppointmentRow.swift in Sources */,
 				42C4B4A8237901FF00C60265 /* ContactButton.swift in Sources */,
 				427EBBC32377B7F600A0C6E5 /* LoginTextField.swift in Sources */,
@@ -701,7 +746,9 @@
 				427EBBC52377B7F600A0C6E5 /* UserGenerator.swift in Sources */,
 				427EBBC62377B7F600A0C6E5 /* UIView+Layout.swift in Sources */,
 				427EBBC72377B7F600A0C6E5 /* NavigationView(MOD)AetniaNavConfig.swift in Sources */,
+				42AD11D3237F70BC0050AD3D /* DocumentEntity.xcdatamodeld in Sources */,
 				427EBBC82377B7F600A0C6E5 /* UIAlertController+QuickAlerts.swift in Sources */,
+				42EBAD52237B868700C383AA /* PDFViewer.swift in Sources */,
 				427EBBC92377B7F600A0C6E5 /* AppMainNavigationBar.swift in Sources */,
 				427EBBCA2377B7F600A0C6E5 /* UserDefaults.swift in Sources */,
 				427EBBCB2377B7F600A0C6E5 /* DoctorsGenerator.swift in Sources */,
@@ -713,19 +760,20 @@
 				427EBBCF2377B7F600A0C6E5 /* Int+GetDigits.swift in Sources */,
 				427EBBD02377B7F600A0C6E5 /* AppColorConstants.swift in Sources */,
 				427EBBF62377FBB200A0C6E5 /* UITextView+CenterVertically.swift in Sources */,
+				42AD11A9237F446E0050AD3D /* ScrollView(MOD)ShowsScrollViewIndicators.swift in Sources */,
 				427EBBD12377B7F600A0C6E5 /* AvatarPictureRandomizer.swift in Sources */,
-				42C4B4A32378BD5200C60265 /* UserInfoViewModel.swift in Sources */,
 				427EBBD22377B7F600A0C6E5 /* View(MOD)AeniaBackground.swift in Sources */,
 				42C4B4A62378CAD700C60265 /* ZoomableImageView.swift in Sources */,
 				427EBBD32377B7F600A0C6E5 /* DoctorSearchRowViewModel.swift in Sources */,
-				427EBBD52377B7F600A0C6E5 /* UserViewModel.swift in Sources */,
+				427EBBD52377B7F600A0C6E5 /* UserInfoViewModel.swift in Sources */,
 				427EBBD62377B7F600A0C6E5 /* DoctorSearchView.swift in Sources */,
 				427EBBD72377B7F600A0C6E5 /* CreateNewUserView.swift in Sources */,
 				427EBBD82377B7F600A0C6E5 /* DoctorInfoView.swift in Sources */,
 				427EBBD92377B7F600A0C6E5 /* LoginView.swift in Sources */,
+				42EBAD4D237B59B300C383AA /* UIApplication+EndEditing.swift in Sources */,
 				427EBBEF2377E16A00A0C6E5 /* AppointmentRowViewModel.swift in Sources */,
 				427EBBDA2377B7F600A0C6E5 /* Appointment.swift in Sources */,
-				427EBBDB2377B7F600A0C6E5 /* HomeTabView.swift in Sources */,
+				427EBBDB2377B7F600A0C6E5 /* AppMainTabView.swift in Sources */,
 				427EBBDC2377B7F600A0C6E5 /* Doctor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -930,6 +978,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		42AD11D1237F70BC0050AD3D /* DocumentEntity.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				42AD11D2237F70BC0050AD3D /* DocumentEntity.xcdatamodel */,
+			);
+			currentVersion = 42AD11D2237F70BC0050AD3D /* DocumentEntity.xcdatamodel */;
+			path = DocumentEntity.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 42AF854C236F4D650086AC78 /* Project object */;
 }

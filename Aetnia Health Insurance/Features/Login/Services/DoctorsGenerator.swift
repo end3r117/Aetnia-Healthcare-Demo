@@ -12,12 +12,12 @@ import SwiftUI
 struct DoctorsGenerator {
 
     static func populateDoctors(completion: ([Doctor]) -> Void){
-        completion(GetDoctorsOfType(PhysicianModel.self) + GetDoctorsOfType(DentistModel.self))
+        completion(GetDoctorsOfType(.physician) + GetDoctorsOfType(.dentist))
     }
     
-    private static func GetDoctorsOfType<T: Doctor>(_: T.Type) -> [T] {
-        var arry = [T]()
-        for _ in 0...20 {
+    private static func GetDoctorsOfType(_ type: DoctorType) -> [Doctor] {
+        var arry = [Doctor]()
+        for _ in 0...50 {
             var avatar: Avatar!
             
             let mf = Gender(rawValue: Int.random(in: 0...1))!
@@ -26,6 +26,7 @@ struct DoctorsGenerator {
                 
                 avatar = AvatarMaker.makeMeAnAvatarPlease(gender: .male, diameter: 50)
             }else {
+                
                 avatar = AvatarMaker.makeMeAnAvatarPlease(gender: .female, diameter: 50)
             }
             let firstName = name.firstName
@@ -33,10 +34,10 @@ struct DoctorsGenerator {
             guard let address = getAddress() else { return [] }
             let acceptsHMO = arc4random_uniform(2) == 0
             
-            if T.self == PhysicianModel.self {
-                arry.append(T(acceptsHMO: acceptsHMO, avatar: avatar, firstName: firstName, lastName: lastName, address: address, phoneNumber: getPhoneNumber(), officePhoto: officeImages.randomElement()!))
+            if type == .physician {
+                arry.append(Doctor(doctorType: .physician, acceptsHMO: acceptsHMO, avatar: avatar, firstName: firstName, lastName: lastName, address: address, phoneNumber: getPhoneNumber(), officePhoto: officeImages.randomElement()!))
             }else {
-                arry.append(T(acceptsHMO: acceptsHMO, avatar: avatar, firstName: firstName, lastName: lastName, address: address, phoneNumber: getPhoneNumber(), officePhoto: (officeImages + dentistOfficeImages).randomElement()!))
+                arry.append(Doctor(doctorType: .dentist, acceptsHMO: acceptsHMO, avatar: avatar, firstName: firstName, lastName: lastName, address: address, phoneNumber: getPhoneNumber(), officePhoto: (officeImages + dentistOfficeImages).randomElement()!))
             }
             
         }
@@ -85,7 +86,7 @@ struct DoctorsGenerator {
                 let zip = cityZipArray[Int.random(in: 0..<cityZipArray.count)]["zip"] as? Int
                 let state = "CA"
                 
-                return Address(number: number, street: street, apt: nil, city: city ?? "Santa Barbara", state: state, zip: String(zip ?? 91011), country: "USA")
+                return Address(street: "\(number) \(street)", apt: "", city: city ?? "Santa Barbara", state: state, zip: String(zip ?? 91011), country: "USA")
                 
                 
             } else {

@@ -9,8 +9,13 @@
 import SwiftUI
 
 struct DoctorSearchRow: View {
-    @State var viewModel: DoctorSearchRowViewModel
-    @EnvironmentObject var navConfig: NavConfig
+    var viewModel: DoctorSearchRowViewModel
+    
+    init(viewModel: DoctorSearchRowViewModel) {
+        self.viewModel = viewModel
+        UINavigationBar.appearance().tintColor = .systemBackground
+    }
+
     var body: some View {
         ZStack {
             HStack(alignment: .top) {

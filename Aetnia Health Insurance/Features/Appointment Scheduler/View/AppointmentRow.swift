@@ -29,7 +29,7 @@ struct AppointmentRow: View {
             HStack {
                 Spacer()
                 VStack {
-                    SwiftUITextView(address: "\(viewModel.doctor)\n\(viewModel.addressNumberStreet)\n\(viewModel.addressCityState) \(viewModel.addressZip)", height: self.$height)
+                    HyperlinkView(text: "\(viewModel.doctor)\n\(viewModel.addressNumberStreet)\n\(viewModel.addressCityState) \(viewModel.addressZip)", height: self.$height, dataDetectorTypes: .address)
                         .padding(.top, 0)
                         .frame(height: self.$height.wrappedValue)
                 }

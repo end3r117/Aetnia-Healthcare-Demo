@@ -8,9 +8,11 @@
 
 import Foundation
 
-protocol DoctorService {}
+protocol DoctorService: Codable {
+    func getDescriptionForService() -> String
+}
 
-enum PhysicianServices: String, CaseIterable, DoctorService {
+enum PhysicianServices: String, CaseIterable, DoctorService, Codable {
     
     func getDescriptionForService() -> String {
         switch self {
@@ -28,7 +30,7 @@ enum PhysicianServices: String, CaseIterable, DoctorService {
     case looseToe = "Loose toe"
 }
 
-enum DentalServices: String, CaseIterable, DoctorService {
+enum DentalServices: String, CaseIterable, DoctorService, Codable {
     func getDescriptionForService() -> String {
         switch self {
         case .rootCanal:
@@ -48,7 +50,7 @@ enum DentalServices: String, CaseIterable, DoctorService {
     case bracesCheckUp =  "Braces (check-up)"
 }
 
-struct Appointment: Identifiable, Hashable {
+struct Appointment: Identifiable, Hashable, Codable {
     static func == (lhs: Appointment, rhs: Appointment) -> Bool {
         return lhs.id == rhs.id
     }
@@ -61,4 +63,48 @@ struct Appointment: Identifiable, Hashable {
     var date: Date
     var doctor: Doctor
     var service: DoctorService
+    
+    enum CodingKeys: String, CodingKey {
+        case id, date, doctor, service
+    }
+    
+    func encode(to encoder: Encoder) throws {
+        var container = encoder.container(keyedBy: CodingKeys.self)
+        
+        try container.encode(id, forKey: .id)
+        try container.encode(date, forKey: .date)
+        try container.encode(doctor, forKey: .doctor)
+        
+        if doctor.doctorType == .physician {
+            try container.encode((service as! PhysicianServices), forKey: .service)
+        }else {
+            try container.encode((service as! DentalServices), forKey: .service)
+        }
+    }
+    
+    init(date: Date, doctor: Doctor, service: DoctorService) {
+        self.date = date
+        self.doctor = doctor
+        self.service = service
+    }
+    
+    init(from decoder: Decoder) throws {
+        let values = try decoder.container(keyedBy: CodingKeys.self)
+        
+        let id = try values.decode(UUID.self, forKey: .id)
+        let date = try values.decode(Date.self, forKey: .date)
+        let doctor = try values.decode(Doctor.self, forKey: .doctor)
+        
+        self.id = id
+        self.date = date
+        self.doctor = doctor
+        
+        
+        if doctor.doctorType == .physician {
+            self.service = try values.decode(PhysicianServices.self, forKey: .service)
+        }else  {
+            self.service = try values.decode(DentalServices.self, forKey: .service)
+        }
+        
+    }
 }

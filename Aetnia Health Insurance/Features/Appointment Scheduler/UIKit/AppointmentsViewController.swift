@@ -300,7 +300,6 @@ class AppointmentsViewController: UIViewController {
             event.startDate = finalStartDate
             event.endDate = finalStartDate
             event.notes = "Scheduled using the Aetnia app"
-            
             let appt = Appointment(date: event.startDate, doctor: self.doctorDataModel.doctor, service: self.serviceType)
             self.userAuth.loggedInUser.appointments.append(appt)
             let eventStruct = Event(store: self.store, event: event)

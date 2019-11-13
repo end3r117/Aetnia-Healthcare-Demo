@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum ImageAssetName: String, CaseIterable {
+enum ImageAssetName: String, CaseIterable, Codable {
     case loginBackground = "LoginBackground"
     case logoutButton
     case documents

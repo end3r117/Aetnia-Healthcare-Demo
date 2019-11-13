@@ -10,7 +10,7 @@ import Combine
 import SwiftUI
 
 struct HomeView: View {
-    @State var model: UserInfoViewModel
+    var model: UserInfoViewModel { get { UserInfoViewModel(userAuth: _userAuth)}}
     @EnvironmentObject var userAuth: UserAuth
     @EnvironmentObject var navConfig: NavConfig
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
@@ -29,8 +29,7 @@ struct HomeView: View {
             }
             VStack {
                 NavigationLink(destination:
-                    UserInfoView(model: self.$model)
-                    
+                    UserInfoView(model: model).accentColor(.white)
                 ) {
                     ZStack {
                         HStack(alignment: .top) {
@@ -38,17 +37,17 @@ struct HomeView: View {
                                 .fill(Color.clear)
                                 .frame(width: 100, height: 100)
                             VStack(alignment: .leading) {
-                                Text("\(self.model.userFirstName) \(self.model.userLastName)")
+                                Text("\(self.userAuth.loggedInUser.firstName) \(self.userAuth.loggedInUser.lastName)")
                                     .font(.system(size: 26, weight: .medium))
                                     .padding(.bottom, 4)
                                     .padding(.top, 2)
                                 Group {
                                     Text("MemberID: ").font(.system(size: 16, weight: .regular)) +
-                                        Text("\(self.model.userMemberID)").font(.system(size: 16, weight: .light))
+                                        Text("\(self.model.memberID)").font(.system(size: 16, weight: .light))
                                 }.padding(.top, 4)
                                 Group {
                                     Text("GroupID: ").font(.system(size: 16, weight: .regular)) +
-                                        Text("\(self.model.userGroupID)").font(.system(size: 16, weight: .light))
+                                        Text("\(self.model.groupID)").font(.system(size: 16, weight: .light))
                                 }.padding(.top, 4)
                             }
                             Spacer()
@@ -62,7 +61,7 @@ struct HomeView: View {
                         .background(Color(.systemBackground))
                         .accentColor(Color(.label))
                 }
-                List {
+                Form {
                     Section {
                         HStack{
                             Text("Status").font(.system(size: 20, weight: .medium))
@@ -74,18 +73,18 @@ struct HomeView: View {
                         HStack{
                             Text("Medical Plan Type")
                             Spacer()
-                            Text(self.model.userMedicalType.rawValue)
+                            Text(self.model.medicalInsuranceType.rawValue)
                         }
                         HStack {
                             Text("Dental Plan Type")
                             Spacer()
-                            Text(self.model.userDentalType.rawValue)
+                            Text(self.model.dentistInsuranceType.rawValue)
                         }
                     }
                     Section(header: Text("Primary Care Physician")) {
                         NavigationLink(destination:
-                                DoctorInfoView(dataModel: self.model.doctorSearchRow.viewModel, avatar: self.model.doctorSearchRow.viewModel.avatar!)
-                            .navigationBarTitle("Dr. \(self.model.doctorSearchRow.viewModel.doctorLastName)")
+                                DoctorInfoView(dataModel: self.model.doctorSearchRow.viewModel, avatar: self.model.doctorSearchRow.viewModel.avatar)
+                            .navigationBarTitle("Your Doctor")
                             .navigationBarItems(leading:
                                 Button(action: {
                                     self.showDoctor = false
@@ -102,8 +101,8 @@ struct HomeView: View {
                     }
                     Section(header: Text("Preferred Dentist")) {
                         NavigationLink(destination:
-                                DoctorInfoView(dataModel: self.model.dentistSearchRow.viewModel, avatar: self.model.dentistSearchRow.viewModel.avatar!)
-                                .navigationBarTitle("Dr. \(self.model.dentistSearchRow.viewModel.doctorLastName)")
+                                DoctorInfoView(dataModel: self.model.dentistSearchRow.viewModel, avatar: self.model.dentistSearchRow.viewModel.avatar)
+                                .navigationBarTitle("Your Dentist")
                                 .navigationBarItems(leading:
                                 Button(action: {
                                     self.showDentist = false
@@ -120,7 +119,7 @@ struct HomeView: View {
                     }
                     Section(header: Text("Upcoming Appointments")) {
                         if !self.userAuth.loggedInUser.appointments.isEmpty {
-                            ForEach(self.userAuth.loggedInUser.appointments, id: \.self) { appt in
+                            ForEach(self.userAuth.loggedInUser.appointments) { appt in
                                 AppointmentRow(model: AppointmentRowViewModel(appointment: appt))
                             }.onDelete{ offsets in
                                 self.deleteAppointments(at: offsets)
@@ -145,10 +144,6 @@ struct HomeView: View {
     }
     
     func deleteAppointments(at offsets: IndexSet) {
-        DispatchQueue.main.async {
-            print(self.userAuth.loggedInUser.appointments.count)
         self.userAuth.loggedInUser.appointments.remove(atOffsets: offsets)
-            print(self.userAuth.loggedInUser.appointments.count)
-        }
     }
 }

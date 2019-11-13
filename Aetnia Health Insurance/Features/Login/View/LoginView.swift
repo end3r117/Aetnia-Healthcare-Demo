@@ -11,12 +11,11 @@ import Combine
 
 struct LoginView: View {
     @EnvironmentObject var userAuth: UserAuth
-    @EnvironmentObject var userDefaults: UserDefaultsSwiftUI
     
     @State var username: String = ""
     @State var password: String = ""
     @State var shouldRememberUsername: Bool = false
-    @State var keepMeLoggedIn: Bool = false
+    @State var stayLoggedIn: Bool = false
     @State var showAlert: Bool = false
     @State var showRegistration: Bool = false
     
@@ -46,8 +45,8 @@ struct LoginView: View {
                     VStack(alignment: .leading) {
                         LoginTextField(text: self.$username, title: "Username", isPrivate: false, size:(UIDevice.current.userInterfaceIdiom == .phone ? CGSize(width: geometry.size.width * 0.67, height: 44) : CGSize(width: geometry.size.width * 0.33, height: 44)), roundedStyle: .roundedTop)
                             .onAppear {
-                                if self.userDefaults.savedUsername != "" && self.userDefaults.rememberUsername {
-                                    self.username = self.userDefaults.savedUsername
+                                if self.userAuth.userDefaults.savedUsername != "" && self.userAuth.userDefaults.rememberUsername {
+                                    self.username = self.userAuth.userDefaults.savedUsername
                                     self.shouldRememberUsername = true
                                 }
                         }
@@ -65,7 +64,7 @@ struct LoginView: View {
                                 .opacity(0.85)
                         }.padding(.top, 10)
                         HStack(alignment: .center) {
-                            BEMCheckBoxView(on: self.$keepMeLoggedIn)
+                            BEMCheckBoxView(on: self.$stayLoggedIn)
                                 .frame(width: 20, height: 20)
                             Text("Keep me logged in")
                                 .font(.system(size: 14, weight: .medium))
@@ -77,17 +76,9 @@ struct LoginView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            if self.username == "" || self.password == "" {
-                                self.showAlert = true
-                            }else {
-                                self.userDefaults.rememberUsername = self.shouldRememberUsername
-                                if self.shouldRememberUsername {
-                                    self.userDefaults.savedUsername = self.username
-                                }else {
-                                    self.userDefaults.savedUsername = ""
-                                }
-                                self.userAuth.login(username: self.username, password: self.password)
-                            }
+                            
+                                self.userAuth.login(username: self.username, password: self.password, rememberUsername: self.shouldRememberUsername, stayLoggedIn: self.stayLoggedIn, trigger: self.$showAlert)
+                            
                         }) {
                             Text("Login")
                                 .font(.system(size: 18, weight: .bold))
@@ -132,9 +123,6 @@ struct LoginView: View {
                     }.navigationBarHidden(true)
                 .padding(.top, geometry.size.height * 0.05)
             }
-        }.onTapGesture {
-            let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first
-            window?.endEditing(false)
-        }
+        }.dismissKeyboardOnTapGesture()
     }
 }

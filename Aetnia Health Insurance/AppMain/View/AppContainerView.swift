@@ -8,13 +8,10 @@
 
 import SwiftUI
 
-struct AppMainView: View {
+struct AppContainerView: View {
     @EnvironmentObject var userAuth: UserAuth
-    @EnvironmentObject var userDefaults: UserDefaultsSwiftUI
-    let doctorSearchViewModel: DoctorSearchViewModel = DoctorSearchViewModel()
-    
     @State var showSplash: Bool = true
-    
+    @State var showedLoginPage: Bool = false
     var loginAnimation: Animation {
         Animation.easeInOut(duration: 0.5)
             .delay(1.5)
@@ -22,27 +19,28 @@ struct AppMainView: View {
     
     var body: some View {
         VStack(alignment: .center) {
-            if showSplash {
-                SplashScreen(duration: 0.5)
+            
+            if showSplash && userAuth.userDefaults.stayLoggedIn && userAuth.userDefaults.savedUser != nil && !showedLoginPage {
+                SplashScreen(duration: 1.5)
                     .onAppear {
                         withAnimation(self.loginAnimation) {
-                                self.showSplash.toggle()
+                            self.showSplash.toggle()
                         }
-                }
+                    }
+            
             }else {
                 if self.userAuth.isLoggedIn {
-                    HomeTabView().environmentObject(doctorSearchViewModel).environmentObject(userAuth)
+                    AppMainTabView().environmentObject(userAuth)
                             .transition(.opacity)
                 }else {
                     withAnimation(loginAnimation) {
                         LoginView()
                             .transition(.opacity)
-                        
-                        
+                        .onAppear {
+                                self.showedLoginPage = true
+                        }
                     }
-                    
                 }
-                
             }
         }
     }

@@ -14,11 +14,7 @@ struct AppointmentRowViewModel: Identifiable {
     
     var service: String {
         get {
-            if appointment.service is PhysicianServices {
-                return (appointment.service as! PhysicianServices).getDescriptionForService()
-            }else {
-                return (appointment.service as! DentalServices).getDescriptionForService()
-            }
+            appointment.service.getDescriptionForService()
         }
     }
     var date: String {
@@ -34,15 +30,11 @@ struct AppointmentRowViewModel: Identifiable {
     }
     var doctor: String {
         get {
-            if appointment.doctor is PhysicianModel {
-                return "Dr. \((appointment.doctor as! PhysicianModel).lastName)"
-            }else {
-                return "Dr. \((appointment.doctor as! DentistModel).lastName)"
-            }
+            appointment.doctor.lastName
         }
     }
     
-    var addressNumberStreet: String { get { "\(appointment.doctor.address.number) \(appointment.doctor.address.street)" }}
+    var addressNumberStreet: String { get { "\(appointment.doctor.address.street)" }}
     var addressCityState: String { get { "\(appointment.doctor.address.city), \(appointment.doctor.address.state)" }}
     var addressZip: String { get { "\(appointment.doctor.address.zip)" }}
     var time: String {

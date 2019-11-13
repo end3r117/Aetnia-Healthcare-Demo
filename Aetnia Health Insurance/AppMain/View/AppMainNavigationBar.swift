@@ -10,6 +10,7 @@ import SwiftUI
 class NavConfig: ObservableObject {
     var navigationController: UINavigationController!
     var rootVC: UIViewController!
+    var appDelegate: AppDelegate!
     
     init() {
         NotificationCenter.default.addObserver(self, selector: #selector(deviceTurned(_:)), name: .rotationEngaged, object: nil)
@@ -32,10 +33,20 @@ class NavConfig: ObservableObject {
         }
     }
     
+    func config() {
+        navigationController.navigationBar.barStyle = barStyle
+        navigationController.navigationBar.barTintColor = barTintColor
+        navigationController.navigationBar.backgroundColor = backgroundColor
+        navigationController.navigationBar.titleTextAttributes = titleTextAttributes
+    }
+    
     @objc func deviceTurned(_ notification: Notification) {
         if let dict = notification.userInfo as? [String:Orientation], let orientation = dict["orientation"] {
             self.orientation = orientation
             print("New orientation: \(orientation.rawValue)")
+            DispatchQueue.main.async {
+                self.config()
+            }
         }
     }
 }

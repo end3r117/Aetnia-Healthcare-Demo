@@ -8,32 +8,34 @@
 
 import SwiftUI
 
-struct SwiftUITextView: UIViewRepresentable {
+struct HyperlinkView: UIViewRepresentable {
     typealias UIViewType = UITextView
     
     @Binding var height: CGFloat
     
-    var address: String
+    var text: String
+    var dataDetectorTypes: UIDataDetectorTypes
     
-    init(address: String, height: Binding<CGFloat>) {
+    init(text: String, height: Binding<CGFloat>, dataDetectorTypes: UIDataDetectorTypes) {
         self._height = height
-        self.address = address
+        self.text = text
+        self.dataDetectorTypes = dataDetectorTypes
     }
     
-    func makeUIView(context: UIViewRepresentableContext<SwiftUITextView>) -> UITextView {
+    func makeUIView(context: UIViewRepresentableContext<HyperlinkView>) -> UITextView {
         let tv = UITextView()
         tv.textContainer.maximumNumberOfLines = 0
         tv.textAlignment = .center
         tv.isEditable = false
         tv.isSelectable = true
-        tv.dataDetectorTypes = [.address]
-        tv.text = self.address
+        tv.dataDetectorTypes = self.dataDetectorTypes
+        tv.text = self.text
         tv.font = UIFont.systemFont(ofSize: 16, weight: .medium)
         
         return tv
     }
     
-    func updateUIView(_ uiView: UITextView, context: UIViewRepresentableContext<SwiftUITextView>) {
+    func updateUIView(_ uiView: UITextView, context: UIViewRepresentableContext<HyperlinkView>) {
         uiView.centerVertically()
         DispatchQueue.main.async {
             self.height = uiView.contentSize.height

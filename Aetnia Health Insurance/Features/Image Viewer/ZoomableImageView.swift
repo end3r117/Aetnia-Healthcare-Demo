@@ -36,7 +36,7 @@ struct ZoomableImageView: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .foregroundColor(Color(.label))
+                .foregroundColor(Color(.black))
                 .opacity(0.96)
             VStack {
                 image?

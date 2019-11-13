@@ -7,11 +7,12 @@
 //
 
 import SwiftUI
+import UIKit
 
 extension Color {
 
     func uiColor() -> UIColor {
-
+        
         let components = self.components()
         return UIColor(red: components.r, green: components.g, blue: components.b, alpha: components.a)
     }
@@ -32,3 +33,4 @@ extension Color {
         return (r, g, b, a)
     }
 }
+

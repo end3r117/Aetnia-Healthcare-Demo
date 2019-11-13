@@ -16,8 +16,8 @@ class Capital: NSObject, MKAnnotation {
     var info: String?
     
     init(cityName: String, coordinate: CLLocationCoordinate2D, info: String?) {
-        self.title = cityName
+        self.title = info
         self.coordinate = coordinate
-        self.info = info
+        self.info = cityName
     }
 }
