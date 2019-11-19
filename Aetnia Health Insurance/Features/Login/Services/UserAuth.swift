@@ -44,8 +44,8 @@ class UserAuth: ObservableObject {
         }
     }
     
-    func updateUser(user: User) {
-        self.userDefaults.savedUser = user
+    func updateUser() {
+        self.userDefaults.savedUser = self.loggedInUser
     }
     
     func logout() {

@@ -25,6 +25,18 @@ class AppointmentsViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var backButton: UIButton = {
+        let bb = UIButton(type: .custom)
+        bb.setTitle("X", for: .normal)
+        bb.setTitleColor(.aetniaBlue, for: .normal)
+        bb.addTarget(self, action: #selector(backButtonWasTapped(_:)), for: .touchUpInside)
+        return bb
+    }()
+    
+    @objc func backButtonWasTapped(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     lazy var doctorNameLabel: UILabel = {
         let lbl = UILabel()
         
@@ -37,7 +49,6 @@ class AppointmentsViewController: UIViewController {
     
     var chooseDateAndTimeLabel: UILabel = {
         let lbl = UILabel()
-        
         lbl.text = "Choose an available date and time"
         lbl.font = UIFont.systemFont(ofSize: 17, weight: .regular)
         
@@ -240,7 +251,7 @@ class AppointmentsViewController: UIViewController {
     @objc func continueTapped(_ sender: Any) {
         if !(addEventToCalendarCheckBox.on) {
             
-            return
+            self.dismiss(animated: true, completion: nil)
         }
         let dateFormatter = DateFormatter()
         dateFormatter.locale = .autoupdatingCurrent
@@ -302,6 +313,7 @@ class AppointmentsViewController: UIViewController {
             event.notes = "Scheduled using the Aetnia app"
             let appt = Appointment(date: event.startDate, doctor: self.doctorDataModel.doctor, service: self.serviceType)
             self.userAuth.loggedInUser.appointments.append(appt)
+            self.userAuth.updateUser()
             let eventStruct = Event(store: self.store, event: event)
             self.eventsCalendarManager.presentCalendarModalToAddEvent(event: eventStruct, presenter: self, completion: {_ in})
         }
@@ -777,12 +789,11 @@ extension AppointmentsViewController: UIScrollViewDelegate {
         view.addSubviews(views: scrollView, translatesAutoResizingMaskIntoConstraints: false)
         
         contentView.backgroundColor = .blue
-        //contentView.removeFromSuperview()
         contentView = UIView(frame: view.frame)
         contentView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.addSubviews(views: contentView, translatesAutoResizingMaskIntoConstraints: false)
         
-        contentView.addSubviews(views: chooseDateAndTimeLabel,calendarDaysStackView,calendarView,calendarShade,timeSlotsCollectionView,timeSlotsTextView,serviceTextField,timeSlotsShade,addEventToCalendarCheckBox,addEventCBLabel,scheduleAppointmentLabel,doctorNameLabel,reasonForVisitLabel,continueButton,servicePicker, translatesAutoResizingMaskIntoConstraints: false)
+        contentView.addSubviews(views: backButton, chooseDateAndTimeLabel,calendarDaysStackView,calendarView,calendarShade,timeSlotsCollectionView,timeSlotsTextView,serviceTextField,timeSlotsShade,addEventToCalendarCheckBox,addEventCBLabel,scheduleAppointmentLabel,doctorNameLabel,reasonForVisitLabel,continueButton,servicePicker, translatesAutoResizingMaskIntoConstraints: false)
         
         
         height = contentView.heightAnchor.constraint(greaterThanOrEqualToConstant: 860)//contentSizeForScrollView)
@@ -800,11 +811,15 @@ extension AppointmentsViewController: UIScrollViewDelegate {
             contentView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
             
+            backButton.centerYAnchor.constraint(equalTo: scheduleAppointmentLabel.centerYAnchor, constant: 0),
+            backButton.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -4),
+            backButton.widthAnchor.constraint(equalToConstant: 60),
+            backButton.heightAnchor.constraint(equalToConstant: 25),
+            
             scheduleAppointmentLabel.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 4),
             scheduleAppointmentLabel.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             scheduleAppointmentLabel.heightAnchor.constraint(equalToConstant: 25),
             scheduleAppointmentLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 1),
-            
             
             doctorNameLabel.topAnchor.constraint(equalTo: scheduleAppointmentLabel.bottomAnchor, constant: 12),
             doctorNameLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 0),

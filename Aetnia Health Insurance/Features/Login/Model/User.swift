@@ -46,7 +46,7 @@ class User: Codable, ObservableObject, Identifiable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case id, username, firstName, lastName, address, phoneNumber, coverageInfo, avatar, avatarArchive
+        case id, username, firstName, lastName, address, phoneNumber, coverageInfo, avatar, appointments
     }
     
     func encode(to encoder: Encoder) throws {
@@ -60,6 +60,7 @@ class User: Codable, ObservableObject, Identifiable {
         try container.encode(phoneNumber, forKey: .phoneNumber)
         try container.encode(avatar, forKey: .avatar)
         try container.encode(coverageInfo, forKey: .coverageInfo)
+        try container.encode(appointments, forKey: .appointments)
         
         
         let contextContainer = getAppDelegateCoreDataContext()
@@ -97,6 +98,7 @@ class User: Codable, ObservableObject, Identifiable {
         phoneNumber = try values.decode(PhoneNumber.self, forKey: .phoneNumber)
         avatar = try values.decode(Avatar.self, forKey: .avatar)
         coverageInfo =  try values.decode(CoverageInfo.self, forKey: .coverageInfo)
+        appointments = try values.decode([Appointment].self, forKey: .appointments)
         
         let contextContainer = getAppDelegateCoreDataContext()
         let request = NSFetchRequest<NSManagedObject>(entityName: "DocumentEntity")

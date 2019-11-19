@@ -12,7 +12,7 @@ import SwiftUI
 class UserInfoViewModel: ObservableObject {
     @EnvironmentObject var userAuth: UserAuth
     
-    @Published var user: User
+    var user: User { get { userAuth.loggedInUser} set { userAuth.loggedInUser = newValue }}
     var documents: [Document]  {
         get {
             user.documents.map({$0})
@@ -65,6 +65,8 @@ class UserInfoViewModel: ObservableObject {
         }
     }
     
+    @Published var appointments: [Appointment]
+    
     enum Change {
         case revert
         case save
@@ -76,10 +78,11 @@ class UserInfoViewModel: ObservableObject {
             avatar = user.avatar
         case .save:
             if avatarView != nil {
-                    self.avatar = avatarView!.avatar
-                    self.user.avatar = avatarView!.avatar
-                    self.userAvatarView = avatarView!
-                    self.originalAvatar = avatarView!.avatar
+                self.avatar = avatarView!.avatar
+                self.user.avatar = avatarView!.avatar
+                self.userAuth.updateUser()
+                self.userAvatarView = avatarView!
+                self.originalAvatar = avatarView!.avatar
             }
             
         }
@@ -87,7 +90,7 @@ class UserInfoViewModel: ObservableObject {
     
     init(userAuth: EnvironmentObject<UserAuth>) {
         self._userAuth = userAuth
-        self.user = userAuth.wrappedValue.loggedInUser
+        self.appointments = userAuth.wrappedValue.loggedInUser.appointments
     }
 }
 

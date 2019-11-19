@@ -17,19 +17,20 @@ struct HomeView: View {
     
     @State var showDoctor: Bool = false
     @State var showDentist: Bool = false
+    @State var hack: Bool = false
     
     var body: some View {
         ZStack {
             Rectangle()
                 .fill()
-                .foregroundColor(Color(UIColor.systemGroupedBackground))
+                .foregroundColor(Color(hack ? UIColor.systemGroupedBackground : UIColor.systemGroupedBackground))
             VStack {
                 Spacer()
                     .frame(maxHeight: UIScreen.main.bounds.height / 8)
             }
             VStack {
                 NavigationLink(destination:
-                    UserInfoView(model: model).accentColor(.white)
+                    UserInfoView(model: model).accentColor(.white).modifier(AetniaNavConfig(navTitle: "Edit Profile"))
                 ) {
                     ZStack {
                         HStack(alignment: .top) {
@@ -128,7 +129,6 @@ struct HomeView: View {
                         }else {
                             Text("None")
                         }
-                        
                     }
                     Section(header: Text("Prescriptions Waiting")) {
                         HStack{
@@ -139,11 +139,11 @@ struct HomeView: View {
                     }
                 }.listStyle(GroupedListStyle())
             }.background(AetniaBackground())
-            
         }
     }
-    
     func deleteAppointments(at offsets: IndexSet) {
         self.userAuth.loggedInUser.appointments.remove(atOffsets: offsets)
+        self.userAuth.updateUser()
+        self.hack.toggle()
     }
 }

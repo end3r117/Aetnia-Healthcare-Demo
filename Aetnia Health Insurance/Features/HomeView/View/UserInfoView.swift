@@ -53,9 +53,9 @@ struct UserInfoView: View {
                                 Button(action: {
                                     DispatchQueue.main.async {
                                         self.model.changeAvatar(.save, avatarView: self.avatarView)
+                                        //self.userAuth.updateUser()
                                         withAnimation {
                                         self.avatarEdited = false
-                                        //self.mode.wrappedValue.dismiss()
                                         }
                                     }
                                 }){

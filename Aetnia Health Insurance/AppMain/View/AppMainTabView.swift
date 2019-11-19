@@ -48,13 +48,24 @@ struct AppMainTabView: View {
                             Text("Doc Search")
                     }
                     .tag(2)
-                    Text("Notifications")
+                    NavigationView {
+                        VStack {
+                            Text("Don't mind the badge icon.")
+                            .padding()
+                            Text("You will never get new notifications.")
+                            Text("It's nothing personal.")
+                            .padding()
+                            }
+                        .modifier(AetniaNavConfig(navTitle: "Notifications")).accentColor(.white)
+                    }
                         .tabItem {
                             Image(self.selection == 3 ? .notificationsBadgedFilled : .notificationsBadged)
                             Text("Notifications")
                     }
                     .tag(3)
-                    Text("Prescriptions")
+                    NavigationView {
+                        Text("Prescriptions")
+                    }
                         .tabItem {
                             Image(self.selection == 4 ? .prescriptionsFilled : .prescriptions)
                             Text("Rx")
