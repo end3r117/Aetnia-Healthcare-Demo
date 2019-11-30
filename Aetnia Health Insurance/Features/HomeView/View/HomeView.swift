@@ -14,16 +14,16 @@ struct HomeView: View {
     @EnvironmentObject var userAuth: UserAuth
     @EnvironmentObject var navConfig: NavConfig
     @Environment(\.presentationMode) var mode: Binding<PresentationMode>
+    @Binding var tabSelection: Int
     
     @State var showDoctor: Bool = false
     @State var showDentist: Bool = false
-    @State var hack: Bool = false
     
     var body: some View {
         ZStack {
             Rectangle()
                 .fill()
-                .foregroundColor(Color(hack ? UIColor.systemGroupedBackground : UIColor.systemGroupedBackground))
+                .foregroundColor(Color(.systemGroupedBackground))
             VStack {
                 Spacer()
                     .frame(maxHeight: UIScreen.main.bounds.height / 8)
@@ -131,19 +131,25 @@ struct HomeView: View {
                         }
                     }
                     Section(header: Text("Prescriptions Waiting")) {
-                        HStack{
-                            Text("1")
-                                .foregroundColor(.red)
-                            Spacer()
-                        }
+                        Button(action: {
+                            self.tabSelection = 4
+                        }, label: {
+                            HStack{
+                                Text("Atenolol 25mg")
+                                .bold()
+                                Spacer()
+                                Image(systemName: "chevron.right")
+                            }.accentColor(Color(.label))
+                        })
+                        
                     }
                 }.listStyle(GroupedListStyle())
+                
             }.background(AetniaBackground())
         }
     }
     func deleteAppointments(at offsets: IndexSet) {
         self.userAuth.loggedInUser.appointments.remove(atOffsets: offsets)
         self.userAuth.updateUser()
-        self.hack.toggle()
     }
 }

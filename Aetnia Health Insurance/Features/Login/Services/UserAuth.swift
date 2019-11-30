@@ -10,13 +10,12 @@ import SwiftUI
 import CoreData
 
 class UserAuth: ObservableObject {
-    @Published var userDefaults = UserDefaultsSwiftUI()
+    @Published var userDefaults = AetniaUserDefaults()
     lazy var savedUsername: String? = userDefaults.savedUsername
     @Published var loggedInUser: User!
     @Published var isLoggedIn = false
     
-    init(){//userDefaults: UserDefaultsSwiftUI) {
-        //self.userDefaults = userDefaults
+    init(){
         if userDefaults.savedUser != nil && userDefaults.stayLoggedIn {
             self.loggedInUser = userDefaults.savedUser
             self.isLoggedIn = true

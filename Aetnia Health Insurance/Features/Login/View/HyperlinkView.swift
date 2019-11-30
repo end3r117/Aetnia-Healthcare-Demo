@@ -11,16 +11,15 @@ import SwiftUI
 struct HyperlinkView: UIViewRepresentable {
     typealias UIViewType = UITextView
     
+    @State var text: String
     @Binding var height: CGFloat
-    
-    var text: String
     var dataDetectorTypes: UIDataDetectorTypes
     
-    init(text: String, height: Binding<CGFloat>, dataDetectorTypes: UIDataDetectorTypes) {
-        self._height = height
-        self.text = text
-        self.dataDetectorTypes = dataDetectorTypes
-    }
+//    init(text: String, height: Binding<CGFloat>, dataDetectorTypes: UIDataDetectorTypes) {
+//        self._height = height
+//        self.text = text
+//        self.dataDetectorTypes = dataDetectorTypes
+//    }
     
     func makeUIView(context: UIViewRepresentableContext<HyperlinkView>) -> UITextView {
         let tv = UITextView()
@@ -39,6 +38,7 @@ struct HyperlinkView: UIViewRepresentable {
         uiView.centerVertically()
         DispatchQueue.main.async {
             self.height = uiView.contentSize.height
+            uiView.text = self.text
         }
     }
      

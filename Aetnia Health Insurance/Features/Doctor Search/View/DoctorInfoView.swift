@@ -23,7 +23,7 @@ struct DoctorInfoView: View {
     @State var showEnlarged = false
     @State var height: CGFloat = 0
     var mainImage: Image { get { Image(dataModel.doctorOffice) }}
-    
+    @State var mapItem: MKMapItem? = nil
     
     var body: some View {
         ZStack {
@@ -81,16 +81,19 @@ struct DoctorInfoView: View {
                                     
                                     .padding(.top, 4)
                             }
-                            MapView(cityName: self.dataModel.addressCityState, description: "Dr. \(self.dataModel.doctorLastName)", avatar: self.dataModel.avatar)
+                            DoctorInfoMapView(cityName: self.dataModel.addressCityState, description: "Dr. \(self.dataModel.doctorLastName)", avatar: self.dataModel.avatar, mapItem: self.$mapItem)
                                 .frame(width: UIScreen.main.bounds.width * 0.7, height: (self.navConfig.orientation == .portrait ? 200 : 100))
                                 .padding()
                             Button(action: {
-                                
+                                if let destination = self.mapItem {
+                                    let launchOptions = [MKLaunchOptionsDirectionsModeKey : MKLaunchOptionsDirectionsModeDriving]
+                                    destination.openInMaps(launchOptions: launchOptions)
+                                }
                             }, label: {
                                 HStack {
                                     Text("Get Directions")
                                     Image(systemName: "location")
-                                }
+                                }.foregroundColor(Color(.label))
                             })
                         }.frame(width: UIScreen.main.bounds.width)
                         

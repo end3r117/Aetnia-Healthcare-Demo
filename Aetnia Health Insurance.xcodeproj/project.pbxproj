@@ -67,12 +67,17 @@
 		4285595C237B88790075BE90 /* DocumentsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4285595B237B88790075BE90 /* DocumentsRow.swift */; };
 		4285595E237B89EA0075BE90 /* CBCSample.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 4285595D237B89EA0075BE90 /* CBCSample.pdf */; };
 		42855966237B983E0075BE90 /* ActivityViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42855965237B983E0075BE90 /* ActivityViewer.swift */; };
+		42A7AA4E2384AAA000D84E62 /* NavigationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7AA4D2384AAA000D84E62 /* NavigationHelper.swift */; };
+		42A7AA502384B5B700D84E62 /* PrescriptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7AA4F2384B5B700D84E62 /* PrescriptionsView.swift */; };
+		42A7AA522384B70100D84E62 /* PharmacySearchMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42A7AA512384B70100D84E62 /* PharmacySearchMapView.swift */; };
 		42AD11A9237F446E0050AD3D /* ScrollView(MOD)ShowsScrollViewIndicators.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42AD11A8237F446E0050AD3D /* ScrollView(MOD)ShowsScrollViewIndicators.swift */; };
 		42AD11D0237F65DB0050AD3D /* Document.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42855960237B8C4B0075BE90 /* Document.swift */; };
 		42AD11D3237F70BC0050AD3D /* DocumentEntity.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 42AD11D1237F70BC0050AD3D /* DocumentEntity.xcdatamodeld */; };
+		42B054E72392D3C000F32550 /* PendingPrescriptionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B054E62392D3C000F32550 /* PendingPrescriptionItem.swift */; };
+		42B054E92392D3ED00F32550 /* Prescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42B054E82392D3ED00F32550 /* Prescription.swift */; };
 		42C4B4A62378CAD700C60265 /* ZoomableImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4A52378CAD700C60265 /* ZoomableImageView.swift */; };
 		42C4B4A8237901FF00C60265 /* ContactButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4A7237901FF00C60265 /* ContactButton.swift */; };
-		42C4B4AC237939DD00C60265 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4AB237939DD00C60265 /* MapView.swift */; };
+		42C4B4AC237939DD00C60265 /* DoctorInfoMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4AB237939DD00C60265 /* DoctorInfoMapView.swift */; };
 		42C4B4AE23793C5200C60265 /* GeolocationHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C4B4AD23793C5200C60265 /* GeolocationHelper.swift */; };
 		42EBAD41237A287D00C383AA /* UIView+AddSubviews.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD40237A287D00C383AA /* UIView+AddSubviews.swift */; };
 		42EBAD44237A791A00C383AA /* Capital.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42EBAD43237A791A00C383AA /* Capital.swift */; };
@@ -126,6 +131,9 @@
 		4285595D237B89EA0075BE90 /* CBCSample.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CBCSample.pdf; sourceTree = "<group>"; };
 		42855960237B8C4B0075BE90 /* Document.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Document.swift; sourceTree = "<group>"; };
 		42855965237B983E0075BE90 /* ActivityViewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewer.swift; sourceTree = "<group>"; };
+		42A7AA4D2384AAA000D84E62 /* NavigationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationHelper.swift; sourceTree = "<group>"; };
+		42A7AA4F2384B5B700D84E62 /* PrescriptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PrescriptionsView.swift; path = "Aetnia Health Insurance/Features/Prescriptions/View/PrescriptionsView.swift"; sourceTree = SOURCE_ROOT; };
+		42A7AA512384B70100D84E62 /* PharmacySearchMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PharmacySearchMapView.swift; sourceTree = "<group>"; };
 		42AD11A8237F446E0050AD3D /* ScrollView(MOD)ShowsScrollViewIndicators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScrollView(MOD)ShowsScrollViewIndicators.swift"; sourceTree = "<group>"; };
 		42AD11D2237F70BC0050AD3D /* DocumentEntity.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DocumentEntity.xcdatamodel; sourceTree = "<group>"; };
 		42AF8557236F4D650086AC78 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,9 +148,11 @@
 		42AF8579236F9D3E0086AC78 /* LoginTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextField.swift; sourceTree = "<group>"; };
 		42AF857C236FB13D0086AC78 /* TextField(MOD)ClearButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField(MOD)ClearButton.swift"; sourceTree = "<group>"; };
 		42AF8581236FB3880086AC78 /* BEMCheckBoxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BEMCheckBoxView.swift; sourceTree = "<group>"; };
+		42B054E62392D3C000F32550 /* PendingPrescriptionItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PendingPrescriptionItem.swift; sourceTree = "<group>"; };
+		42B054E82392D3ED00F32550 /* Prescription.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prescription.swift; sourceTree = "<group>"; };
 		42C4B4A52378CAD700C60265 /* ZoomableImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZoomableImageView.swift; sourceTree = "<group>"; };
 		42C4B4A7237901FF00C60265 /* ContactButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactButton.swift; sourceTree = "<group>"; };
-		42C4B4AB237939DD00C60265 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		42C4B4AB237939DD00C60265 /* DoctorInfoMapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorInfoMapView.swift; sourceTree = "<group>"; };
 		42C4B4AD23793C5200C60265 /* GeolocationHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeolocationHelper.swift; sourceTree = "<group>"; };
 		42E29E8323726E9400FD2885 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		42E29E852372713E00FD2885 /* CreateNewUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateNewUserView.swift; sourceTree = "<group>"; };
@@ -218,6 +228,9 @@
 		42002B0A23726CE60023AE46 /* Prescriptions */ = {
 			isa = PBXGroup;
 			children = (
+				42B054E52392D39D00F32550 /* Model */,
+				42B054E42392D39800F32550 /* ViewModel */,
+				42B054E32392D39000F32550 /* View */,
 			);
 			path = Prescriptions;
 			sourceTree = "<group>";
@@ -460,6 +473,31 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		42B054E32392D39000F32550 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				42A7AA4F2384B5B700D84E62 /* PrescriptionsView.swift */,
+				42A7AA512384B70100D84E62 /* PharmacySearchMapView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		42B054E42392D39800F32550 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				42B054E62392D3C000F32550 /* PendingPrescriptionItem.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		42B054E52392D39D00F32550 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				42B054E82392D3ED00F32550 /* Prescription.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		42C4B4A42378CAC000C60265 /* Image Viewer */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,17 +511,8 @@
 			children = (
 				42EBAD45237A79EE00C383AA /* Services */,
 				42EBAD42237A78ED00C383AA /* Model */,
-				42C4B4AA237939CF00C60265 /* View */,
 			);
 			path = Maps;
-			sourceTree = "<group>";
-		};
-		42C4B4AA237939CF00C60265 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				42C4B4AB237939DD00C60265 /* MapView.swift */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		42E29E8223726E6600FD2885 /* View */ = {
@@ -509,6 +538,7 @@
 				42C4B4A7237901FF00C60265 /* ContactButton.swift */,
 				420625A22374819D00F5AB45 /* DoctorSearchRow.swift */,
 				420625882373F80D00F5AB45 /* DoctorSearchView.swift */,
+				42C4B4AB237939DD00C60265 /* DoctorInfoMapView.swift */,
 				4256F3C42375BA1900B097DB /* DoctorInfoView.swift */,
 			);
 			path = View;
@@ -544,6 +574,7 @@
 			isa = PBXGroup;
 			children = (
 				42C4B4AD23793C5200C60265 /* GeolocationHelper.swift */,
+				42A7AA4D2384AAA000D84E62 /* NavigationHelper.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -717,6 +748,7 @@
 				427EBBB42377B7F600A0C6E5 /* Notification+Names.swift in Sources */,
 				42EBAD4F237B59F800C383AA /* View+DismissKeyboard.swift in Sources */,
 				427EBBB52377B7F600A0C6E5 /* DoctorSearchViewModel.swift in Sources */,
+				42B054E72392D3C000F32550 /* PendingPrescriptionItem.swift in Sources */,
 				42855966237B983E0075BE90 /* ActivityViewer.swift in Sources */,
 				427EBBB62377B7F600A0C6E5 /* DoctorSearchRow.swift in Sources */,
 				42EBAD41237A287D00C383AA /* UIView+AddSubviews.swift in Sources */,
@@ -727,11 +759,12 @@
 				427EBBBA2377B7F600A0C6E5 /* CoverageInfo.swift in Sources */,
 				427EBBBB2377B7F600A0C6E5 /* Image+ImageAssetNames.swift in Sources */,
 				427EBBBC2377B7F600A0C6E5 /* UserInfoView.swift in Sources */,
+				42A7AA502384B5B700D84E62 /* PrescriptionsView.swift in Sources */,
 				427EBBBD2377B7F600A0C6E5 /* UIColor+Constructors.swift in Sources */,
 				427EBBBE2377B7F600A0C6E5 /* CalendarViewCell.swift in Sources */,
 				4285595A237B88330075BE90 /* DocumentsViewModel.swift in Sources */,
 				427EBBBF2377B7F600A0C6E5 /* AppointmentsViewController.swift in Sources */,
-				42C4B4AC237939DD00C60265 /* MapView.swift in Sources */,
+				42C4B4AC237939DD00C60265 /* DoctorInfoMapView.swift in Sources */,
 				42EBAD44237A791A00C383AA /* Capital.swift in Sources */,
 				427EBBC02377B7F600A0C6E5 /* HomeView.swift in Sources */,
 				427EBBC12377B7F600A0C6E5 /* AppointmentsCalendarManager.swift in Sources */,
@@ -744,6 +777,7 @@
 				42EBAD49237A86BC00C383AA /* UIView+AsImage.swift in Sources */,
 				427EBBC42377B7F600A0C6E5 /* AppointmentsCalendarHeader.swift in Sources */,
 				427EBBC52377B7F600A0C6E5 /* UserGenerator.swift in Sources */,
+				42B054E92392D3ED00F32550 /* Prescription.swift in Sources */,
 				427EBBC62377B7F600A0C6E5 /* UIView+Layout.swift in Sources */,
 				427EBBC72377B7F600A0C6E5 /* NavigationView(MOD)AetniaNavConfig.swift in Sources */,
 				42AD11D3237F70BC0050AD3D /* DocumentEntity.xcdatamodeld in Sources */,
@@ -762,6 +796,7 @@
 				427EBBF62377FBB200A0C6E5 /* UITextView+CenterVertically.swift in Sources */,
 				42AD11A9237F446E0050AD3D /* ScrollView(MOD)ShowsScrollViewIndicators.swift in Sources */,
 				427EBBD12377B7F600A0C6E5 /* AvatarPictureRandomizer.swift in Sources */,
+				42A7AA4E2384AAA000D84E62 /* NavigationHelper.swift in Sources */,
 				427EBBD22377B7F600A0C6E5 /* View(MOD)AeniaBackground.swift in Sources */,
 				42C4B4A62378CAD700C60265 /* ZoomableImageView.swift in Sources */,
 				427EBBD32377B7F600A0C6E5 /* DoctorSearchRowViewModel.swift in Sources */,
@@ -772,6 +807,7 @@
 				427EBBD92377B7F600A0C6E5 /* LoginView.swift in Sources */,
 				42EBAD4D237B59B300C383AA /* UIApplication+EndEditing.swift in Sources */,
 				427EBBEF2377E16A00A0C6E5 /* AppointmentRowViewModel.swift in Sources */,
+				42A7AA522384B70100D84E62 /* PharmacySearchMapView.swift in Sources */,
 				427EBBDA2377B7F600A0C6E5 /* Appointment.swift in Sources */,
 				427EBBDB2377B7F600A0C6E5 /* AppMainTabView.swift in Sources */,
 				427EBBDC2377B7F600A0C6E5 /* Doctor.swift in Sources */,

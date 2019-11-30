@@ -2,8 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>In order for directions to work, Aetnia needs to access your location.</string>
 	<key>NSCalendarsUsageDescription</key>
-	<string>In order to add events that you scheduled to your calendar, Aeetnia needs permission to access the Calendar. You will be prompted to edit and confirm or cancel the addition of any event.</string>
+	<string>In order to add events that you scheduled to your calendar, Aetnia needs permission to access the Calendar. You will be prompted to edit and confirm or cancel the addition of any event.</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleExecutable</key>

@@ -47,7 +47,7 @@ class EventsCalendarManager: NSObject {
     }
     
     private func popUp() {
-        let alertController = UIAlertController(quicklyUsing: .OK, alertTitle: "Access Denied", alertMessage: "If you'd like to add appointments, consultations, etc., to your Calendar, you must authorize Beetle Box in the Settings app.", preferredStyle: .alert)
+        let alertController = UIAlertController(quicklyUsing: .OK, alertTitle: "Access Denied", alertMessage: "If you'd like to add appointments, consultations, etc., to your Calendar, you must authorize Aetnia in the Settings app.", preferredStyle: .alert)
         let settingsAction = UIAlertAction(title: "Open Settings", style: .default, handler: { (alertAction) in
             UIApplication.shared.open(URL(string: UIApplication.openSettingsURLString)!)
         })

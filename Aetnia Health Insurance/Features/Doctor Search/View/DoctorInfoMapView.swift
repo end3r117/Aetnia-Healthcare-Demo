@@ -9,41 +9,42 @@
 import SwiftUI
 import MapKit
 
-struct MapView: UIViewRepresentable {
+struct DoctorInfoMapView: UIViewRepresentable {
     typealias UIViewType =  MKMapView
     
     var cityName: String
     var description: String?
     var avatar: Avatar?
+    let mapView = MKMapView()
+    let locationManager = GeolocationHelper()
+    @Binding var mapItem: MKMapItem?
     
-    
-    func makeUIView(context: UIViewRepresentableContext<MapView>) -> MKMapView {
-        let mapView = MKMapView()
+    func makeUIView(context: UIViewRepresentableContext<DoctorInfoMapView>) -> MKMapView {
+        
         DispatchQueue.main.async {
         
-            self.setMapLocation(on: mapView) { coordinate in
+            self.setMapLocation(on: self.mapView) { coordinate in
             DispatchQueue.main.async {
             context.coordinator.capital = Capital(cityName: self.cityName, coordinate: coordinate, info: self.description)
             }
         }
-        mapView.delegate = context.coordinator
+            self.mapView.delegate = context.coordinator
         
         }
         return mapView
     }
     
-    func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<MapView>) {
+    func updateUIView(_ uiView: MKMapView, context: UIViewRepresentableContext<DoctorInfoMapView>) {
         
     }
     
     private func setMapLocation(on mapView: MKMapView, _ completion: ((CLLocationCoordinate2D) -> Void)? = nil) {
-        let locationManager = GeolocationHelper()
         //        let eiffelTower = "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France"
         DispatchQueue.main.async {
-            locationManager.getLocationFromCityName(self.cityName) { location in
+            self.locationManager.getLocationFromCityName(self.cityName) { location in
             DispatchQueue.main.async {
                 guard let location = location else { return }
-                
+                self.mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
                 let center = CLLocationCoordinate2D(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
                 let region = MKCoordinateRegion(center: center, span: MKCoordinateSpan(latitudeDelta: 0.3, longitudeDelta: 0.3))
                 mapView.setRegion(region, animated: false)
@@ -60,11 +61,11 @@ struct MapView: UIViewRepresentable {
     }
     
     class Coordinator: NSObject, MKMapViewDelegate {
-        var mapView: MapView
+        var mapView: DoctorInfoMapView
         var avatar: Avatar?
         var capital: Capital? = nil
         
-        init(_ mapView: MapView, avatar: Avatar?) {
+        init(_ mapView: DoctorInfoMapView, avatar: Avatar?) {
             self.mapView = mapView
             self.avatar = avatar
         }

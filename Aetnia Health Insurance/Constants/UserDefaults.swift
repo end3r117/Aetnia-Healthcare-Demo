@@ -36,7 +36,7 @@ struct UserDefault<T> {
     }
 }
 
-final class UserDefaultsSwiftUI: ObservableObject {
+final class AetniaUserDefaults: ObservableObject {
     
     @UserDefault(.stayLoggedIn, defaultValue: false)
     var stayLoggedIn: Bool {
@@ -72,7 +72,7 @@ final class UserDefaultsSwiftUI: ObservableObject {
                 return nil
             }catch let error {
                 if let err = error as? DecodingError {
-                    print("Error: \(err.errorDescription)\nFailure Reason: \(err.failureReason)")
+                    print("Error: \(err.errorDescription ?? "unknown")\nFailure Reason: \(err.failureReason ?? "unknown")")
                 }else {
                     print("Error: \(error)")
                 }

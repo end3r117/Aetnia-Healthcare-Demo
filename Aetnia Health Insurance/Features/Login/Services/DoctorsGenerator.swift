@@ -70,11 +70,6 @@ struct DoctorsGenerator {
         return (firstName, lastName)
     }
     
-    static func getAddressFromPlacesAPI() -> [Address]? {
-        
-        return nil
-    }
-    
     static func getAddress() -> Address? {
         guard let data = zipCodesCAJSON.data(using: .utf8) else { return nil }
         do {

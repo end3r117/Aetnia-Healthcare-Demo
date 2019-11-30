@@ -12,6 +12,11 @@ struct AppMainTabView: View {
     @EnvironmentObject var userAuth: UserAuth
     @State private var selection = 0
     @State private var first = true
+    
+    init() {
+        UIScrollView.appearance().scrollIndicatorInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: -2)
+    }
+    
     var body: some View {
         ZStack {
             Rectangle()
@@ -21,7 +26,7 @@ struct AppMainTabView: View {
             if userAuth.loggedInUser != nil {
                 TabView(selection: self.$selection){
                     NavigationView {
-                        HomeView()
+                        HomeView(tabSelection: self.$selection)
                             .modifier(AetniaNavConfig(navTitle: "Aetnia")).accentColor(.aetniaBlue)
                     }.navigationViewStyle(StackNavigationViewStyle()).accentColor(Color(UIColor.systemBackground)).environment(\.horizontalSizeClass, .compact)
                         .tabItem {
@@ -64,11 +69,13 @@ struct AppMainTabView: View {
                     }
                     .tag(3)
                     NavigationView {
-                        Text("Prescriptions")
+                        VStack {
+                            PrescriptionsView(prescriptionItems: [PendingPrescriptionItem(prescription: self.userAuth.loggedInUser.prescriptions[0])])
+                        }.modifier(AetniaNavConfig(navTitle: "Prescriptions")).accentColor(.white)
                     }
                         .tabItem {
                             Image(self.selection == 4 ? .prescriptionsFilled : .prescriptions)
-                            Text("Rx")
+                            Text("Rx (1)")
                     }
                     .tag(4)
                 }

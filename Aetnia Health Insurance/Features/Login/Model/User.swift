@@ -31,6 +31,7 @@ class User: Codable, ObservableObject, Identifiable {
         }
     }
     var documents = Set<Document>()
+    var prescriptions: [Prescription] = [Prescription(medicineName: "Atenolol", dose: "25mg")]
     
     init(username: String, coverageInfo: CoverageInfo, firstName: String, lastName: String, address: Address, phoneNumber: PhoneNumber, avatar: Avatar, documents: [Document]) {
         self.username = username
@@ -46,7 +47,7 @@ class User: Codable, ObservableObject, Identifiable {
     }
     
     enum CodingKeys: String, CodingKey {
-        case id, username, firstName, lastName, address, phoneNumber, coverageInfo, avatar, appointments
+        case id, username, firstName, lastName, address, phoneNumber, coverageInfo, avatar, appointments, prescriptions
     }
     
     func encode(to encoder: Encoder) throws {
@@ -61,7 +62,7 @@ class User: Codable, ObservableObject, Identifiable {
         try container.encode(avatar, forKey: .avatar)
         try container.encode(coverageInfo, forKey: .coverageInfo)
         try container.encode(appointments, forKey: .appointments)
-        
+        try container.encode(prescriptions, forKey: .prescriptions)
         
         let contextContainer = getAppDelegateCoreDataContext()
         let delegate = UIApplication.shared.delegate as! AppDelegate
@@ -99,6 +100,7 @@ class User: Codable, ObservableObject, Identifiable {
         avatar = try values.decode(Avatar.self, forKey: .avatar)
         coverageInfo =  try values.decode(CoverageInfo.self, forKey: .coverageInfo)
         appointments = try values.decode([Appointment].self, forKey: .appointments)
+        prescriptions = try values.decode([Prescription].self, forKey: .prescriptions)
         
         let contextContainer = getAppDelegateCoreDataContext()
         let request = NSFetchRequest<NSManagedObject>(entityName: "DocumentEntity")
@@ -117,13 +119,18 @@ class User: Codable, ObservableObject, Identifiable {
     }
 }
 
-struct Address: Codable {
+struct Address: Codable, Hashable {
+    var title: String? = nil
     var street: String
     var apt: String
     var city: String
     var state: String
     var zip: String
     var country: String
+    
+    static var defaultAddress: Address = {
+        Address(title: nil, street: "", apt: "", city: "", state: "", zip: "", country: "")
+    }()
 }
 
 struct PhoneNumber: Codable {

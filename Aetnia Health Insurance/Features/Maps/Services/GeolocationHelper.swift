@@ -9,7 +9,8 @@
 import Foundation
 import CoreLocation
 
-class GeolocationHelper: NSObject {
+class GeolocationHelper: NSObject, CLLocationManagerDelegate {
+    
     
     func getLocationFromCityName(_ name: String, completion: @escaping(CLLocation?) -> Void) {
         
