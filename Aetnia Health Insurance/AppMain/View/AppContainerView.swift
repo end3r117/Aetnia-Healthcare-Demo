@@ -36,6 +36,7 @@ struct AppContainerView: View {
                     withAnimation(loginAnimation) {
                         LoginView()
                             .transition(.opacity)
+                            .accentColor(Color(.label))
                         .onAppear {
                                 self.showedLoginPage = true
                         }

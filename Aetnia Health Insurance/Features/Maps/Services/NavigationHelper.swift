@@ -35,12 +35,13 @@ class NavigationHelper: NSObject, ObservableObject {
         locationManager.requestLocation()
     }
     
-    init(mapView: Binding<MKMapView>) {
+    convenience init(mapView: Binding<MKMapView>) {
+        self.init()
         self.mapView = mapView.wrappedValue
-        super.init()
-        locationManager.delegate = self
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
+        
+//        locationManager.delegate = self
+//        locationManager.requestWhenInUseAuthorization()
+//        locationManager.requestLocation()
     }
     
     func findPharmacy(_ completion: @escaping (Address, String) -> Void) {
@@ -92,7 +93,10 @@ class NavigationHelper: NSObject, ObservableObject {
         })
         alertController.addAction(settingsAction)
         DispatchQueue.main.async {
-            self.navConfig.navigationController.topViewController?.present(alertController, animated: true, completion: nil)
+            if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+                appDelegate.nav.topViewController?.present(alertController, animated: true, completion: nil)
+            }
+            //self.navConfig.navigationController.topViewController?.present(alertController, animated: true, completion: nil)
         }
     }
 }
