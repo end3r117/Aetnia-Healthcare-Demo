@@ -18,30 +18,24 @@ func getAppDelegateCoreDataContext() -> NSManagedObjectContext {
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
-//    let userDefaults = UserDefaultsSwiftUI()
     
     var navConfig = NavConfig()
     var nav: MainNavigationController!
     var rootVC: UIViewController!
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-//        UITableView.appearance().backgroundColor = UIColor.clear
-        //UINavigationBar.appearance().tintColor = .aetniaBlue
-//        UINavigationBar.appearance().backgroundColor = .appColor(.aetniaBlue)
         
         let userAuth = UserAuth()
-//        userAuth.logout()
         let appContainerView = AppContainerView()
-        let host = UIHostingController(rootView: appContainerView.environmentObject(navConfig).environmentObject(userAuth))//.environmentObject(userDefaults)
+        let host = UIHostingController(rootView: appContainerView.environmentObject(navConfig).environmentObject(userAuth))
         nav = MainNavigationController(rootViewController: host)
         nav.navigationBar.isHidden = true
         navConfig.appDelegate = self
         navConfig.navigationController = nav
-        // Use a UIHostingController as window root view controller.
+
         let window = UIWindow(frame: UIScreen.main.bounds)
         window.rootViewController = nav
-        window.tintColor = .systemBackground
+        //window.tintColor = .white //.appColor(.aetniaBlue) //.systemBackground
         self.window = window
         self.window?.makeKeyAndVisible()
         
@@ -100,7 +94,6 @@ class MainNavigationController: UINavigationController {
     
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
-//        print("1. \(size.width > size.height ? "landscape" : "portrait")")
         let orientation = Orientation.getOrientation(from: size)
         NotificationCenter.default.post(name: .rotationEngaged, object: nil, userInfo: ["orientation":orientation])
     }

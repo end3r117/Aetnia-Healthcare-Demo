@@ -13,6 +13,7 @@ struct DocumentsRow: View, Identifiable {
     var id = UUID()
     var document: Document
     @EnvironmentObject var navConfig: NavConfig
+    @State var activityItems: [Any] = []
     @State var showActivity = false
     var body: some View {
         NavigationLink(destination:
@@ -21,19 +22,22 @@ struct DocumentsRow: View, Identifiable {
             }.navigationBarTitle(Text("\(document.shortTitle ?? "Aetnia")").font(.system(size: 14, weight: .medium)))
             .navigationBarItems(trailing:
                 Button(action: {
-                    let tempDir = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(self.document.title)
-                    if self.document.pdf.documentURL == nil {
-                        try? self.document.pdf.dataRepresentation()?.write(to: tempDir)
+                    var tempDir: URL?
+                   if self.document.pdf.documentURL == nil {
+                     tempDir = URL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent(self.document.title)
+                        try? self.document.pdf.dataRepresentation()?.write(to: tempDir!)
                     }
-                    let vc = UIActivityViewController(activityItems: [self.document.pdf.documentURL ?? tempDir], applicationActivities: nil)
-                    let nc = self.navConfig.navigationController
-                    nc?.present(vc, animated: true)
-                }, label: {
-                    Image(systemName: "square.and.arrow.up")
-                    .offset(x: 0, y: -4)
-                        .font(Font.system(.title).weight(.light))
-                        .foregroundColor(Color(.white))
-                    })
+                    self.activityItems = [self.document.pdf.documentURL ?? tempDir]
+                    print(self.activityItems)
+                    self.showActivity.toggle()
+                    }, label: {
+                        Image(systemName: "square.and.arrow.up")
+                        .offset(x: 0, y: -4)
+                            .font(Font.system(.title).weight(.light))
+                            .foregroundColor(Color(.white))
+                }).sheet(isPresented: self.$showActivity, content: {
+                    ActivityViewController(activityItems: self.activityItems)
+                })
             )
         ) {
             VStack(alignment: .leading) {
@@ -51,6 +55,18 @@ struct DocumentsRow: View, Identifiable {
     
 }
 
+struct ActivityViewController: UIViewControllerRepresentable {
 
+    var activityItems: [Any]
+    var applicationActivities: [UIActivity]? = nil
+
+    func makeUIViewController(context: UIViewControllerRepresentableContext<ActivityViewController>) -> UIActivityViewController {
+        let controller = UIActivityViewController(activityItems: activityItems, applicationActivities: applicationActivities)
+        return controller
+    }
+
+    func updateUIViewController(_ uiViewController: UIActivityViewController, context: UIViewControllerRepresentableContext<ActivityViewController>) {}
+
+}
 
 

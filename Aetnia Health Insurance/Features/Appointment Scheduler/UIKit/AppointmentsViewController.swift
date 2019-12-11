@@ -95,12 +95,16 @@ class AppointmentsViewController: UIViewController {
         return picker
     }()
     var calendarDaysStackView: UIStackView = {
-        let dayLabel = UILabel()
-        dayLabel.font = .systemFont(ofSize: 16, weight: .medium)
-        dayLabel.textAlignment = .center
-        dayLabel.numberOfLines = 1
-        dayLabel.textColor = .aetniaBlue
-        let days = [UILabel](repeating: dayLabel, count: 7)
+        var days = [UILabel]()
+        for _ in 0...6 {
+            let dayLabel = UILabel()
+            dayLabel.font = .systemFont(ofSize: 16, weight: .medium)
+            dayLabel.textAlignment = .center
+            dayLabel.numberOfLines = 1
+            dayLabel.textColor = .aetniaBlue
+            
+            days.append(dayLabel)
+        }
         
         days[0].text = "S"
         days[1].text = "M"

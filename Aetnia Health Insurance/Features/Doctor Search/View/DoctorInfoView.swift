@@ -82,7 +82,7 @@ struct DoctorInfoView: View {
                                     .padding(.top, 4)
                             }
                             DoctorInfoMapView(cityName: self.dataModel.addressCityState, description: "Dr. \(self.dataModel.doctorLastName)", avatar: self.dataModel.avatar, mapItem: self.$mapItem)
-                                .frame(width: UIScreen.main.bounds.width * 0.7, height: (self.navConfig.orientation == .portrait ? 200 : 100))
+                                .frame(minWidth: UIScreen.main.bounds.width * 0.7, minHeight: (self.navConfig.orientation == .portrait ? 200 : 100), maxHeight: UIScreen.main.bounds.height * 0.45)
                                 .padding()
                             Button(action: {
                                 if let destination = self.mapItem {

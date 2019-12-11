@@ -16,7 +16,7 @@ struct DoctorInfoMapView: UIViewRepresentable {
     var description: String?
     var avatar: Avatar?
     let mapView = MKMapView()
-    let locationManager = GeolocationHelper()
+    let navigationHelper = NavigationHelper()
     @Binding var mapItem: MKMapItem?
     
     func makeUIView(context: UIViewRepresentableContext<DoctorInfoMapView>) -> MKMapView {
@@ -41,7 +41,7 @@ struct DoctorInfoMapView: UIViewRepresentable {
     private func setMapLocation(on mapView: MKMapView, _ completion: ((CLLocationCoordinate2D) -> Void)? = nil) {
         //        let eiffelTower = "Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France"
         DispatchQueue.main.async {
-            self.locationManager.getLocationFromCityName(self.cityName) { location in
+            self.navigationHelper.getLocationFromCityName(self.cityName) { location in
             DispatchQueue.main.async {
                 guard let location = location else { return }
                 self.mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))

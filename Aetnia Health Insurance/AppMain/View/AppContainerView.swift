@@ -12,6 +12,7 @@ struct AppContainerView: View {
     @EnvironmentObject var userAuth: UserAuth
     @State var showSplash: Bool = true
     @State var showedLoginPage: Bool = false
+    @Environment(\.colorScheme) var colorScheme
     var loginAnimation: Animation {
         Animation.easeInOut(duration: 0.5)
             .delay(1.5)
@@ -26,18 +27,18 @@ struct AppContainerView: View {
                         withAnimation(self.loginAnimation) {
                             self.showSplash.toggle()
                         }
-                    }
-            
+                }
+                
             }else {
                 if self.userAuth.isLoggedIn {
                     AppMainTabView().environmentObject(userAuth)
-                            .transition(.opacity)
+                        .transition(.opacity)
                 }else {
                     withAnimation(loginAnimation) {
                         LoginView()
                             .transition(.opacity)
                             .accentColor(Color(.label))
-                        .onAppear {
+                            .onAppear {
                                 self.showedLoginPage = true
                         }
                     }

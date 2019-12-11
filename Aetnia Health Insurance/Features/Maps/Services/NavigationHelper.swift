@@ -11,7 +11,6 @@ import MapKit
 import CoreLocation
 
 class NavigationHelper: NSObject, ObservableObject {
-    @EnvironmentObject var navConfig: NavConfig
     let locationManager = CLLocationManager()
     @State var currentLocation: CLLocation?
     @Published var mapView: MKMapView = MKMapView()
@@ -38,10 +37,6 @@ class NavigationHelper: NSObject, ObservableObject {
     convenience init(mapView: Binding<MKMapView>) {
         self.init()
         self.mapView = mapView.wrappedValue
-        
-//        locationManager.delegate = self
-//        locationManager.requestWhenInUseAuthorization()
-//        locationManager.requestLocation()
     }
     
     func findPharmacy(_ completion: @escaping (Address, String) -> Void) {
@@ -96,12 +91,38 @@ class NavigationHelper: NSObject, ObservableObject {
             if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
                 appDelegate.nav.topViewController?.present(alertController, animated: true, completion: nil)
             }
-            //self.navConfig.navigationController.topViewController?.present(alertController, animated: true, completion: nil)
         }
     }
 }
 
 extension NavigationHelper: CLLocationManagerDelegate {
+    func getLocationFromCityName(_ name: String, completion: @escaping(CLLocation?) -> Void) {
+        
+        let geocoder = CLGeocoder()
+        geocoder.geocodeAddressString(name) { placemarks, error in
+            
+            guard error == nil else {
+                print("*** Error in \(#function): \(error!.localizedDescription)")
+                completion(nil)
+                return
+            }
+            
+            guard let placemark = placemarks?[0] else {
+                print("*** Error in \(#function): placemark is nil")
+                completion(nil)
+                return
+            }
+            
+            guard let location = placemark.location else {
+                print("*** Error in \(#function): placemark is nil")
+                completion(nil)
+                return
+            }
+            
+            completion(location)
+        }
+    }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         if status == .denied { popUp() }
         

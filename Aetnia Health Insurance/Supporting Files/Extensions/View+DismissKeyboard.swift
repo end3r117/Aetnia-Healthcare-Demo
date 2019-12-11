@@ -1,5 +1,5 @@
 //
-//  View+DismissKeyboardOnDrag.swift
+//  View+DismissKeyboard.swift
 //  Aetnia Health Insurance
 //
 //  Created by Anthony Rosario on 11/12/19.
@@ -17,12 +17,6 @@ struct DismissKeyboardOnDragGesture: ViewModifier {
     }
 }
 
-extension View {
-    func dismissKeyboardOnDragGesture() -> some View {
-        return modifier(DismissKeyboardOnDragGesture())
-    }
-}
-
 struct DismissKeyboardOnTapGesture: ViewModifier {
     var gesture = TapGesture().onEnded {_ in
         UIApplication.shared.endEditing(true)
@@ -36,4 +30,13 @@ extension View {
     func dismissKeyboardOnTapGesture() -> some View {
         return modifier(DismissKeyboardOnTapGesture())
     }
+    
+    func dismissKeyboardOnDragGesture() -> some View {
+        return modifier(DismissKeyboardOnDragGesture())
+    }
+    
+    func dismissKeyboardOnUserInteraction() -> some View {
+        return modifier(DismissKeyboardOnTapGesture()).modifier(DismissKeyboardOnDragGesture())
+    }
+    
 }

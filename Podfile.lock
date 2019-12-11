@@ -1,0 +1,20 @@
+PODS:
+  - BEMCheckBox (1.4.1)
+  - JTAppleCalendar (7.1.8)
+
+DEPENDENCIES:
+  - BEMCheckBox (~> 1.4.1)
+  - JTAppleCalendar (~> 7.0)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - BEMCheckBox
+    - JTAppleCalendar
+
+SPEC CHECKSUMS:
+  BEMCheckBox: 5ba6e37ade3d3657b36caecc35c8b75c6c2b1a4e
+  JTAppleCalendar: b7fb40852f5f319fe55c8ec3861f1de0edc99cc8
+
+PODFILE CHECKSUM: f017f2fb2eb73a058712526255a8f7b79e0193a7
+
+COCOAPODS: 1.6.1

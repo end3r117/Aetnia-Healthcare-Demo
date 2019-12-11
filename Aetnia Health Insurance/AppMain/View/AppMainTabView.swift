@@ -21,7 +21,7 @@ struct AppMainTabView: View {
         ZStack {
             Rectangle()
                 .fill()
-                .foregroundColor(Color(.appColor(.navBarColor)))
+                .foregroundColor(Color(.appColor(.navBarColor))) // <--key
                 .edgesIgnoringSafeArea(.all)
             if userAuth.loggedInUser != nil {
                 TabView(selection: self.$selection){
@@ -73,6 +73,7 @@ struct AppMainTabView: View {
                             PrescriptionsView(prescriptionItems: [PendingPrescriptionItem(prescription: self.userAuth.loggedInUser.prescriptions[0])])
                         }.modifier(AetniaNavConfig(navTitle: "Prescriptions")).accentColor(.white)
                     }
+                .navigationViewStyle(StackNavigationViewStyle())
                         .tabItem {
                             Image(self.selection == 4 ? .prescriptionsFilled : .prescriptions)
                             Text("Rx (1)")

@@ -54,7 +54,8 @@ struct PendingPrescriptionItem: View, Identifiable {
                         HStack {
                             Text(prescriptionName)
                             Spacer()
-                            Image(systemName: showingMapDetail ? "chevron.down.circle.fill" : "chevron.up.circle.fill")
+                            Image(systemName: showingMapDetail ? "chevron.down.circle.fill" : "chevron.right.circle.fill")
+                                .foregroundColor(showingMapDetail ? Color(.label) : Color(.darkGray))
                         }.padding()
                             .font(.headline)
                     })
@@ -78,7 +79,6 @@ struct PendingPrescriptionItem: View, Identifiable {
                                     .foregroundColor(Color(.label))
                                 .padding(.top, 0)
                                 }).buttonStyle(PlainButtonStyle())
-//                            .frame(height: UIScreen.main.bounds.height / 10)
                                 Spacer()
                             }
                         }.accentColor(Color(.label))
@@ -88,7 +88,6 @@ struct PendingPrescriptionItem: View, Identifiable {
                 })
                 
             }.listStyle(GroupedListStyle())
-            //Spacer()
         }.accentColor(Color(.label))
     }
 }

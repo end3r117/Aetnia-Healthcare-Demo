@@ -22,7 +22,6 @@ struct DoctorSearchView: View {
     
     var body: some View {
         ZStack {
-            //GeometryReader { geo in
             Rectangle()
                 .fill()
                 .foregroundColor(Color(UIColor.systemGroupedBackground))
@@ -78,7 +77,7 @@ struct DoctorSearchView: View {
                                 VStack {
                                     NavigationLink(destination: DoctorInfoView(dataModel: DoctorSearchRowViewModel(doctor: model), avatar: model.avatar)
                                         .modifier(AetniaNavConfig(navTitle: "Aetnia"))
-                                    ) { //.modifier(ShowsScrollViewInsets(false))) {
+                                    ) {
                                         DoctorSearchRow(viewModel: DoctorSearchRowViewModel(doctor: model))
                                     }
                                 }
@@ -87,13 +86,12 @@ struct DoctorSearchView: View {
                     }
                 }.listStyle(GroupedListStyle()).dismissKeyboardOnDragGesture()
             }
-        }
+        }.accentColor(.appColor(.aetniaBlue))
     }
 }
 
 
 struct FilterButton: View {
-    //var geo: GeometryProxy
     @Binding var showFilter: Bool
     
     
@@ -107,7 +105,7 @@ struct FilterButton: View {
                 .fill()
                 .frame(maxHeight:  30)
                 .foregroundColor(Color(.aetniaBlue))
-                .overlay(Text(self.showFilter ? "Hide Filters" : "Show Filters").foregroundColor(Color(.systemBackground)).animation(nil))
+                .overlay(Text(self.showFilter ? "Hide Filters" : "Show Filters").font(.caption).bold().foregroundColor(Color(.systemBackground)).animation(nil))
                 .frame(maxWidth: UIScreen.main.bounds.width * 0.30)
         })
     }

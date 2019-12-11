@@ -26,16 +26,16 @@ struct LoginView: View {
                     .resizable()
                     .scaledToFill()
                     .edgesIgnoringSafeArea(.all)
-                    
+                
                 VStack  {
-                    Text(verbatim: "Aetnia")
+                    Text("Aetnia")
                         .font(Font.custom("Arial", size: 80).italic().bold())
                         .foregroundColor(Color(UIColor.appColor(.aetniaBlue)))
-                        
+                    
                     HStack {
                         Spacer()
                             .frame(maxWidth: geometry.size.width / 2 + geometry.size.width * 0.02)
-                        Text(verbatim: "healthcare partners")
+                        Text("healthcare partners")
                             .font(Font.custom("Arial", size: 20))
                             .foregroundColor(Color(UIColor.appColor(.aetniaBlue)))
                         Spacer()
@@ -50,7 +50,6 @@ struct LoginView: View {
                                     self.shouldRememberUsername = true
                                 }
                         }
-                            
                         LoginTextField(text: self.$password, title: "Password", isPrivate: true, size:(UIDevice.current.userInterfaceIdiom == .phone ? CGSize(width: geometry.size.width * 0.67, height: 44) : CGSize(width: geometry.size.width * 0.33, height: 44)), roundedStyle: .roundedBottom)
                             .padding(.top, 16)
                         
@@ -76,9 +75,7 @@ struct LoginView: View {
                     HStack {
                         Spacer()
                         Button(action: {
-                            
-                                self.userAuth.login(username: self.username, password: self.password, rememberUsername: self.shouldRememberUsername, stayLoggedIn: self.stayLoggedIn, trigger: self.$showAlert)
-                            
+                            self.userAuth.login(username: self.username, password: self.password, rememberUsername: self.shouldRememberUsername, stayLoggedIn: self.stayLoggedIn, trigger: self.$showAlert)
                         }) {
                             Text("Login")
                                 .font(.system(size: 18, weight: .bold))
@@ -86,15 +83,12 @@ struct LoginView: View {
                                 .frame(width: geometry.size.width * 0.30, height: geometry.size.height * 0.05)
                                 .background(Color(UIColor.appColor(.aetniaBlue)))
                                 .cornerRadius(8)
-                                    .foregroundColor(Color(UIColor.systemBackground))
+                                .foregroundColor(Color(UIColor.systemBackground))
                                 .padding(3)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
                                         .stroke(Color(UIColor.appColor(.aetniaBlue)), lineWidth: 2)
                             )
-                                .alert(isPresented: self.$showAlert) {
-                                    Alert(title: Text(""), message: Text("You must enter a username and password."), dismissButton: .default(Text("Got it")))
-                            }
                         }
                         Spacer()
                     }.padding(.top, 30)
@@ -115,14 +109,19 @@ struct LoginView: View {
                             .kerning(0.2)
                             .foregroundColor(Color(UIColor.appColor(.aetniaBlue)))
                             .padding(.bottom, geometry.size.height * 0.02)
-                    }.sheet(isPresented: self.$showRegistration, onDismiss: {
-                        print("Bye")
-                    }) {
-                        CreateNewUserView()
+                    }.sheet(isPresented: self.$showRegistration){
+                        CreateNewUserView { name in
+                            self.username = name
+                        }
                     }
-                    }.navigationBarHidden(true)
+                }
+                .alert(isPresented: self.$showAlert) {
+                    Alert(title: Text(""), message: Text("You must enter a username and password."), dismissButton: Alert.Button.default(Text("Got it")))
+                }
+                .navigationBarHidden(true)
                 .padding(.top, geometry.size.height * 0.05)
             }
-        }.dismissKeyboardOnTapGesture()
+        }
+        .dismissKeyboardOnTapGesture()
     }
 }

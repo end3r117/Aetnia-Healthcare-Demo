@@ -11,6 +11,7 @@ import UIKit
 
 struct LoginTextField: View {
     @Binding var text: String
+    @State var privateText: String = ""
     @State private var showClear: Bool = false
     
     var title: String
@@ -23,10 +24,8 @@ struct LoginTextField: View {
             if !(isPrivate) {
                 TextField(self.title, text: self.$text, onEditingChanged: { start in
                     if start {
-                        //print("Editing began.")
                         self.showClear = true
                     }else {
-                        //print("Done editing.")
                         self.showClear = false
                     }
                 }, onCommit: {
@@ -42,6 +41,7 @@ struct LoginTextField: View {
                     .textFieldStyle(roundedStyle == .roundedTop ? RoundedRectStyle(roundedStyle: .roundedTop) : RoundedRectStyle(roundedStyle: .roundedBottom))
                     .autocapitalization(.none)
                     .frame(width: size.width, height: size.height)
+                    .modifier(ClearButton(text: self.$text, visible: self.$showClear))
             }
         }
     }

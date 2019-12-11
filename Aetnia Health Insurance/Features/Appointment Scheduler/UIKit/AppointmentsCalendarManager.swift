@@ -33,6 +33,7 @@ class EventsCalendarManager: NSObject {
             requestAccess { (accessGranted, error) in
                 if !accessGranted {
                     self.popUp()
+                    print(String(describing: self))
                 }
             }
         case .denied, .restricted:

@@ -72,7 +72,11 @@ final class AetniaUserDefaults: ObservableObject {
                 return nil
             }catch let error {
                 if let err = error as? DecodingError {
-                    print("Error: \(err.errorDescription ?? "unknown")\nFailure Reason: \(err.failureReason ?? "unknown")")
+                    if UserDefaults.standard.object(forKey: AHIUserDefaultKeys.savedUser.rawValue) == nil {
+                        print("No saved user")
+                    }else {
+                        print("Error decoding user from UserDefaults: \(err.errorDescription ?? "unknown")\nFailure Reason: \(err.failureReason ?? "unknown")")
+                    }
                 }else {
                     print("Error: \(error)")
                 }
@@ -86,7 +90,6 @@ final class AetniaUserDefaults: ObservableObject {
     
     func saveValue<T: Encodable>(_ key: AHIUserDefaultKeys, value: T) {
         do {
-            print("Hi")
             let data = try JSONEncoder().encode(value)
             UserDefaults.standard.set(data, forKey: key.rawValue)
         }
